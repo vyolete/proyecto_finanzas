@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+* {box-sizing: border-box}
+body {font-family: "Lato", sans-serif;}
+
+/* Style the tab */
+.tab {
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 30%;
+  height: 500px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0px 12px;
+  border: 1px solid #ccc;
+  width: 70%;
+  border-left: none;
+  height: 352px;
+}
+</style>
+</head>
+<body>
+
+<h1>Temporada 1: Ecuación Contable</h1>
+<p>Click on the buttons inside the tabbed menu:</p>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Nivel 1')" id="defaultOpen">Nivel 1</button>
+  <button class="tablinks" onclick="openCity(event, 'Nivel 2')">Nivel 2</button>
+  
+</div>
+
+<div id="Nivel 1" class="tabcontent">
+  <h3>Nivel 1</h3>
+
+  <p>Cada una de  de las 10 fichas aparecen en desorden y se tienen que arrastrar hasta su lugar correspondiente en el rompecabezas.</p>
+  
+  <style>
+#div1 {
+  width: 250px;
+  height: 60px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+#div2 {
+  width: 250px;
+  height: 60px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+#div3 {
+  width: 250px;
+  height: 60px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+#div4 {
+  width: 250px;
+  height: 60px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+</style>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<img id="drag1" src="imagen1.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
+<br>
+<button id= but1 type="button" draggable="true" ondragstart="drag(event)" class="btn btn-primary">¿Qué tiene la empresa? </button>
+<br>
+<button id= but2 type="button" draggable="true" ondragstart="drag(event)" class="btn btn-success">Recursos económicos</button>
+</div>
+
+<div id="Nivel 2" class="tabcontent">
+  <h3>Nivel 2</h3>
+  <p>Arrastre el signo correspondiente hacia cada uno de los dos espacios de acuerdo con el modelo matemático para que se cumpla la igualdad de la ecuación contable</p> 
+</div>
+
+
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html> 
