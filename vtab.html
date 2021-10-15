@@ -5,150 +5,362 @@
 <meta charset="utf-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<style>
-* {box-sizing: border-box}
-body {font-family: "Lato", sans-serif;}
+<script src="scripts.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+   </script>     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+    </script>     
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="main.css">
 
-/* Style the tab */
-.tab {
-  float: left;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-  width: 30%;
-  height: 500px;
-}
+ 
 
-/* Style the buttons inside the tab */
-.tab button {
-  display: block;
-  background-color: inherit;
-  color: black;
-  padding: 22px 16px;
-  width: 100%;
-  border: none;
-  outline: none;
-  text-align: left;
-  cursor: pointer;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current "tab button" class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  float: left;
-  padding: 0px 12px;
-  border: 1px solid #ccc;
-  width: 70%;
-  border-left: none;
-  height: 352px;
-}
-</style>
 </head>
 <body>
 
-<h1>Temporada 1: Ecuación Contable</h1>
-<p>Click on the buttons inside the tabbed menu:</p>
+<div class="container-fluid p-2 bg-dark text-white text-center">
+<h1>Proyecto Finanzas</h1>
+<p></p>
+</div>
 
+<nav class="navbar navbar-expand-sm bg-secondary navbar-dark justify-content-center">
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" onclick="openCity(event, 'Nivel 1')" id="defaultOpen">Ecuación Contable</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" onclick="openCity(event, 'Nivel 3')">Clasificación de Cuentas</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Cuentas Resultados</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Partida Doble</a>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Conta</a>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#">Conta2</a>
+    </li>
+  </ul>
+</nav>
+<br>
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Nivel 1')" id="defaultOpen">Nivel 1</button>
-  <button class="tablinks" onclick="openCity(event, 'Nivel 2')">Nivel 2</button>
+  <button id= "lol" class="tablinks" onclick="openCity(event, 'Nivel 2')" >Nivel 2</button>
+  <button id= "lol" class="tablinks" onclick="openCity(event, 'Nivel 3')" >Nivel 3</button>
   
 </div>
 
-<div id="Nivel 1" class="tabcontent">
-  <h3>Nivel 1</h3>
+<div id="Nivel 1" class="tabcontent" >
+  <div class= "temp1">
+    <h2>Temporada 1 </h2>
+    <h3>Ecuación Contable</h3>
+  </div>
 
-  <p>Cada una de  de las 10 fichas aparecen en desorden y se tienen que arrastrar hasta su lugar correspondiente en el rompecabezas.</p>
+<br>
+<div id= "parrafo" class="parrafo">
+  <p>Cada una de  de las 10 fichas aparecen en desorden y se tienen que arrastrar hasta su lugar correspondiente en el rompecabezas.</p></div>
   
-  <style>
-#div1 {
-  width: 250px;
-  height: 60px;
-  padding: 10px;
-  border: 1px solid #aaaaaa;
-}
-#div2 {
-  width: 250px;
-  height: 60px;
-  padding: 10px;
-  border: 1px solid #aaaaaa;
-}
-#div3 {
-  width: 250px;
-  height: 60px;
-  padding: 10px;
-  border: 1px solid #aaaaaa;
-}
-#div4 {
-  width: 250px;
-  height: 60px;
-  padding: 10px;
-  border: 1px solid #aaaaaa;
-}
-</style>
-<script>
-function allowDrop(ev) {
-  ev.preventDefault();
-}
 
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
-}
+    <div id= "table">
+      
+        <div class = "Heading">
+          <div id="div1" >
+             <div><p>Activo</p></div>
+          </div>
 
-function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
-}
-</script>
+          <div id="div2" >
+            <div><p>=</p></div>
+          </div>
 
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-<br>
-<img id="drag1" src="imagen1.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
-<br>
-<button id= but1 type="button" draggable="true" ondragstart="drag(event)" class="btn btn-primary">¿Qué tiene la empresa? </button>
-<br>
-<button id= but2 type="button" draggable="true" ondragstart="drag(event)" class="btn btn-success">Recursos económicos</button>
+          <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p>Pasivo</p>
+          </div> 
+
+          <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)">  
+            <div id="but4" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <p>+</p></div>
+          </div>
+
+          <div id="div5">
+            <div id="but5" ondrop="drop(event)" ondragover="allowDrop(event)">
+             <p>Patrimonio</p></div>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="Row1">
+            <div id="div1" >
+              <div>
+                <p>¿Qué tiene la empresa?</p>
+            </div></div>
+            <div id="div2_1" > <p>=</p></div>
+            <div id="div3_1" ondrop="drop(event)" ondragover="allowDrop(event)"> </div> 
+
+              
+        </div>
+        <div class="Row2">
+          <div id="div1" >
+            <div>
+              <p>Recursos Economicos</p>
+          </div></div>
+          <div id="div2_2" > <p>=</p></div>
+          <div id="div3_2" ondrop="drop(event)" ondragover="allowDrop(event)"> </div> 
+
+            
+        </div>
+
+        <div class="Row3">
+        <div id="div1" >
+          <div>
+            <p>Recursos</p>
+        </div></div>
+        <div id="div2_3" > <p>=</p></div>
+        <div id="div3_3" ondrop="drop(event)" ondragover="allowDrop(event)"> </div> 
+        <div id="div4_3" ><p>+</p> </div> 
+        <div id="div5_3" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+          
+        </div>
+
+        <div class="Row4">
+        <div id="div1" >
+          <div>
+            <p>A</p>
+       </div></div>
+          <div id="div2_4" > <p>=</p></div>
+          <div id="div3_4" ondrop="drop(event)" ondragover="allowDrop(event)"> </div> 
+          <div id="div4_4" > <p>+</p> </div> 
+          <div id="div5_4" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+        
+        </div>
+      
+    
+        <br>
+    
+        <div id= "buttons">
+        <br>
+        <button id="butt1" type="button" draggable="true" ondragstart="drag(event)" class="btn danger">Derechos de los acreedores </button>
+        <br>
+        <button id="butt2" type="button" draggable="true" ondragstart="drag(event)" class="btn danger">Fuentes propias</button>
+        <button id="butt3" type="button" draggable="true" ondragstart="drag(event)" class="btn danger">¿ Quién lo financió?</button>
+        <button id="butt4" type="button" draggable="true" ondragstart="drag(event)" class="btn danger">P*</button>
+        <button id="butt5" type="button" draggable="true" ondragstart="drag(event)" class="btn danger">Fuentes Externas</button>
+        <button id="butt6" type="button" draggable="true" ondragstart="drag(event)" class="btn danger">P</button>
+        </div>
+       
+          
+         <br>
+         <div id ="resets">
+         <input class= "button2" type="tablinks" value="Reset" id="reset" onclick="location.reload()">
+         <button class="button" onclick="comprobarPuzzle()">Validar Resultados</button> 
+         <button id="next" class="button3" type="button" onclick="openCity(event, 'Nivel 2')" disabled><span>Nivel 2 </span> </span></button>
+        
+        
+        </div>
+        <br>
+        <section class="columns" >
+	
+          <div class="column" style="background-color:rgb(152, 123, 146)" >
+            <h2>Activo: </h2>
+            <p>Recurso económico presente controlado por la entidad como resultado de sucesos pasados.</p>
+          </div>
+          
+          <div class="column" style="background-color:rgb(235, 71, 71)">
+            <h2>Pasivo: </h2>
+            <p>Obligación presente de la entidad de transferir un recurso económico como resultado</p>
+          </div>
+          
+          <div class="column" style="background-color:rgb(211, 169, 169)"">
+            <h2>Patrimonio: </h2>
+            <p>Parte residual de los activos de la entidad, una vez deducidos todos sus pasivos.</p>
+          </div>
+          
+        </section>	
+         
+         
+         
+        
+    </div>
+ 
+    <button id="next" class="button3" type="button" onclick="openCity(event, 'Nivel 2')" disabled><span>Nivel 2 </span> </span></button>
+        
+
+
+    
+     
+   
+
+  </div> 
 </div>
+  </div> 
+</div>
+  </div> 
+<!-- /.nivel 2 -->
 
 <div id="Nivel 2" class="tabcontent">
-  <h3>Nivel 2</h3>
-  <p>Arrastre el signo correspondiente hacia cada uno de los dos espacios de acuerdo con el modelo matemático para que se cumpla la igualdad de la ecuación contable</p> 
+    <h3>Nivel 2</h3>
+    <p>Arrastre el signo correspondiente hacia cada uno de los dos espacios de acuerdo con el modelo matemático para que se cumpla la igualdad de la ecuación contable</p> 
+
+    <div id="niv2">
+        <div id= "niv2_1" class = "p-3 mb-2 bg-light text-dark"> <!-- /.primera columna del nivel 2 -->
+
+          <div>
+
+              <div id="div_2_1"><p>Patrimonio</p></div>
+              <div id="div_2_2" ><p>=</p></div>
+              <div id="div_2_3" ><p>Pasivo</p></div>
+              <div id="div_2_4" ondrop="drop2(event)" ondragover="allowDrop(event)"></div>
+              <div id="div_2_5" ><p>Activo</p></div>
+          </div>
+            <div>
+              <button id="but2_1" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">+ </button>
+              <br>
+              <button id="but2_2" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary" value="acept">-</button>
+              <button onclick="reset()">Reset</button>
+            </div>   
+        </div> 
+        <div id= "niv2_2" class="p-3 mb-2 bg-light text-dark"> <!-- /.segunda columna del nivel 2 -->
+
+          <div >
+
+              <div id="div_2_3"> <p>Pasivo</p></div>
+              <div id="div_2_2" > <p>=</p></div>
+              <div id="div_2_1" ><p>Patrimonio</p></div> 
+              <div id="div_2_4_2" ondrop="drop3(event)" ondragover="allowDrop(event)"></div>  
+              <div id="div_2_5" ><div><p>Activo</p></div>
+          </div>   
+            <div>
+              <button id="but2_3" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">+ </button>
+              <br>
+              <button id="but2_4" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">-</button>
+            </div>       
+        </div>         
+        </div>
+        <div id= "niv2_3" class="p-3 mb-2 bg-light text-dark"> <!-- /.tercera columna del nivel 2 -->
+
+        <div>
+
+            <div id="div_2_1"> <p>Patrimonio</p></div>
+            <div id="div_2_4_3" ondrop="drop4(event)" ondragover="allowDrop(event)"></div> 
+            <div id="div_2_3" ><p>Pasivo</p></div> 
+            <div id="div_2_2" > <p>=</p></div>
+            <div id="div_2_5" ><div><p>Activo</p></div>
+        </div>   
+          <div>
+            <button id="but2_5" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">+ </button>
+            <br>
+            <button id="but2_6" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">-</button>
+          </div>       
+      </div>         
+        </div>
+        <div id= "niv2_4" class="p-3 mb-2 bg-light text-dark"> <!-- /.cuarta columna del nivel 2 -->
+
+          <div >
+
+            <div id="div_2_5"> <p>Activo</p></div>
+            <div id="div_2_4_4" ondrop="drop5(event)" ondragover="allowDrop(event)"></div> 
+            <div id="div_2_1" ><p>Patrimonio</p></div> 
+            <div id="div_2_2" > <p>=</p></div>
+            <div id="div_2_3" ><div><p>Pasivo</p></div></div> 
+          </div>   
+          <div>
+            <button id="but2_7" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">+ </button>
+            <br>
+            <button id="but2_8" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">-</button>
+          </div>       
+       
+        </div>  
+        <div id= "niv2_5" class="p-3 mb-2 bg-light text-dark"> <!-- /.cuarta columna del nivel 2 -->
+
+          <div >
+
+            <div id="div_2_5"> <p>Activo</p></div>
+            <div id="div_2_4_5" ondrop="drop6(event)" ondragover="allowDrop(event)"></div> 
+            <div id="div_2_3" ><p>Pasivo</p></div> 
+            <div id="div_2_2" > <p>=</p></div>
+            <div id="div_2_1" ><div><p>Patrimonio</p></div></div>
+          </div>   
+          <div>
+            <button id="but2_9" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">+ </button>
+            <br>
+            <button id="but2_10" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">-</button>
+          </div>       
+        </div>        
+    </div>
+  </div>
+<!-- /.nivel 3 -->
+<div id="Nivel 3" class="tabcontent">
+  <h2>Nivel 3</h2>
+  <h3>Clasificación de Cuentas</h3>
+  <p>Clasifique cada uno de los siguientes entre las categorías correspondientes </p>
+
+  <div id="principal 3" class="p-3 mb-4 bg-light text-dark">
+
+    <div class = "Heading3">
+      <div id="div3_1_1" >
+         <div id="cuentas"><p>Activo</p><span>(Recursos)</span></P></div>
+          <ul id="Activos"></ul>
+         
+      </div>
+
+      <div id="div3_1_2" >
+        <div><p>=</p></div>
+      </div>
+
+      <div id="div3_1_3" >
+        <div id="cuentas_p"><p>Pasivo</p><span>(Fuentes Externas</span></div>
+        <ul id="Pasivos"> </ul>
+      </div> 
+
+      <div id="div3_1_4" >  
+          <p>+</p>
+      </div>
+
+      <div id="div3_1_5" >
+         <div id="cuentas_F"><p>Patrimonio</p><span>(Fuentes Propias)</span></div>
+         <ul id="Patrimonios"> </ul>
+      </div>
+
+    </div>
+    <br>
+    <div id="prueba_react">
+          <div id="like_button_container">
+              <div class="source">
+                  <ul id= "source">
+                    <li data-value="Pasivo">Obligaciones Financieras</li>
+                    <li data-value="Patrimonio">Reservas</li>
+                    <li data-value="Activo">Inversiones</li>
+                  </ul>
+              
+              </div>
+              <button onclick="reset()">Reset</button>
+    </div>          
+  </div>
+
+
+</div>
+  
+  
+
+
 </div>
 
+ <!-- Cargar React. -->
+  <!-- Nota: cuando se despliegue, reemplazar "development.js" con "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- Cargamos nuestro componente de React. -->
+  <script src="like_button.js"></script>
 
 
-<script>
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
 
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
-   
+
 </body>
+
 </html> 
