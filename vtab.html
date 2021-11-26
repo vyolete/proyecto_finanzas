@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -10,11 +10,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
    </script>     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
-    </script>     
+    </script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
     </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="/lib/bootstrap.min.css">
+    <script src="/lib/jquery-1.12.2.min.js"></script>
+    <script src="/lib/bootstrap.min.js"></script>
 <link rel="stylesheet" href="main.css">
 
  
@@ -36,10 +41,10 @@
       <a class="nav-link" onclick="openCity(event, 'Nivel 3')">Clasificación de Cuentas</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Cuentas Resultados</a>
+      <a class="nav-link" onclick="openCity(event, 'Nivel 4')" >Cuentas Resultados</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled" href="#">Partida Doble</a>
+      <a class="nav-link disabled" onclick="openCity(event, 'Nivel 6')" href="#">Partida Doble</a>
     <li class="nav-item">
       <a class="nav-link disabled" href="#">Conta</a>
     <li class="nav-item">
@@ -51,7 +56,11 @@
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Nivel 1')" id="defaultOpen">Nivel 1</button>
   <button id= "lol" class="tablinks" onclick="openCity(event, 'Nivel 2')" >Nivel 2</button>
-  <button id= "lol" class="tablinks" onclick="openCity(event, 'Nivel 3')" >Nivel 3</button>
+  <button id= "lol1" class="tablinks" onclick="openCity(event, 'Nivel 3')" >Nivel 3</button>
+  <button id= "lol2" class="tablinks" onclick="openCity(event, 'Nivel 4')" >Nivel 4</button>
+  <button id= "lol3" class="tablinks" onclick="openCity(event, 'Nivel 5')" >Nivel 5 </button>
+  <button id= "lol4" class="tablinks" onclick="openCity(event, 'Nivel 6')" >Nivel 6 </button>
+  <button id= "lol5" class="tablinks" onclick="openCity(event, 'Nivel 6')" >Nivel 7 </button>
   
 </div>
 
@@ -158,48 +167,67 @@
          <div id ="resets">
          <input class= "button2" type="tablinks" value="Reset" id="reset" onclick="location.reload()">
          <button class="button" onclick="comprobarPuzzle()">Validar Resultados</button> 
-         <button id="next" class="button3" type="button" onclick="openCity(event, 'Nivel 2')" disabled><span>Nivel 2 </span> </span></button>
+         
         
         
         </div>
         <br>
-        <section class="columns" >
-	
-          <div class="column" style="background-color:rgb(152, 123, 146)" >
-            <h2>Activo: </h2>
-            <p>Recurso económico presente controlado por la entidad como resultado de sucesos pasados.</p>
-          </div>
+
+        <div class="alert alert-error collapse" role="alert" id="alarmaPasoNivel2" style="display:none;">
+          <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" id="success" aria-label="Close">&times;</button>
+            <strong>¡Felicitaciones!</strong> Puedes pasar al Nivel 2
           
-          <div class="column" style="background-color:rgb(235, 71, 71)">
-            <h2>Pasivo: </h2>
-            <p>Obligación presente de la entidad de transferir un recurso económico como resultado</p>
-          </div>
+            <br><br>
+           
           
-          <div class="column" style="background-color:rgb(211, 169, 169)"">
-            <h2>Patrimonio: </h2>
-            <p>Parte residual de los activos de la entidad, una vez deducidos todos sus pasivos.</p>
-          </div>
+        </div>
+
+        <div class="alert alert-error collapse" role="alert" id="passwordsNoMatchRegister9" style="display:none;">
           
-        </section>	
+          <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Cuidado!</strong> Inténtalo de nuevo.
+            
+          </div>
+        </div>
+
+          
+        <div class ="activoPasivoPatrimonio" id="activoPasivoPatrimonio" >
+          <section class="columns" >
+          
+            <div class="column" style="background-color:rgb(152, 123, 146)" >
+              <h2>Activo: </h2>
+              <p>Recurso económico presente controlado por la entidad como resultado de sucesos pasados.</p>
+            </div>
+            
+            <div class="column" style="background-color:rgb(235, 71, 71)">
+              <h2>Pasivo: </h2>
+              <p>Obligación presente de la entidad de transferir un recurso económico como resultado</p>
+            </div>
+            
+            <div class="column" style="background-color:rgb(211, 169, 169)"">
+              <h2>Patrimonio: </h2>
+              <p>Parte residual de los activos de la entidad, una vez deducidos todos sus pasivos.</p>
+            </div>
+            
+          </section>
+
+        </div> 
+        <br>
+        <div class="container">        
+          <button class="btn btn-info btn-block" type="button" onclick="openCity(event, 'Nivel 2')" disabledclass="btn btn-info btn-block" onclick="mostrarNivel2()" id="mostrar_ejercicio2">Nivel 2</button>
+          
+        </div>
+        </div>	
          
          
          
         
     </div>
- 
-    <button id="next" class="button3" type="button" onclick="openCity(event, 'Nivel 2')" disabled><span>Nivel 2 </span> </span></button>
-        
-
-
-    
-     
-   
-
+    <div class="bg-success p-2" style="--bs-bg-opacity: .5;"></div>
   </div> 
-</div>
-  </div> 
-</div>
-  </div> 
+
 <!-- /.nivel 2 -->
 
 <div id="Nivel 2" class="tabcontent">
@@ -207,24 +235,27 @@
     <p>Arrastre el signo correspondiente hacia cada uno de los dos espacios de acuerdo con el modelo matemático para que se cumpla la igualdad de la ecuación contable</p> 
 
     <div id="niv2">
-        <div id= "niv2_1" class = "p-3 mb-2 bg-light text-dark"> <!-- /.primera columna del nivel 2 -->
-
-          <div>
+      <!--
+        <div id= "niv2_1" class = "p-3 mb-2 bg-light text-dark" style="display-none"> /.primera columna del nivel 2 
+          <form ud="lilita">
+          <div id="zona_1"> <!--donde puedo move los botones
 
               <div id="div_2_1"><p>Patrimonio</p></div>
               <div id="div_2_2" ><p>=</p></div>
               <div id="div_2_3" ><p>Pasivo</p></div>
-              <div id="div_2_4" ondrop="drop2(event)" ondragover="allowDrop(event)"></div>
+              <div id="div_2_4" ondrop="drop2(event)" ondragover="allowDrop(event)"></div> <!--esta es la unica zona donde permie mover los botones
               <div id="div_2_5" ><p>Activo</p></div>
           </div>
-            <div>
+            <div id="botonesNivelZona1">
               <button id="but2_1" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">+ </button>
               <br>
-              <button id="but2_2" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary" value="acept">-</button>
-              <button onclick="reset()">Reset</button>
-            </div>   
-        </div> 
-        <div id= "niv2_2" class="p-3 mb-2 bg-light text-dark"> <!-- /.segunda columna del nivel 2 -->
+              <button id="but2_2" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary" value="acept" onclick="posicion()">-</button>
+              <input id="reset2" type="button" onclick="myFunction()"  value="Reset form">Reset</input>
+            </div> 
+          </form>  
+        </div>
+        
+        <div id= "niv2_2" class="p-3 mb-2 bg-light text-dark"> <!-- /.segunda columna del nivel 2 
 
           <div >
 
@@ -235,12 +266,13 @@
               <div id="div_2_5" ><div><p>Activo</p></div>
           </div>   
             <div>
-              <button id="but2_3" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">+ </button>
+              <button id="but2_3" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary" onclick="posicion()">+ </button>
               <br>
               <button id="but2_4" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">-</button>
             </div>       
         </div>         
-        </div>
+        </div>-->
+      
         <div id= "niv2_3" class="p-3 mb-2 bg-light text-dark"> <!-- /.tercera columna del nivel 2 -->
 
         <div>
@@ -255,8 +287,10 @@
             <button id="but2_5" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">+ </button>
             <br>
             <button id="but2_6" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">-</button>
-          </div>       
-      </div>         
+          </div>    
+
+      </div>  
+           
         </div>
         <div id= "niv2_4" class="p-3 mb-2 bg-light text-dark"> <!-- /.cuarta columna del nivel 2 -->
 
@@ -272,9 +306,11 @@
             <button id="but2_7" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">+ </button>
             <br>
             <button id="but2_8" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">-</button>
-          </div>       
+          </div>   
+            
        
-        </div>  
+        </div> 
+        <br> 
         <div id= "niv2_5" class="p-3 mb-2 bg-light text-dark"> <!-- /.cuarta columna del nivel 2 -->
 
           <div >
@@ -289,10 +325,48 @@
             <button id="but2_9" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">+ </button>
             <br>
             <button id="but2_10" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">-</button>
-          </div>       
-        </div>        
+          </div>
+          <div class="alert alert-error collapse" role="alert" id="alarmaPasoNivel3" style="display:none;">
+            <div class="alert alert-success">
+              <button type="button" class="close" data-dismiss="alert" id="success" aria-label="Close">&times;</button>
+              <strong>¡Felicitaciones!</strong> Puedes pasar al Nivel 3
+              <audio autoplay>
+                <source src="sonidos/completo.mp3" type="audio/mp3">
+                Tu navegador no soporta HTML5 audio.
+            </audio>
+            
+              <br><br>
+
+
+             
+            
+          </div>
+          </div>
+      
+          <div class="alert alert-error collapse" role="alert" id="passwordsNoMatchRegister9" style="display:none;">
+            
+            <div class="alert alert-danger">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>¡Cuidado!</strong> Inténtalo de nuevo.
+            
+            </div>
+              
+          </div>
+
+        </div>
+
+       <br>
+       <div id="botonNivel3">
+        <div class="container">        
+          <button class="btn btn-info btn-block" type="button" onclick="openCity(event, 'Nivel 3')" disabledclass="btn btn-info btn-block" onclick="mostrarNivel3()" id="mostrar_ejercicio3">Nivel 3</button>
+    
+        </div>
+       </div>
+       <br>
+        <div class="bg-success p-2" style="--bs-bg-opacity: .5;"></div>         
     </div>
-  </div>
+    
+</div>
 <!-- /.nivel 3 -->
 <div id="Nivel 3" class="tabcontent">
   <h2>Nivel 3</h2>
@@ -301,18 +375,18 @@
 
   <div id="principal 3" class="p-3 mb-4 bg-light text-dark">
 
-    <div class = "Heading3">
-      <div id="div3_1_1" >
+    <div id=  "nivel3_3" class = "Heading3">
+      <div id="div3_1_1" ondrop="drop7(event)" ondragover="allowDrop(event)" >
          <div id="cuentas"><p>Activo</p><span>(Recursos)</span></P></div>
           <ul id="Activos"></ul>
-         
+          
       </div>
 
       <div id="div3_1_2" >
         <div><p>=</p></div>
       </div>
 
-      <div id="div3_1_3" >
+      <div id="div3_1_3" ondrop="drop(event)" ondragover="allowDrop(event)">
         <div id="cuentas_p"><p>Pasivo</p><span>(Fuentes Externas</span></div>
         <ul id="Pasivos"> </ul>
       </div> 
@@ -321,23 +395,127 @@
           <p>+</p>
       </div>
 
-      <div id="div3_1_5" >
+      <div id="div3_1_5" ondrop="drop(event)" ondragover="allowDrop(event)">
          <div id="cuentas_F"><p>Patrimonio</p><span>(Fuentes Propias)</span></div>
          <ul id="Patrimonios"> </ul>
       </div>
 
     </div>
     <br>
-    <div id="prueba">
-          <div id="like_button_container">
-              <div class="source">
-                  <ul id= "source">
-                    <li data-value="Pasivo">Obligaciones Financieras</li>
-                    <li data-value="Patrimonio">Reservas</li>
-                    <li data-value="Activo">Inversiones</li>
-                  </ul>
-              
-              </div>
+    <div id="clasificador_cuentas">
+      <div id="clasificador_1">       
+            <p id="cuenta_1_1" ondragstart="drag(event)" draggable="true" >Obligaciones Financieras</p>
+            <p id="cuenta_1_2" ondragstart="drag(event)" draggable="true" >Inversiones</p>
+            <p id="cuenta_1_3" ondragstart="drag(event)" draggable="true" >Obligaciones Laborales</p>
+            <p id="cuenta_1_4" ondragstart="drag(event)" draggable="true" >Intangibles</p>
+            <p id="cuenta_1_5" ondragstart="drag(event)" draggable="true" >Prima de emisión de capital</p>
+            <p id="cuenta_1_6" ondragstart="drag(event)" draggable="true" >Cuentas por pagar</p>
+            <p id="cuenta_1_7" ondragstart="drag(event)" draggable="true" >Resultados del período</p>
+            <p id="cuenta_1_8" ondragstart="drag(event)" draggable="true" >Cuentas por cobrar</p>
+            <p id="cuenta_1_9" ondragstart="drag(event)" draggable="true" >Ganancias Articuladas</p>
+            <p id="cuenta_1_10" ondragstart="drag(event)" draggable="true" >Inventarios</p>
+            <p id="cuenta_1_11" ondragstart="drag(event)" draggable="true" >Efectivo</p>
+            <p id="cuenta_1_12" ondragstart="drag(event)" draggable="true" >Impuestos por pagar</p>
+            <p id="cuenta_1_13" ondragstart="drag(event)" draggable="true" >Capital social</p>
+            <p id="cuenta_1_14" ondragstart="drag(event)" draggable="true" >Reservas</p>
+            <p id="cuenta_1_15" ondragstart="drag(event)" draggable="true" >Propiedades</p>
+
+      </div>
+      <div id="clasificador_2">       
+        <p id="cuenta_2_1" ondragstart="drag(event)" draggable="true" >Beneficios a empleados</p>
+        <p id="cuenta_2_2" ondragstart="drag(event)" draggable="true" >Inversiones a valor razonable</p>
+        <p id="cuenta_2_3" ondragstart="drag(event)" draggable="true" >Obligaciones de financiamiento</p>
+        <p id="cuenta_2_4" ondragstart="drag(event)" draggable="true" >Propiedad, planta y equipo</p>
+        <p id="cuenta_2_5" ondragstart="drag(event)" draggable="true" >Superávit de capital</p>
+        <p id="cuenta_2_6" ondragstart="drag(event)" draggable="true" >Proveedores</p>
+        <p id="cuenta_2_7" ondragstart="drag(event)" draggable="true" >Resultados del ejercicio</p>
+        <p id="cuenta_2_8" ondragstart="drag(event)" draggable="true" >Impuestos, gravámenes y tasas</p>
+        <p id="cuenta_2_9" ondragstart="drag(event)" draggable="true" >Resultados ejercicios anteriores</p>
+        <p id="cuenta_2_10" ondragstart="drag(event)" draggable="true" >Mercancía</p>
+        <p id="cuenta_2_11" ondragstart="drag(event)" draggable="true" >Efectivo y equivalentes</p>
+        <p id="cuenta_2_12" ondragstart="drag(event)" draggable="true" >Deudores varios</p>
+        <p id="cuenta_2_13" ondragstart="drag(event)" draggable="true" >Capital social</p>
+        <p id="cuenta_2_14" ondragstart="drag(event)" draggable="true" >Reservas</p>  
+        <p id="cuenta_2_15" ondragstart="drag(event)" draggable="true" >Intangibles</p>
+
+       </div>
+
+       <div id="clasificador_3">       
+        <p id="cuenta_2_1" ondragstart="drag(event)" draggable="true" >Prima en colocación de acciones</p>
+        <p id="cuenta_2_2" ondragstart="drag(event)" draggable="true" >Local comercial</p>
+        <p id="cuenta_2_3" ondragstart="drag(event)" draggable="true" >Sobregiro (en un banco)</p>
+        <p id="cuenta_2_4" ondragstart="drag(event)" draggable="true" >Acciones (de otras empresas)</p>
+        <p id="cuenta_2_5" ondragstart="drag(event)" draggable="true" >Salarios por pagar</p>
+        <p id="cuenta_2_6" ondragstart="drag(event)" draggable="true" >Materia prima</p>
+        <p id="cuenta_2_7" ondragstart="drag(event)" draggable="true" >Ganancias acumuladas</p>
+        <p id="cuenta_2_8" ondragstart="drag(event)" draggable="true" >Impuesto a las ventas</p>
+        <p id="cuenta_2_9" ondragstart="drag(event)" draggable="true" >Utilidad del período</p>
+        <p id="cuenta_2_10" ondragstart="drag(event)" draggable="true" >Costos y gastos por pagar</p>
+        <p id="cuenta_2_11" ondragstart="drag(event)" draggable="true" >Derechos de franquicia</p>
+        <p id="cuenta_2_12" ondragstart="drag(event)" draggable="true" >Reserva legal</p>
+        <p id="cuenta_2_13" ondragstart="drag(event)" draggable="true" >Capital suscrito y pagado</p>
+        <p id="cuenta_2_14" ondragstart="drag(event)" draggable="true" >Clientes</p>  
+        <p id="cuenta_2_15" ondragstart="drag(event)" draggable="true" >Efectivo en bancos</p>
+
+       </div>
+
+       <div id="clasificador_4">       
+        <p id="cuenta_2_1" ondragstart="drag(event)" draggable="true" >Efectivo en caja menor</p>
+        <p id="cuenta_2_2" ondragstart="drag(event)" draggable="true" >Anticipos entregados por la empresa</p>
+        <p id="cuenta_2_3" ondragstart="drag(event)" draggable="true" >Cuotas o partes de interés social</p>
+        <p id="cuenta_2_4" ondragstart="drag(event)" draggable="true" >Reserva ocasional</p>
+        <p id="cuenta_2_5" ondragstart="drag(event)" draggable="true" >Marcas adquiridas</p>
+        <p id="cuenta_2_6" ondragstart="drag(event)" draggable="true" >Prestaciones sociales/p>
+        <p id="cuenta_2_7" ondragstart="drag(event)" draggable="true" >Bonos (no emitidos por la empresa)</p>
+        <p id="cuenta_2_8" ondragstart="drag(event)" draggable="true" >Préstamo de una cooperativa/p>
+        <p id="cuenta_2_9" ondragstart="drag(event)" draggable="true" >Computadores</p>
+        <p id="cuenta_2_10" ondragstart="drag(event)" draggable="true" >Carta de crédito de un banco</p>
+        <p id="cuenta_2_11" ondragstart="drag(event)" draggable="true" >Acreedores varios</p>
+        <p id="cuenta_2_12" ondragstart="drag(event)" draggable="true" >Otros resultados integrales</p>
+        <p id="cuenta_2_13" ondragstart="drag(event)" draggable="true" >Impuesto de renta por pagar</p>
+        <p id="cuenta_2_14" ondragstart="drag(event)" draggable="true" >Envases y empaques</p>  
+        <p id="cuenta_2_15" ondragstart="drag(event)" draggable="true" >Dividendos decretados en acciones</p>
+
+       </div>
+
+       <div id="clasificador_5">       
+        <p id="cuenta_2_1" ondragstart="drag(event)" draggable="true" >Efectivo en caja menor</p>
+        <p id="cuenta_2_2" ondragstart="drag(event)" draggable="true" >Anticipos entregados por la empresa</p>
+        <p id="cuenta_2_3" ondragstart="drag(event)" draggable="true" >Cuotas o partes de interés social</p>
+        <p id="cuenta_2_4" ondragstart="drag(event)" draggable="true" >Reserva ocasional</p>
+        <p id="cuenta_2_5" ondragstart="drag(event)" draggable="true" >Marcas adquiridas</p>
+        <p id="cuenta_2_6" ondragstart="drag(event)" draggable="true" >Prestaciones sociales<p>
+        <p id="cuenta_2_7" ondragstart="drag(event)" draggable="true" >Bonos (no emitidos por la empresa)</p>
+        <p id="cuenta_2_8" ondragstart="drag(event)" draggable="true" >Préstamo de una cooperativa</p>
+        <p id="cuenta_2_9" ondragstart="drag(event)" draggable="true" >Computadores</p>
+        <p id="cuenta_2_10" ondragstart="drag(event)" draggable="true" >Carta de crédito de un banco</p>
+        <p id="cuenta_2_11" ondragstart="drag(event)" draggable="true" >Acreedores varios</p>
+        <p id="cuenta_2_12" ondragstart="drag(event)" draggable="true" >Otros resultados integrales</p>
+        <p id="cuenta_2_13" ondragstart="drag(event)" draggable="true" >Impuesto de renta por pagar</p>
+        <p id="cuenta_2_14" ondragstart="drag(event)" draggable="true" >Envases y empaques</p>  
+        <p id="cuenta_2_15" ondragstart="drag(event)" draggable="true" >Dividendos decretados en acciones</p>
+
+       </div>
+
+       <div id="clasificador_6">       
+        <p id="cuenta_2_1" ondragstart="drag(event)" draggable="true" >Acciones de tesorería (propias)</p>
+        <p id="cuenta_2_2" ondragstart="drag(event)" draggable="true" >Vehículo</p>
+        <p id="cuenta_2_3" ondragstart="drag(event)" draggable="true" >Pagaré (en un banco)</p>
+        <p id="cuenta_2_4" ondragstart="drag(event)" draggable="true" >Certificado de depósito a término</p>
+        <p id="cuenta_2_5" ondragstart="drag(event)" draggable="true" >Seguridad social por pagar</p>
+        <p id="cuenta_2_6" ondragstart="drag(event)" draggable="true" >Aportes sociales<p>
+        <p id="cuenta_2_7" ondragstart="drag(event)" draggable="true" >Licencias de software</p>
+        <p id="cuenta_2_8" ondragstart="drag(event)" draggable="true" >Reserva estatutaria</p>
+        <p id="cuenta_2_9" ondragstart="drag(event)" draggable="true" >Cuenta por cobrar a trabajadores</p>
+        <p id="cuenta_2_10" ondragstart="drag(event)" draggable="true" >Cheques en caja general</p>
+        <p id="cuenta_2_11" ondragstart="drag(event)" draggable="true" >Productos terminados</p>
+        <p id="cuenta_2_12" ondragstart="drag(event)" draggable="true" >Otros resultados integrales</p>
+        <p id="cuenta_2_13" ondragstart="drag(event)" draggable="true" >Pérdida del ejercicio</p>
+        <p id="cuenta_2_14" ondragstart="drag(event)" draggable="true" >Cuentas por pagar a socios</p>  
+        <p id="cuenta_2_15" ondragstart="drag(event)" draggable="true" >Anticipados recibidos de otras empresas</p>
+
+       </div>
+
               <button onclick="reset()">Reset</button>
     </div>          
   </div>
@@ -345,22 +523,3787 @@
 
 </div>
   
-  
+ <!-- /.nivel 4 --> 
+ <div id="Nivel 4" class="tabcontent">
 
+    <div class= "temp2">
+      <p>La empresa toma sus activos y empieza a operar para producir beneficios.  La operación de la empresa se registra en cuentas de resultados: se reconocen las ventas de bienes o servicios y se reconocen los costos y los gastos necesarios para producir estos bienes y servicios.  </p>
+    </div>
+    <br>
+    <br>
+    <div id="cuentas_resultados">
+      <div id="div4_1_1" >
+        <div id="cuentas"><p>Activo</p><span>(Recursos)</span></P></div>
+        <li>Efectivo</li>
+        <li>Inversiones</li>
+        <li>Cuentas por cobrar</li>
+        <li>Inventarios</li>
+        <li>Propiedades</li>
+        <li>Intangibles</li>
+         <ul id="Activos"></ul>
+        </div>
+      
+        <div id="div4_1_2" >
+          <div><p>--></p></div>
+        </div>
+        
+        <div id="div4_1_3" >
+          <div id="cuentas_F"><p>Resultados</p></div>
+          <br>
+          <br>
+          <li>Ingresos (ventas)</li>
+          <li>- Costos</li>
+          <li>- Gastos</li>
+          <li>= Utilidad</li>
+       </div>
+    </div>
+    <br>
+    <div class="temp2">
+      <p>A los ingresos se le deducen los costos y los gastos para obtener la utilidad neta, la cual se traslada al patrimonio. Por eso se puede decir que los ingresos producen aumentos en el patrimonio y los costos y los gastos producen disminuciones en el patrimonio.  </p>
+
+    </div>
+    <div id="ecuaciones_cuentas">
+      <br>
+      <div id="ecuacion_extension">
+        <h4>Por extensión, la ecuación contable se ampliaría así: </h4></div>
+        <div id="ecu_exte">
+          <div id="div_4_2_1"> <p>Activo</p></div>
+          <div id="div_4_2_2" ><p>=</p></div> 
+          <div id="div_4_2_3" ><p>Pasivo</p></div> 
+          <div id="div_4_2_2" > <p>+</p></div>
+          <div id="div_4_2_4" ><div><p>Patrimonio</p></div></div> 
+          <div id="div_4_2_2" > <p>+</p></div>
+          <div id="div_4_2_5"> <p>Ingresos</p></div>
+          <div id="div_4_2_2" > <p>+</p></div>
+          <div id="div_4_2_6"> <p>Costos y gastos</p></div>
+        </div>
+      <br>
+      <div id="ecuacion_axioma">
+        <h4>Por axioma fundamental de las ecuaciones, se agrupan por signos de la misma naturaleza</h4></div>
+        <div id="ecu_exte">
+          <div id="div_4_2_1"> <p>Activo</p></div>
+          <div id="div_4_2_2" ><p>+</p></div> 
+          <div id="div_4_2_6"> <p>Costos y gastos</p></div> 
+          <div id="div_4_2_2" > <p>=</p></div>
+          <div id="div_4_2_3" ><p>Pasivo</p></div>
+          <div id="div_4_2_2" > <p>+</p></div>
+          <div id="div_4_2_4" ><div><p>Patrimonio</p></div></div> 
+          <div id="div_4_2_2" > <p>+</p></div>
+          <div id="div_4_2_5"> <p>Ingresos</p></div>
+        </div>
+        <br>
+      <div id="ecuacion_axioma">
+          <h4>En contabilidad, los elementos del miembro izquierdo de la igualdad son de naturaleza débito y los de la derecha, de naturaleza crédito</h4></div>
+      <div id=  "cuentas_resultados">
+          <div class= "naturaleza_debito" >
+            <p><b>Naturaleza débito: </b> Aumenta (suma) en el débito y disminuye (resta) en el crédito.</p>
+           </div>
+           <br>
+           <div class= "naturaleza_credito" >
+            <p><b>Naturaleza crédito: </b> Aumenta (suma) en el crédito y disminuye (resta) en el débito.</p>
+           </div>
+      </div>
+      
+      
+      <br><br> <div class="grupos_cuentas"><h4>Frente a cada una de las cuentas (o grupos de cuentas), elija la naturaleza  que corresponda </h4></div>
+      
+      <div class="grupos_cuentas">
+        <div class="cuentas_g">
+          <table class= "tabla1">
+            <tr> 
+                  
+                    <td id=border >Acciones (de otras empresas)  </td>
+                    <td id=border>
+                      <select name="Acciones (de otras empresas)">
+                        <option value>Db</option>
+                        <option value>Cr</option>
+                    </td>
+            </tr>
+          
+            <tr>
+              <td id="border">Acreedores varios</td>
+              <td id="border">
+                <select name="Acreedores varios">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td id="border"> Activo </td>
+              <td id="border">    
+                  <select name="Activo">
+                    <option value>Db</option>
+                    <option value>Cr</option>
+                  </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td id="border">Anticipos entregados por la empresa</td>
+              <td>
+                <select name="Anticipos entregados por la empresa">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+
+              </td>
+            </tr>
+
+            <tr>
+              <td id="border">Aportes sociales</td>
+              <td id="border">
+                <select name="Aportes sociales">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+
+              </td>
+            </tr>
+
+            <tr>
+              <td id="border">Beneficios a empleados</td>
+              <td id="border">
+                <select name="Beneficios a empleados">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td id="border">Bonos (emitidos por otras empresas)</td>
+              <td id="border"> 
+                <select name="Bonos (emitidos por otras empresas)">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+
+            </tr>
+
+            <tr>
+              <td id="border">Capital social</td>
+              <td id="border">
+                <select name="Capital social">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+
+              </td>
+            </tr>
+
+            <tr>
+              <td id="border">Capital suscrito y pagado</td>
+              <td id="border">
+                <select name="Capital suscrito y pagado">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td id="border">Carta de crédito de un banco</td>
+              <td id= "border">
+                <select name="Carta de crédito de un banco">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td id="border">Certificado de depósito a término</td>
+              <td id="border">
+                <select name="Certificado de depósito a término">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+
+            </tr>
+
+            <tr>
+              <td id= "border">Cheques en caja general</td>
+              <td id="border">
+                <select name="Cheques en caja general">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td id="border">Clientes</td>
+              <td id="border">
+                <select name="Clientes">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td id="border">Computadores</td>
+              <td id="border"> 
+                <select name="Computadores">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td id="border">Costos</td>
+              <td id="border">
+                <select name="Costos">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td id="border">Costos y gastos por pagar</td>
+              <td id="border">
+                <select name="Costos y gastos por pagar">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Cuenta por cobrar a trabajadores</td>
+              <td id="border">
+                <select name="Cuenta por cobrar a trabajadores">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Cuentas por cobrar/td>
+              <td id="border">
+                <select name="Cuentas por cobrar">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Cuentas por pagar</td>
+              <td id="border">
+                <select name="Cuentas por pagar">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Cuentas por pagar a socios</td>
+              <td id="border">
+                <select name="Cuentas por pagar a socios">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Cuotas o partes de interés social</td>
+              <td id="border">
+                <select name="Cuotas o partes de interés social">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Derechos de franquicia</td>
+              <td id="border">
+                <select name="Derechos de franquicia">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Deudores varios</td>
+              <td id="border">
+                <select name="Deudores varios">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Dividendos decretados en acciones</td>
+              <td id="border">
+                <select name="Dividendos decretados en acciones">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Efectivo</td>
+              <td id="border">
+                <select name="Efectivo">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      
+      
+        <div class="cuentas_g">  <!-- /.preguntas de la 25 a 50 -->
+
+        <table class= "tabla1">
+          <tr> 
+                
+                  <td id=border >Efectivo en bancos</td>
+                  <td id=border>
+                    <select name="Efectivo en bancos">
+                      <option value>Db</option>
+                      <option value>Cr</option>
+                  </td>
+          </tr>
+        
+          <tr>
+            <td id="border">Efectivo en caja menor</td>
+            <td id="border">
+              <select name="Efectivo en caja menor">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="border">Envases y empaques</td>
+            <td id="border">    
+                <select name="Envases y empaques">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="border">Ganancias acumuladas</td>
+            <td>
+              <select name="Ganancias acumuladas">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+
+            </td>
+          </tr>
+
+          <tr>
+            <td id="border">Gastos</td>
+            <td id="border">
+              <select name="Gastos">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+
+            </td>
+          </tr>
+
+          <tr>
+            <td id="border">Impuesto a las ventas</td>
+            <td id="border">
+              <select name="Impuesto a las ventas">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="border">Impuesto de renta por pagar</td>
+            <td id="border"> 
+              <select name="Impuesto de renta por pagar">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </td>
+
+          </tr>
+
+          <tr>
+            <td id="border">Impuestos por pagar</td>
+            <td id="border">
+              <select name="Impuestos por pagar">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+
+            </td>
+          </tr>
+
+          <tr>
+            <td id="border">Impuestos, gravámenes y tasas</td>
+            <td id="border">
+              <select name="Impuestos, gravámenes y tasas">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="border">Ingresos</td>
+            <td id= "border">
+              <select name="Ingresos">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="border">Intangibles</td>
+            <td id="border">
+              <select name="Intangibles">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </td>
+
+          </tr>
+
+          <tr>
+            <td id= "border">Inventarios</td>
+            <td id="border">
+              <select name="Cheques en caja general">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="border">Inversiones</td>
+            <td id="border">
+              <select name="Inversiones">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="border">Inversiones a valor razonable</td>
+            <td id="border"> 
+              <select name="Inversiones a valor razonable">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="border">Licencias de software</td>
+            <td id="border">
+              <select name="Licencias de software">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="border">Local comercial</td>
+            <td id="border">
+              <select name="Local comercial">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </span>
+            </td>
+          </tr>
+          <tr>
+            <td id="border">Marcas adquiridas</td>
+            <td id="border">
+              <select name="Marcas adquiridas">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </span>
+            </td>
+          </tr>
+          <tr>
+            <td id="border">Materia prima/td>
+            <td id="border">
+              <select name="Materia prima">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </span>
+            </td>
+          </tr>
+          <tr>
+            <td id="border">Mercancía</td>
+            <td id="border">
+              <select name="Mercancía">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </span>
+            </td>
+          </tr>
+          <tr>
+            <td id="border">Obligaciones de financiamiento</td>
+            <td id="border">
+              <select name="Obligaciones de financiamiento">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </span>
+            </td>
+          </tr>
+          <tr>
+            <td id="border">Obligaciones financieras</td>
+            <td id="border">
+              <select name="Obligaciones financieras">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </span>
+            </td>
+          </tr>
+          <tr>
+            <td id="border">Obligaciones laborales</td>
+            <td id="border">
+              <select name="Obligaciones laborales">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </span>
+            </td>
+          </tr>
+          <tr>
+            <td id="border">Otros resultados acumulados</td>
+            <td id="border">
+              <select name="Otros resultados acumulados">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </span>
+            </td>
+          </tr>
+          <tr>
+            <td id="border">Otros resultados integrales</td>
+            <td id="border">
+              <select name="Otros resultados integrales">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </span>
+            </td>
+          </tr>
+          <tr>
+            <td id="border">Pagaré (en un banco)</td>
+            <td id="border">
+              <select name="Pagaré (en un banco)">
+                <option value>Db</option>
+                <option value>Cr</option>
+              </select>
+            </span>
+            </td>
+          </tr>
+        </table>
+        </div> 
+        <div class="cuentas_g">  <!-- /.preguntas de la 50 a 75 -->
+
+          <table class= "tabla1">
+            <tr> 
+                  
+                    <td id=border >Pasivo</td>
+                    <td id=border>
+                      <select name="Pasivo">
+                        <option value>Db</option>
+                        <option value>Cr</option>
+                    </td>
+            </tr>
+          
+            <tr>
+              <td id="border">Patrimonio</td>
+              <td id="border">
+                <select name="Patrimonio">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border"> Prestaciones sociales por pagar</td>
+              <td id="border">    
+                  <select name="Prestaciones sociales por pagar">
+                    <option value>Db</option>
+                    <option value>Cr</option>
+                  </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Préstamo de una cooperativa</td>
+              <td>
+                <select name="Préstamo de una cooperativa">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+  
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Prima en colocación de acciones</td>
+              <td id="border">
+                <select name="Prima en colocación de acciones">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+  
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Productos terminados</td>
+              <td id="border">
+                <select name="Productos terminados">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Propiedad, planta y equipo</td>
+              <td id="border"> 
+                <select name="Propiedad, planta y equipo">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+  
+            </tr>
+  
+            <tr>
+              <td id="border">Propiedades</td>
+              <td id="border">
+                <select name="Propiedades">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+  
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Proveedores</td>
+              <td id="border">
+                <select name="Proveedores">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Reserva estatutaria</td>
+              <td id= "border">
+                <select name="Reserva estatutaria">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Reserva legal</td>
+              <td id="border">
+                <select name="Reserva legal">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+  
+            </tr>
+  
+            <tr>
+              <td id= "border">Reserva ocasional</td>
+              <td id="border">
+                <select name="Reserva ocasional">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Reservas</td>
+              <td id="border">
+                <select name="Reservas">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Resultados del ejercicio</td>
+              <td id="border"> 
+                <select name="Resultados del ejercicio">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Resultados ejercicios anteriores</td>
+              <td id="border">
+                <select name="Resultados ejercicios anteriores">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Salarios por pagar</td>
+              <td id="border">
+                <select name="Salarios por pagar">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Seguridad social por pagar</td>
+              <td id="border">
+                <select name="Seguridad social por pagar">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Sobregiro (en un banco)</td>
+              <td id="border">
+                <select name="Sobregiro (en un banco)">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Superávit de capital</td>
+              <td id="border">
+                <select name="Superávit de capitalr">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Utilidad del período</td>
+              <td id="border">
+                <select name="Utilidad del período">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Vehículo</td>
+              <td id="border">
+                <select name="Vehículo">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Ventas</td>
+              <td id="border">
+                <select name="Ventas">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Gastos de administración</td>
+              <td id="border">
+                <select name="Gastos de administración">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Gastos de personal</td>
+              <td id="border">
+                <select name="Gastos de personal">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Otros ingresos</td>
+              <td id="border">
+                <select name="Otros ingresos">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="cuentas_g">  <!-- /.preguntas de la 75 a 100 -->
+
+          <table class= "tabla1">
+            <tr> 
+                  
+                    <td id=border >Otros gastos</td>
+                    <td id=border>
+                      <select name="Otros gastos">
+                        <option value>Db</option>
+                        <option value>Cr</option>
+                    </td>
+            </tr>
+          
+            <tr>
+              <td id="border">Gastos financieros</td>
+              <td id="border">
+                <select name="Gastos financieros">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Costos de ventas </td>
+              <td id="border">    
+                  <select name="Costos de ventas">
+                    <option value>Db</option>
+                    <option value>Cr</option>
+                  </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Ingresos por servicios</td>
+              <td>
+                <select name="Ingresos por servicios">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+  
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Gastos de arrendamiento</td>
+              <td id="border">
+                <select name="Gastos de arrendamiento">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+  
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Ingresos ordinarios</td>
+              <td id="border">
+                <select name="Ingresos ordinarios">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Gastos de ventas</td>
+              <td id="border"> 
+                <select name="Gastos de ventas">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+  
+            </tr>
+  
+            <tr>
+              <td id="border">Gastos operacionales</td>
+              <td id="border">
+                <select name="Gastos operacionales">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+  
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Ingresos no operacionales</td>
+              <td id="border">
+                <select name="Ingresos no operacionales">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Ingresos por comercio al por mayor y al por menor</td>
+              <td id= "border">
+                <select name="Ingresos por comercio al por mayor y al por menor">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Ingresos financieros</td>
+              <td id="border">
+                <select name="Ingresos financieros">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+  
+            </tr>
+  
+            <tr>
+              <td id= "border">Gastos por servicios</td>
+              <td id="border">
+                <select name="Gastos por servicios">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Costos de la prestación del servicio</td>
+              <td id="border">
+                <select name="Costos de la prestación del servicio">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Ingresos por construcción</td>
+              <td id="border"> 
+                <select name="Ingresos por construcción">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Ingresos por explotación de minas</td>
+              <td id="border">
+                <select name="Ingresos por explotación de minas">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </td>
+            </tr>
+  
+            <tr>
+              <td id="border">Ingresos prestación de servicios</td>
+              <td id="border">
+                <select name="Ingresos prestación de servicios">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Ventas actividad de ganadería</td>
+              <td id="border">
+                <select name="Ventas actividad de ganadería">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Ventas por explotación de minas</td>
+              <td id="border">
+                <select name="Ventas por explotación de minas">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Gastos de seguros</td>
+              <td id="border">
+                <select name="Gastos de seguros">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Gastos por depreciaciones</td>
+              <td id="border">
+                <select name="Gastos por depreciaciones">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Gastos diversos</td>
+              <td id="border">
+                <select name="Gastos diversos">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Gastos de mantenimiento</td>
+              <td id="border">
+                <select name="Gastos de mantenimiento">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Costos actividad financiera</td>
+              <td id="border">
+                <select name="Costos actividad financiera">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Costos por servicio de hoteles</td>
+              <td id="border">
+                <select name="Costos por servicio de hoteles">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td id="border">Costos por comercio al por mayor y al por menor</td>
+              <td id="border">
+                <select name="Costos por comercio al por mayor y al por menor">
+                  <option value>Db</option>
+                  <option value>Cr</option>
+                </select>
+              </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- /.nivel 5 --> 
+
+<div id="Nivel 5" class="tabcontent"> 
+  <div class="grupos_cuentas">
+    <h4>Como se puede ver, la empresa tiene una estructura financiera fundamental</h4>
+    <a ><img src="https://latex.codecogs.com/png.latex?\dpi{120}&space;\fn_cm&space;\large&space;A=&space;P&space;&plus;&space;P^*" title="\large A= P + P^*" style="padding:25px;border:inset black;"/></a>
+    <h4>y una estructura de desempeño</h4>
+    <a ><img src="https://latex.codecogs.com/png.latex?\dpi{120}&space;\fn_cm&space;\large&space;R=&space;I-C-G" title="\large R= I-C-G" style="padding:25px;border:inset black;" /></a>
+    <h4>Así, las cuentas de activo, pasivo y patrimonio son cuentas de balance o cuentas permanentes, y las cuentas de ingresos, costos y gastos son cuentas de resultados o temporales</h4>
+  </div>
+  <div class="grupos_cuentas">
+    <br>
+    <div id="desempeno">
+ 
+      <h4>Frente a cada una de las cuentas elija el tipo correspondiente (Elegir aleatoriamente, cuando se tengan 25 aciertos consecutivos, pasar al siguiente nivel)</h4>
+
+    </div>
+  </div>
+    <div class="container-fluid">
+    <div class="tablas_cuent">
+      
+      <div class="tabla_c_2">
+
+          <table class="table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Cuenta</th>
+                <th scope="col">tipo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>
+  
+                    <label for="Acciones (de otras empresas)">Acciones (de otras empresas)</label>
+  
+                </td>     
+              <td> 
+                        <select name="Acciones (de otras empresas)" id="Acciones (de otras empresas)" onchange="ShowSelected();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>
+  
+                    <label for="Acreedores varios">Acreedores varios</label>
+  
+                </td>     
+              <td> 
+                        <select name="Acreedores varios" id="Acreedores varios" onchange="ShowSelected2();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>
+  
+                    <label for="Activo">Activo</label>
+  
+                </td>     
+              <td> 
+                        <select name="Activo" id="Activo" onchange="ShowSelected3();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+              </tr>
+              <tr>
+              <th scope="row">4</th>
+                <td>
+  
+                    <label for="Anticipos entregados por la empresa">Anticipos entregados por la empresa</label>
+  
+                </td>     
+              <td> 
+                        <select name="Anticipos entregados por la empresa" id="Anticipos entregados por la empresa" onchange="ShowSelected4();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+              </tr>
+              <tr>
+              <th scope="row">5</th>
+                  <td>
+    
+                      <label for="Aportes sociales">Aportes sociales</label>
+    
+                  </td>     
+                <td> 
+                          <select name="Aportes sociales" id="Aportes sociales" onchange="ShowSelected5();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+              </tr>
+               <tr>
+                    <th scope="row">6</th>
+                    <td>
+                        <label for="Beneficios a empleados">Beneficios a empleados</label>
+
+                    </td>     
+                     <td> 
+                              <select name="Beneficios a empleados" id="Beneficios a empleados" onchange="ShowSelected6();">
+                                  <option value="0">...</option>
+                                  <option value="B">B</option>
+                                  <option value="R">R</option>
+                              </select>
+                      </td> 
+                    </tr>
+                    <th scope="row">7</th>
+                    <td>
+
+                        <label for="Bonos (emitidos por otras empresas)">Bonos (emitidos por otras empresas)</label>
+
+                    </td>     
+                  <td> 
+                            <select name="Bonos (emitidos por otras empresas)" id="Bonos (emitidos por otras empresas)" onchange="ShowSelected7();">
+                              <option value="0">...</option>
+                              <option value="B">B</option>
+                              <option value="R">R</option>
+                            </select>
+                          </td> 
+                      </tr>
+                      <th scope="row">8</th>
+                      <td>
+
+                          <label for="Capital social">Capital social</label>
+
+                      </td>     
+                    <td> 
+                              <select name="Capital social" id="Capital social" onchange="ShowSelected8();">
+                                <option value="0">...</option>
+                                <option value="B">B</option>
+                                <option value="R">R</option>
+                              </select>
+                            </td> 
+                  </tr>
+                    <th scope="row">9</th>
+                    <td>
+
+                        <label for="Capital suscrito y pagado">Capital suscrito y pagado</label>
+
+                    </td>     
+                  <td> 
+                            <select name="Capital suscrito y pagado" id="Capital suscrito y pagado"onchange="ShowSelected9();">
+                              <option value="0">...</option>
+                              <option value="B">B</option>
+                              <option value="R">R</option>
+                            </select>
+                          </td> 
+                  </tr>
+                  <th scope="row">10</th>
+                  <td>
+
+                      <label for="Carta de crédito de un banco">Carta de crédito de un banco</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Carta de crédito de un banco" id="Carta de crédito de un banco" onchange="ShowSelected10();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">11</th>
+                  <td>
+
+                      <label for="Certificado de depósito a término">Certificado de depósito a término</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Certificado de depósito a término" id="Certificado de depósito a término" onchange="ShowSelected11();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">12</th>
+                  <td>
+
+                      <label for="Cheques en caja general">Cheques en caja general</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Cheques en caja general" id="Cheques en caja general" onchange="ShowSelected12();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">13</th>
+                  <td>
+
+                      <label for="Clientes">Clientes</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Clientes" id="Clientes" onchange="ShowSelected13();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">14</th>
+                  <td>
+
+                      <label for="Computadores">Computadores</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Computadores" id="Computadores" onchange="ShowSelected14();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">15</th>
+                  <td>
+
+                      <label for="Costos">Costos</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Costos" id="Costos" onchange="ShowSelected15();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">16</th>
+                  <td>
+
+                      <label for="Costos y gastos por pagar">Costos y gastos por pagar</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Costos y gastos por pagar" id="Costos y gastos por pagar" onchange="ShowSelected16();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">17</th>
+                  <td>
+
+                      <label for="Cuenta por cobrar a trabajadores">Cuenta por cobrar a trabajadores</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Cuenta por cobrar a trabajadores" id="Cuenta por cobrar a trabajadores" onchange="ShowSelected17();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">18</th>
+                  <td>
+
+                      <label for="Cuentas por cobrar">Cuentas por cobrar</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Cuentas por cobrar" id="Cuentas por cobrar" onchange="ShowSelected18();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">19</th>
+                  <td>
+
+                      <label for="Cuentas por pagar">Cuentas por pagar</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Cuentas por pagar" id="Cuentas por pagar" onchange="ShowSelected19();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">20</th>
+                  <td>
+
+                      <label for="Cuentas por pagar a socios">Cuentas por pagar a socios</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Cuentas por pagar a socios" id="Cuentas por pagar a socios" onchange="ShowSelected20();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">21</th>
+                  <td>
+
+                      <label for="Cuotas o partes de interés social">Cuotas o partes de interés social</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Cuotas o partes de interés social" id="Cuotas o partes de interés social" onchange="ShowSelected21();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">22</th>
+                  <td>
+
+                      <label for="Derechos de franquicia">Derechos de franquicia</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Derechos de franquicia" id="Derechos de franquicia" onchange="ShowSelected22();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">23</th>
+                  <td>
+
+                      <label for="Deudores varios">Deudores varios</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Deudores varios" id="Deudores varios" onchange="ShowSelected23();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">24</th>
+                  <td>
+
+                      <label for="Dividendos decretados en acciones">Dividendos decretados en acciones</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Dividendos decretados en acciones" id="Dividendos decretados en acciones" onchange="ShowSelected24();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">25</th>
+                  <td>
+
+                      <label for="Efectivo">Efectivo</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Efectivo" id="Efectivo" onchange="ShowSelected25();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">26</th>
+                  <td>
+
+                      <label for="Efectivo en bancos">Efectivo en bancos</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Efectivo en bancos" id="Efectivo en bancos" onchange="ShowSelected26();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">27</th>
+                  <td>
+
+                      <label for="Efectivo en caja menor">Efectivo en caja menor</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Efectivo en caja menor" id="Efectivo en caja menor" onchange="ShowSelected27();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">28</th>
+                  <td>
+
+                      <label for="Envases y empaques">Envases y empaques</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Envases y empaques" id="Envases y empaques" onchange="ShowSelected28();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">29</th>
+                  <td>
+
+                      <label for="Ganancias acumuladas">Ganancias acumuladas</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Ganancias acumuladas" id="Ganancias acumuladas" onchange="ShowSelected29();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">30</th>
+                  <td>
+
+                      <label for="Gastos">Gastos</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Gastos" id="Gastos" onchange="ShowSelected30();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">31</th>
+                  <td>
+
+                      <label for="Impuesto a las ventas">Impuesto a las ventas</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Impuesto a las ventas" id="Impuesto a las ventas" onchange="ShowSelected31();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">32</th>
+                  <td>
+
+                      <label for="Impuesto de renta por pagar">Impuesto de renta por pagar</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Impuesto de renta por pagar" id="Impuesto de renta por pagar" onchange="ShowSelected32();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">33</th>
+                  <td>
+
+                      <label for="Impuestos por pagar">Impuestos por pagar</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Impuestos por pagar" id="Impuestos por pagar" onchange="ShowSelected33();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">34</th>
+                  <td>
+
+                      <label for="Impuestos, gravámenes y tasas">Impuestos, gravámenes y tasas</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Impuestos, gravámenes y tasas" id="Impuestos, gravámenes y tasas" onchange="ShowSelected34();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">35</th>
+                  <td>
+
+                      <label for="Ingresos">Ingresos</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Ingresos" id="Ingresos" onchange="ShowSelected35();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">36</th>
+                  <td>
+
+                      <label for="Intangibles">Intangibles</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Intangibles" id="Intangibles" onchange="ShowSelected36();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">37</th>
+                  <td>
+
+                      <label for="Inventarios">Inventarios</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Inventarios" id="Inventarios" onchange="ShowSelected37();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">38</th>
+                  <td>
+
+                      <label for="Inversiones">Inversiones</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Inversiones" id="Inversiones" onchange="ShowSelected38();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">39</th>
+                  <td>
+
+                      <label for="Inversiones a valor razonable">Inversiones a valor razonable</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Inversiones a valor razonable" id="Inversiones a valor razonable" onchange="ShowSelected39();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">40</th>
+                  <td>
+
+                      <label for="Licencias de software">Licencias de software</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Licencias de software" id="Licencias de software" onchange="ShowSelected40();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">41</th>
+                  <td>
+
+                      <label for="Local comercial">Local comercial</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Local comercial" id="Local comercial" onchange="ShowSelected41();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">42</th>
+                  <td>
+
+                      <label for="Marcas adquiridas">Marcas adquiridas</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Marcas adquiridas" id="Marcas adquiridas" onchange="ShowSelected42();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">43</th>
+                  <td>
+
+                      <label for="Materia prima">Materia prima</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Materia prima" id="Materia prima" onchange="ShowSelected43();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">44</th>
+                  <td>
+
+                      <label for="Mercancía">Mercancía</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Mercancía" id="Mercancía" onchange="ShowSelected44();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">45</th>
+                  <td>
+
+                      <label for="Obligaciones de financiamiento">Obligaciones de financiamiento</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Obligaciones de financiamiento" id="Obligaciones de financiamiento" onchange="ShowSelected45();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">46</th>
+                  <td>
+
+                      <label for="Obligaciones financieras">Obligaciones financieras</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Obligaciones financieras" id="Obligaciones financieras" onchange="ShowSelected46();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">47</th>
+                  <td>
+
+                      <label for="Obligaciones laborales">Obligaciones laborales</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Obligaciones laborales" id="Obligaciones laborales" onchange="ShowSelected47();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">48</th>
+                  <td>
+
+                      <label for="Otros resultados acumulados">Otros resultados acumulados</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Otros resultados acumulados" id="Otros resultados acumulados" onchange="ShowSelected48();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">49</th>
+                  <td>
+
+                      <label for="Otros resultados integrales">Otros resultados integrales</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Otros resultados integrales" id="Otros resultados integrales" onchange="ShowSelected49();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+                  <th scope="row">50</th>
+                  <td>
+
+                      <label for="Pagaré (en un banco)">Pagaré (en un banco)</label>
+
+                  </td>     
+                  <td> 
+                          <select name="Pagaré (en un banco)" id="Pagaré (en un banco)" onchange="ShowSelected50();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                  </tr>
+ 
+            </table>
+      </div>      
+      <div class="tabla_c_2">
+
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Cuenta</th>
+              <th scope="col">tipo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">51</th>
+              <td>
+
+                  <label for="Pasivo">Pasivo</label>
+
+              </td>     
+            <td> 
+                      <select name="Pasivo" id="Pasivo" onchange="ShowSelected();">
+                        <option value="0">...</option>
+                        <option value="B">B</option>
+                        <option value="R">R</option>
+                      </select>
+                    </td> 
+            </tr>
+            <tr>
+              <th scope="row">52</th>
+              <td>
+
+                  <label for="Patrimonio">Patrimonio</label>
+
+              </td>     
+            <td> 
+                      <select name="Patrimonio" id="Patrimonio" onchange="ShowSelected2();">
+                        <option value="0">...</option>
+                        <option value="B">B</option>
+                        <option value="R">R</option>
+                      </select>
+                    </td> 
+            </tr>
+            <tr>
+              <th scope="row">53</th>
+              <td>
+
+                  <label for="Prestaciones sociales por pagar">Prestaciones sociales por pagar</label>
+
+              </td>     
+            <td> 
+                      <select name="Prestaciones sociales por pagar" id="Prestaciones sociales por pagar" onchange="ShowSelected3();">
+                        <option value="0">...</option>
+                        <option value="B">B</option>
+                        <option value="R">R</option>
+                      </select>
+                    </td> 
+            </tr>
+            <tr>
+            <th scope="row">54</th>
+              <td>
+
+                  <label for="Préstamo de una cooperativa">Préstamo de una cooperativa</label>
+
+              </td>     
+            <td> 
+                      <select name="Préstamo de una cooperativa" id="Préstamo de una cooperativa" onchange="ShowSelected4();">
+                        <option value="0">...</option>
+                        <option value="B">B</option>
+                        <option value="R">R</option>
+                      </select>
+                    </td> 
+            </tr>
+            <tr>
+            <th scope="row">55</th>
+                <td>
+  
+                    <label for="Prima en colocación de acciones">Prima en colocación de acciones</label>
+  
+                </td>     
+              <td> 
+                        <select name="Prima en colocación de acciones" id="Prima en colocación de acciones" onchange="ShowSelected5();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+            </tr>
+             <tr>
+                  <th scope="row">56</th>
+                  <td>
+                      <label for="Productos terminados">Productos terminados</label>
+
+                  </td>     
+                   <td> 
+                            <select name="Productos terminados" id="Productos terminados" onchange="ShowSelected6();">
+                                <option value="0">...</option>
+                                <option value="B">B</option>
+                                <option value="R">R</option>
+                            </select>
+                    </td> 
+                  </tr>
+                  <th scope="row">7</th>
+                  <td>
+
+                      <label for="Bonos (emitidos por otras empresas)">Bonos (emitidos por otras empresas)</label>
+
+                  </td>     
+                <td> 
+                          <select name="Bonos (emitidos por otras empresas)" id="Bonos (emitidos por otras empresas)" onchange="ShowSelected7();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                    </tr>
+                    <th scope="row">8</th>
+                    <td>
+
+                        <label for="Capital social">Capital social</label>
+
+                    </td>     
+                  <td> 
+                            <select name="Capital social" id="Capital social" onchange="ShowSelected8();">
+                              <option value="0">...</option>
+                              <option value="B">B</option>
+                              <option value="R">R</option>
+                            </select>
+                          </td> 
+                </tr>
+                  <th scope="row">9</th>
+                  <td>
+
+                      <label for="Capital suscrito y pagado">Capital suscrito y pagado</label>
+
+                  </td>     
+                <td> 
+                          <select name="Capital suscrito y pagado" id="Capital suscrito y pagado"onchange="ShowSelected9();">
+                            <option value="0">...</option>
+                            <option value="B">B</option>
+                            <option value="R">R</option>
+                          </select>
+                        </td> 
+                </tr>
+                <th scope="row">10</th>
+                <td>
+
+                    <label for="Carta de crédito de un banco">Carta de crédito de un banco</label>
+
+                </td>     
+                <td> 
+                        <select name="Carta de crédito de un banco" id="Carta de crédito de un banco" onchange="ShowSelected10();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">11</th>
+                <td>
+
+                    <label for="Certificado de depósito a término">Certificado de depósito a término</label>
+
+                </td>     
+                <td> 
+                        <select name="Certificado de depósito a término" id="Certificado de depósito a término" onchange="ShowSelected11();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">12</th>
+                <td>
+
+                    <label for="Cheques en caja general">Cheques en caja general</label>
+
+                </td>     
+                <td> 
+                        <select name="Cheques en caja general" id="Cheques en caja general" onchange="ShowSelected12();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">13</th>
+                <td>
+
+                    <label for="Clientes">Clientes</label>
+
+                </td>     
+                <td> 
+                        <select name="Clientes" id="Clientes" onchange="ShowSelected13();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">14</th>
+                <td>
+
+                    <label for="Computadores">Computadores</label>
+
+                </td>     
+                <td> 
+                        <select name="Computadores" id="Computadores" onchange="ShowSelected14();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">15</th>
+                <td>
+
+                    <label for="Costos">Costos</label>
+
+                </td>     
+                <td> 
+                        <select name="Costos" id="Costos" onchange="ShowSelected15();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">16</th>
+                <td>
+
+                    <label for="Costos y gastos por pagar">Costos y gastos por pagar</label>
+
+                </td>     
+                <td> 
+                        <select name="Costos y gastos por pagar" id="Costos y gastos por pagar" onchange="ShowSelected16();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">17</th>
+                <td>
+
+                    <label for="Cuenta por cobrar a trabajadores">Cuenta por cobrar a trabajadores</label>
+
+                </td>     
+                <td> 
+                        <select name="Cuenta por cobrar a trabajadores" id="Cuenta por cobrar a trabajadores" onchange="ShowSelected17();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">18</th>
+                <td>
+
+                    <label for="Cuentas por cobrar">Cuentas por cobrar</label>
+
+                </td>     
+                <td> 
+                        <select name="Cuentas por cobrar" id="Cuentas por cobrar" onchange="ShowSelected18();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">19</th>
+                <td>
+
+                    <label for="Cuentas por pagar">Cuentas por pagar</label>
+
+                </td>     
+                <td> 
+                        <select name="Cuentas por pagar" id="Cuentas por pagar" onchange="ShowSelected19();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">20</th>
+                <td>
+
+                    <label for="Cuentas por pagar a socios">Cuentas por pagar a socios</label>
+
+                </td>     
+                <td> 
+                        <select name="Cuentas por pagar a socios" id="Cuentas por pagar a socios" onchange="ShowSelected20();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">21</th>
+                <td>
+
+                    <label for="Cuotas o partes de interés social">Cuotas o partes de interés social</label>
+
+                </td>     
+                <td> 
+                        <select name="Cuotas o partes de interés social" id="Cuotas o partes de interés social" onchange="ShowSelected21();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">22</th>
+                <td>
+
+                    <label for="Derechos de franquicia">Derechos de franquicia</label>
+
+                </td>     
+                <td> 
+                        <select name="Derechos de franquicia" id="Derechos de franquicia" onchange="ShowSelected22();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">23</th>
+                <td>
+
+                    <label for="Deudores varios">Deudores varios</label>
+
+                </td>     
+                <td> 
+                        <select name="Deudores varios" id="Deudores varios" onchange="ShowSelected23();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">24</th>
+                <td>
+
+                    <label for="Dividendos decretados en acciones">Dividendos decretados en acciones</label>
+
+                </td>     
+                <td> 
+                        <select name="Dividendos decretados en acciones" id="Dividendos decretados en acciones" onchange="ShowSelected24();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">25</th>
+                <td>
+
+                    <label for="Efectivo">Efectivo</label>
+
+                </td>     
+                <td> 
+                        <select name="Efectivo" id="Efectivo" onchange="ShowSelected25();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">26</th>
+                <td>
+
+                    <label for="Efectivo en bancos">Efectivo en bancos</label>
+
+                </td>     
+                <td> 
+                        <select name="Efectivo en bancos" id="Efectivo en bancos" onchange="ShowSelected26();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">27</th>
+                <td>
+
+                    <label for="Efectivo en caja menor">Efectivo en caja menor</label>
+
+                </td>     
+                <td> 
+                        <select name="Efectivo en caja menor" id="Efectivo en caja menor" onchange="ShowSelected27();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">28</th>
+                <td>
+
+                    <label for="Envases y empaques">Envases y empaques</label>
+
+                </td>     
+                <td> 
+                        <select name="Envases y empaques" id="Envases y empaques" onchange="ShowSelected28();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">29</th>
+                <td>
+
+                    <label for="Ganancias acumuladas">Ganancias acumuladas</label>
+
+                </td>     
+                <td> 
+                        <select name="Ganancias acumuladas" id="Ganancias acumuladas" onchange="ShowSelected29();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">30</th>
+                <td>
+
+                    <label for="Gastos">Gastos</label>
+
+                </td>     
+                <td> 
+                        <select name="Gastos" id="Gastos" onchange="ShowSelected30();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">31</th>
+                <td>
+
+                    <label for="Impuesto a las ventas">Impuesto a las ventas</label>
+
+                </td>     
+                <td> 
+                        <select name="Impuesto a las ventas" id="Impuesto a las ventas" onchange="ShowSelected31();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">32</th>
+                <td>
+
+                    <label for="Impuesto de renta por pagar">Impuesto de renta por pagar</label>
+
+                </td>     
+                <td> 
+                        <select name="Impuesto de renta por pagar" id="Impuesto de renta por pagar" onchange="ShowSelected32();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">33</th>
+                <td>
+
+                    <label for="Impuestos por pagar">Impuestos por pagar</label>
+
+                </td>     
+                <td> 
+                        <select name="Impuestos por pagar" id="Impuestos por pagar" onchange="ShowSelected33();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">34</th>
+                <td>
+
+                    <label for="Impuestos, gravámenes y tasas">Impuestos, gravámenes y tasas</label>
+
+                </td>     
+                <td> 
+                        <select name="Impuestos, gravámenes y tasas" id="Impuestos, gravámenes y tasas" onchange="ShowSelected34();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">35</th>
+                <td>
+
+                    <label for="Ingresos">Ingresos</label>
+
+                </td>     
+                <td> 
+                        <select name="Ingresos" id="Ingresos" onchange="ShowSelected35();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">36</th>
+                <td>
+
+                    <label for="Intangibles">Intangibles</label>
+
+                </td>     
+                <td> 
+                        <select name="Intangibles" id="Intangibles" onchange="ShowSelected36();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">37</th>
+                <td>
+
+                    <label for="Inventarios">Inventarios</label>
+
+                </td>     
+                <td> 
+                        <select name="Inventarios" id="Inventarios" onchange="ShowSelected37();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">38</th>
+                <td>
+
+                    <label for="Inversiones">Inversiones</label>
+
+                </td>     
+                <td> 
+                        <select name="Inversiones" id="Inversiones" onchange="ShowSelected38();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">39</th>
+                <td>
+
+                    <label for="Inversiones a valor razonable">Inversiones a valor razonable</label>
+
+                </td>     
+                <td> 
+                        <select name="Inversiones a valor razonable" id="Inversiones a valor razonable" onchange="ShowSelected39();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">40</th>
+                <td>
+
+                    <label for="Licencias de software">Licencias de software</label>
+
+                </td>     
+                <td> 
+                        <select name="Licencias de software" id="Licencias de software" onchange="ShowSelected40();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">41</th>
+                <td>
+
+                    <label for="Local comercial">Local comercial</label>
+
+                </td>     
+                <td> 
+                        <select name="Local comercial" id="Local comercial" onchange="ShowSelected41();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">42</th>
+                <td>
+
+                    <label for="Marcas adquiridas">Marcas adquiridas</label>
+
+                </td>     
+                <td> 
+                        <select name="Marcas adquiridas" id="Marcas adquiridas" onchange="ShowSelected42();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">43</th>
+                <td>
+
+                    <label for="Materia prima">Materia prima</label>
+
+                </td>     
+                <td> 
+                        <select name="Materia prima" id="Materia prima" onchange="ShowSelected43();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">44</th>
+                <td>
+
+                    <label for="Mercancía">Mercancía</label>
+
+                </td>     
+                <td> 
+                        <select name="Mercancía" id="Mercancía" onchange="ShowSelected44();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">45</th>
+                <td>
+
+                    <label for="Obligaciones de financiamiento">Obligaciones de financiamiento</label>
+
+                </td>     
+                <td> 
+                        <select name="Obligaciones de financiamiento" id="Obligaciones de financiamiento" onchange="ShowSelected45();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">46</th>
+                <td>
+
+                    <label for="Obligaciones financieras">Obligaciones financieras</label>
+
+                </td>     
+                <td> 
+                        <select name="Obligaciones financieras" id="Obligaciones financieras" onchange="ShowSelected46();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">47</th>
+                <td>
+
+                    <label for="Obligaciones laborales">Obligaciones laborales</label>
+
+                </td>     
+                <td> 
+                        <select name="Obligaciones laborales" id="Obligaciones laborales" onchange="ShowSelected47();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">48</th>
+                <td>
+
+                    <label for="Otros resultados acumulados">Otros resultados acumulados</label>
+
+                </td>     
+                <td> 
+                        <select name="Otros resultados acumulados" id="Otros resultados acumulados" onchange="ShowSelected48();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">49</th>
+                <td>
+
+                    <label for="Otros resultados integrales">Otros resultados integrales</label>
+
+                </td>     
+                <td> 
+                        <select name="Otros resultados integrales" id="Otros resultados integrales" onchange="ShowSelected49();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+                <th scope="row">50</th>
+                <td>
+
+                    <label for="Pagaré (en un banco)">Pagaré (en un banco)</label>
+
+                </td>     
+                <td> 
+                        <select name="Pagaré (en un banco)" id="Pagaré (en un banco)" onchange="ShowSelected50();">
+                          <option value="0">...</option>
+                          <option value="B">B</option>
+                          <option value="R">R</option>
+                        </select>
+                      </td> 
+                </tr>
+
+          </table>
+    </div>  
+       <div>
+        <button id="nivel_6" type="button"  class="btn btn-secondary btn-lg btn-block" onclick="openCity(event, 'Nivel 6')" disabled>Nivel 6 </button> 
+       </div>
+    </div>
+    
+  </div>
+  
+</div>
+<!-- /.nivel 6 -->
+
+<div id="Nivel 6" class="tabcontent">
+  
+    <div class="jumbotron text-center">
+      <h2>Nivel 6</h2>
+      
+    </div>
+  
+  
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-sm-2">
+          
+          <img src="/Users/macbookpro/Documents/Proyect_D/proyecto_finanzas/images/pexels-rodnae-productions-7948039.jpeg" class="rounded" alt="Cinque Terre" width="170" height="170"> 
+        </div>
+        <div class="col-sm-8"> 
+          <span class="border border-5">
+            <p>Las transacciones son eventos que cambian la situación financiera de la empresa y que se pueden medir fiablemente, por ejemplo:</p>
+            <d1>
+              <dt>- Compra de bienes o servicios</dt>
+              <dt>- Venta de bienes o servicio</dt>
+              <dt>- Pago de arrendamiento</dt>
+              <dt>- Adquisición de una deuda</dt>
+            </d1>
+           </span>
+        </div>
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="bg-success p-3" style="--bs-bg-opacity: .5;">
+          <div class="container">
+            <p>La partida doble es el principio que se refiere a que en cada transacción hay causa y efecto.  En cada transacción se mueven dos cuentas por lo menos, una (o más) de naturaleza débito y otra (o más) de naturaleza crédito.  Siendo el movimiento débito, igual al movimiento crédito.  Para que se mantenga la igualdad de la ecuación contable</p>
+
+          </div>
+
+        </div>
+        
+      </div>
+      <br>
+      <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="col-sm-8"> 
+            <h5> Ej:  Compra mercancía de contado por 100 unidades monetarias </h5> </div>
+
+          </div>
+
+          <div class="row justify-content-md-center">
+            <div class="col-9"> 
+              <h5> La causa es la compra, la consecuencia es la responsabilidad de pagar </h5>
+  
+            </div>
+
+        </div>
+        <br>
+        <div class="row justify-content-md-center">
+          <div class="container-fluid"> 
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                    <th>Dimensión</th>
+                    <th>Nombre</th>
+                    <th>Naturaleza del registro</th>
+                    <th>Valor</th>
+                    <th>Análisis</th>
+
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Causa</td>
+                    <td>Mercancía</td>
+                    <td>Débito</td>
+                    <td>100</td>
+                    <td>En este caso hay un aumento del activo porque la mercancía es una cuenta del activo y las cuentas del activo aumentan cuando se les hacen registros débitos</td>
+                  </tr>
+                  <tr>
+                    <td>Consecuencia</td>
+                    <td>Efectivo</td>
+                    <td>Crédito</td>
+                    <td>100</td>
+                    <td>En este caso hay una disminución del activo porque el efectivo es una cuenta del activo y las cuentas del activo disminuyen cuando se les hacen registros créditos</td>
+                  </tr>
+                </tbody>
+
+              </table>
+
+
+
+            </div>
+
+          </div>
+          <br>
+          <div class="bg-success p-2" style="--bs-bg-opacity: .5;"></div>
+
+  
+          
+
+      </div>
+      <br>
+      <div class="row justify-content-md-center">
+        <div class="col-9"> 
+          <h5> Ej: Pago de 200 unidades monetarias de una deuda que se tenía con un proveedor </h5> </div>
+
+        </div>
+
+        <div class="row justify-content-md-center">
+          <div class="col-9"> 
+            <h5> La causa es el pago de la deuda, la consecuencia es la disminución de mi efectivo </h5>
+
+          </div>
+          <br><br>
+          <div class="row justify-content-md-center">
+            <div class="container-fluid"> 
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                      <th>Dimensión</th>
+                      <th>Nombre</th>
+                      <th>Naturaleza del registro</th>
+                      <th>Valor</th>
+                      <th>Análisis</th>
+  
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Causa</td>
+                      <td>Mercancía</td>
+                      <td>Débito</td>
+                      <td>100</td>
+                      <td>En este caso hay un aumento del activo porque la mercancía es una cuenta del activo y las cuentas del activo aumentan cuando se les hacen registros débitos</td>
+                    </tr>
+                    <tr>
+                      <td>Consecuencia</td>
+                      <td>Efectivo</td>
+                      <td>Crédito</td>
+                      <td>100</td>
+                      <td>En este caso hay una disminución del activo porque el efectivo es una cuenta del activo y las cuentas del activo disminuyen cuando se les hacen registros créditos</td>
+                    </tr>
+                  </tbody>
+  
+                </table>
+                <br>
+              
+  
+  
+              </div>
+        
+            </div>
+            <br> 
+           <!-- /.Preguntas nivel 6-->
+            <div class="bg-success p-2" style="--bs-bg-opacity: .5;"></div>
+            
+            <div class="row justify-content-md-center">
+              <br>
+              <div class="container p-2 my-3 bg-secondary text-white"></div>
+              <div class="container-fluid"> 
+                <h5> Para cada una de las siguientes transacciones, identifique el efecto que cada una tiene sobre la estructura financiera y/o el desempeño</h5> </div>
+      
+              </div>
+             
+              <div class="tabla_c_2"> 
+
+                <table class="table table-bordered">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Transacción</th>
+                      <th scope="col">Causa</th>
+                      <th scope="col">Consecuencia</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>
+        
+                          <label for="CompraMercancia">Compra mercancías de contado</label>
+        
+                      </td>     
+                    <td> 
+                              <select name="CompraMercancia" id="CompraMercancia">
+                                <option value="0">...</option>
+                                <option value="1">Aumento del activo</option>
+                                <option value="2">Aumento del pasivo</option>
+                                <option value="3">Aumento del patrimonio</option>
+                                <option value="4">Aumento de los ingresos</option>
+                                <option value="5">Aumento de los gastos</option>
+                                <option value="6">Aumento de los costos</option>
+                                <option value="7">Disminución del activo</option>
+                                <option value="8">Disminución del pasivo</option>
+                                <option value="9">Disminución del patrimonio</option>
+                              </select>
+                            </td> 
+                            <td> 
+                              <select name="CompraMercancia_con" id="CompraMercancia_con">
+                                <option value="0">...</option>
+                                <option value="1">Aumento del activo</option>
+                                <option value="2">Aumento del pasivo</option>
+                                <option value="3">Aumento del patrimonio</option>
+                                <option value="4">Aumento de los ingresos</option>
+                                <option value="5">Aumento de los gastos</option>
+                                <option value="6">Aumento de los costos</option>
+                                <option value="7">Disminución del activo</option>
+                                <option value="8">Disminución del pasivo</option>
+                                <option value="9">Disminución del patrimonio</option>
+                              </select>
+                            </td> 
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>
+        
+                          <label for="CompraMercanciaCredito">Compra mercancías a crédito</label>
+        
+                      </td>     
+                    <td> 
+                              <select name="CompraMercanciaCredito" id="CompraMercanciaCredito">
+                                <option value="0">...</option>
+                                <option value="1">Aumento del activo</option>
+                                <option value="2">Aumento del pasivo</option>
+                                <option value="3">Aumento del patrimonio</option>
+                                <option value="4">Aumento de los ingresos</option>
+                                <option value="5">Aumento de los gastos</option>
+                                <option value="6">Aumento de los costos</option>
+                                <option value="7">Disminución del activo</option>
+                                <option value="8">Disminución del pasivo</option>
+                                <option value="9">Disminución del patrimonio</option>
+                              </select>
+                            </td> 
+                            <td> 
+                              <select name="CompraMercanciaCredito_con" id="CompraMercanciaCredito_con">
+                                <option value="0">...</option>
+                                <option value="1">Aumento del activo</option>
+                                <option value="2">Aumento del pasivo</option>
+                                <option value="3">Aumento del patrimonio</option>
+                                <option value="4">Aumento de los ingresos</option>
+                                <option value="5">Aumento de los gastos</option>
+                                <option value="6">Aumento de los costos</option>
+                                <option value="7">Disminución del activo</option>
+                                <option value="8">Disminución del pasivo</option>
+                                <option value="9">Disminución del patrimonio</option>
+                              </select>
+                            </td> 
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>
+        
+                          <label for="IngresaNuevoSocio">Ingresa un nuevo socio y hace un aporte en efectivo</label>
+        
+                      </td>     
+                    <td> 
+                              <select name="IngresaNuevoSocio" id="IngresaNuevoSocio" >
+                                <option value="0">...</option>
+                                <option value="1">Aumento del activo</option>
+                                <option value="2">Aumento del pasivo</option>
+                                <option value="3">Aumento del patrimonio</option>
+                                <option value="4">Aumento de los ingresos</option>
+                                <option value="5">Aumento de los gastos</option>
+                                <option value="6">Aumento de los costos</option>
+                                <option value="7">Disminución del activo</option>
+                                <option value="8">Disminución del pasivo</option>
+                                <option value="9">Disminución del patrimonio</option>
+                              </select>
+                            </td> 
+                            <td> 
+                              <select name="IngresaNuevoSocio_con" id="IngresaNuevoSocio_con" >
+                                <option value="0">...</option>
+                                <option value="1">Aumento del activo</option>
+                                <option value="2">Aumento del pasivo</option>
+                                <option value="3">Aumento del patrimonio</option>
+                                <option value="4">Aumento de los ingresos</option>
+                                <option value="5">Aumento de los gastos</option>
+                                <option value="6">Aumento de los costos</option>
+                                <option value="7">Disminución del activo</option>
+                                <option value="8">Disminución del pasivo</option>
+                                <option value="9">Disminución del patrimonio</option>
+                              </select>
+                            </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>
+        
+                          <label for="PagoValorAdedudado">Un cliente le paga un valor adeudado desde hace un mes</label>
+        
+                      </td>     
+                    <td> 
+                              <select name="PagoValorAdedudado" id="PagoValorAdedudado" >
+                                <option value="0">...</option>
+                                <option value="1">Aumento del activo</option>
+                                <option value="2">Aumento del pasivo</option>
+                                <option value="3">Aumento del patrimonio</option>
+                                <option value="4">Aumento de los ingresos</option>
+                                <option value="5">Aumento de los gastos</option>
+                                <option value="6">Aumento de los costos</option>
+                                <option value="7">Disminución del activo</option>
+                                <option value="8">Disminución del pasivo</option>
+                                <option value="9">Disminución del patrimonio</option>
+                              </select>
+                            </td> 
+                            <td> 
+                              <select name="PagoValorAdedudado_con" id="PagoValorAdedudado_con" >
+                                <option value="0">...</option>
+                                <option value="1">Aumento del activo</option>
+                                <option value="2">Aumento del pasivo</option>
+                                <option value="3">Aumento del patrimonio</option>
+                                <option value="4">Aumento de los ingresos</option>
+                                <option value="5">Aumento de los gastos</option>
+                                <option value="6">Aumento de los costos</option>
+                                <option value="7">Disminución del activo</option>
+                                <option value="8">Disminución del pasivo</option>
+                                <option value="9">Disminución del patrimonio</option>
+                              </select>
+                            </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td>
+        
+                          <label for="VentaMercancia">Venta de mercancía a crédito</label>
+        
+                      </td>     
+                    <td> 
+                              <select name="VentaMercancia" id="VentaMercancia" >
+                                <option value="0">...</option>
+                                <option value="1">Aumento del activo</option>
+                                <option value="2">Aumento del pasivo</option>
+                                <option value="3">Aumento del patrimonio</option>
+                                <option value="4">Aumento de los ingresos</option>
+                                <option value="5">Aumento de los gastos</option>
+                                <option value="6">Aumento de los costos</option>
+                                <option value="7">Disminución del activo</option>
+                                <option value="8">Disminución del pasivo</option>
+                                <option value="9">Disminución del patrimonio</option>
+                              </select>
+                            </td> 
+                            <td> 
+                              <select name="VentaMercancia_con" id="VentaMercancia_con" >
+                                <option value="0">...</option>
+                                <option value="1">Aumento del activo</option>
+                                <option value="2">Aumento del pasivo</option>
+                                <option value="3">Aumento del patrimonio</option>
+                                <option value="4">Aumento de los ingresos</option>
+                                <option value="5">Aumento de los gastos</option>
+                                <option value="6">Aumento de los costos</option>
+                                <option value="7">Disminución del activo</option>
+                                <option value="8">Disminución del pasivo</option>
+                                <option value="9">Disminución del patrimonio</option>
+                              </select>
+                            </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td>
+        
+                          <label for="ReconocimientoCosto">Reconocimiento del costo de la mercancía de la venta anterior </label>
+        
+                      </td>     
+                    <td> 
+                              <select name="ReconocimientoCosto" id="ReconocimientoCosto" >
+                                <option value="0">...</option>
+                                <option value="1">Aumento del activo</option>
+                                <option value="2">Aumento del pasivo</option>
+                                <option value="3">Aumento del patrimonio</option>
+                                <option value="4">Aumento de los ingresos</option>
+                                <option value="5">Aumento de los gastos</option>
+                                <option value="6">Aumento de los costos</option>
+                                <option value="7">Disminución del activo</option>
+                                <option value="8">Disminución del pasivo</option>
+                                <option value="9">Disminución del patrimonio</option>
+                              </select>
+                            </td> 
+                            <td> 
+                              <select name="ReconocimientoCosto_con" id="ReconocimientoCosto_con" >
+                                <option value="0">...</option>
+                                <option value="1">Aumento del activo</option>
+                                <option value="2">Aumento del pasivo</option>
+                                <option value="3">Aumento del patrimonio</option>
+                                <option value="4">Aumento de los ingresos</option>
+                                <option value="5">Aumento de los gastos</option>
+                                <option value="6">Aumento de los costos</option>
+                                <option value="7">Disminución del activo</option>
+                                <option value="8">Disminución del pasivo</option>
+                                <option value="9">Disminución del patrimonio</option>
+                              </select>
+                            </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">7</th>
+                      <td>
+        
+                          <label for="ReconocimientoGasto">Reconocimiento del gastos de arrendamiento del período (lo queda debiendo)</label>
+        
+                      </td>     
+                    <td> 
+                              <select name="ReconocimientoGasto" id="ReconocimientoGasto" >
+                                <option value="0">...</option>
+                                <option value="1">Aumento del activo</option>
+                                <option value="2">Aumento del pasivo</option>
+                                <option value="3">Aumento del patrimonio</option>
+                                <option value="4">Aumento de los ingresos</option>
+                                <option value="5">Aumento de los gastos</option>
+                                <option value="6">Aumento de los costos</option>
+                                <option value="7">Disminución del activo</option>
+                                <option value="8">Disminución del pasivo</option>
+                                <option value="9">Disminución del patrimonio</option>
+                              </select>
+                            </td> 
+                            <td> 
+                              <select name="ReconocimientoGasto_con" id="ReconocimientoGasto_con" >
+                                <option value="0">...</option>
+                                <option value="1">Aumento del activo</option>
+                                <option value="2">Aumento del pasivo</option>
+                                <option value="3">Aumento del patrimonio</option>
+                                <option value="4">Aumento de los ingresos</option>
+                                <option value="5">Aumento de los gastos</option>
+                                <option value="6">Aumento de los costos</option>
+                                <option value="7">Disminución del activo</option>
+                                <option value="8">Disminución del pasivo</option>
+                                <option value="9">Disminución del patrimonio</option>
+                              </select>
+                            </td>
+                    </tr>
+
+                    
+                  </table>
+                  <button type="button" class="btn btn-primary" id="ValidarResultaos" name="ValidarResultaos" onclick="validar_resultados()">Validar Resultados</button>
+                  <button type="button" class="btn btn-primary" onclick="reset_n6()">Reset</button>
+            </div>  
+
+            
+
+            </div>
+            <div id="alert"></div>
+
+              <div class="alert alert-error collapse" role="alert" id="passwordsNoMatchRegister" style="display:none;">
+                <div class="alert alert-success">
+                  <button type="button" class="close" data-dismiss="alert" id="success" aria-label="Close">&times;</button>
+                  <strong>¡Felicitaciones!</strong> Puedes avanzar al siguiente Nivel.
+                </div> 
+                <div class="container">        
+                  <button type="button" class="btn btn-info btn-block" onclick="mostrar_nivel7()" id="mostrar_nivel7">Nivel 7</button>
+                </div>
+              </div>
+
+              <div class="alert alert-error collapse" role="alert" id="passwordsNoMatchRegister2" style="display:none;">
+                
+                <div class="alert alert-danger">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <strong>¡Cuidado!</strong> Inténtalo de nuevo.
+                  
+                </div>
+              </div>
+              <div class="claseDiv" id="claseDiv">
+                <div class="container p-2 my-3 bg-secondary text-white"></div>
+                
+                    
+                      <div class="card card-body bg-light text-center">
+                        <h2>Nivel 7</h2>
+                        
+                      </div>
+                      <br><br>
+                      <div class="row justify-content-md-center">
+                        <div class="bg-success p-3" style="--bs-bg-opacity: .5;">
+                          <div class="container">
+                            <p>Las transacciones se registran cronológicamente en comprobantes (el formato cambia de acuerdo con el sistema usado y se usan códigos para identificar las cuentas, en este nivel se van a omitir) así:</p>
+                
+                          </div>
+                
+                        </div></div>
+                        <br>
+                        <div class="container">
+                          <div class="row justify-content-md-center">
+                            <div class="col-sm-8"> 
+                              <h5> Ej: Compra mercancía de contado por 100 unidades monetarias </h5> </div>
+                  
+                          </div>
+                          </div>
+                          <br>
+                          <div class="row justify-content-md-center">
+                            <div class="container-fluid"> 
+                              <div class="table-responsive">
+                                <table class="table table-bordered">
+                                  <thead>
+                                      <th>Nombre de la cuenta</th>
+                                      <th>Débito</th>
+                                      <th>Crédito</th>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>Activo - mercancía</td>
+                                      <td>100</td>
+                                      <td></td>
+                                    </tr>
+                                    <tr>
+                                      <td>Activo - mercancía</td>
+                                      <td></td>
+                                      <td>100</td>
+
+                                    </tr>
+                                  </tbody>
+                  
+                                </table>
+                                <br>
+                              </div>
+                            </div>
+                          </div>
+                          <br>
+                          <div class="bg-success p-2" style="--bs-bg-opacity: .5;"></div>
+                          <br>
+                          <div class="container">
+                            <div class="row justify-content-md-center">
+                              <div class="col-9"> 
+                                <h5> Ej: Un cliente le hace un pago de 200 unidades monetarias de una deuda que le debía a la empresa</h5> </div>
+                    
+                            </div>
+                            </div>
+                            <br>
+                            <div class="row justify-content-md-center">
+                              <div class="container-fluid"> 
+                                <div class="table-responsive">
+                                  <table class="table table-bordered">
+                                    <thead>
+                                        <th>Nombre de la cuenta</th>
+                                        <th>Débito</th>
+                                        <th>Crédito</th>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>Activo - mercancía</td>
+                                        <td>200</td>
+                                        <td></td>
+                                      </tr>
+                                      <tr>
+                                        <td>Activo - mercancía</td>
+                                        <td></td>
+                                        <td>200</td>
+  
+                                      </tr>
+                                    </tbody>
+                    
+                                  </table>
+                                  <br>
+                                
+                                </div>
+                              </div>
+
+                                  <!-- /.Preguntas nivel 7-->
+                                    <div class="bg-success p-2" style="--bs-bg-opacity: .5;"></div>
+                                    
+                                    <div class="row justify-content-md-center">
+                                      <br>
+                                      <div class="container p-2 my-3 bg-secondary text-white"></div>
+                                      <div class="container-fluid"> 
+                                        <h5> Para cada una de las siguientes transacciones, seleccione la cuenta y digite el valor según corresponda, en el débito o en el crédito</h5> </div>
+                              
+                                      </div>
+
+                                      <div class="row justify-content-md-center">
+                                        <div class="col-sm-8"> 
+                                          <table class="table table-striped">
+
+                                            <thead>
+                                              <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Transacción</th>
+
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <th scope="row">1</th>
+                                                <td>Compra 100 UM de mercancías de contado</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">2</th>
+                                                <td>Compra 150 UM de mercancías a crédito</td>
+                                              </tr>
+
+                                              <tr>
+                                                <th scope="row">3</th>
+                                                <td>Ingresa un nuevo socio y hace un aporte en efectivo de 500 UM</td>
+                                              </tr>
+
+                                              <tr>
+                                                <th scope="row">4</th>
+                                                <td>Un cliente le paga un valor adeudado desde hace un mes por valor de 200 UM</td>
+                                              </tr>
+
+                                              <tr>
+                                                <th scope="row">5</th>
+                                                <td>Venta de mercancía a crédito por 200 UM</td>
+                                              </tr>
+
+                                              <tr>
+                                                <th scope="row">6</th>
+                                                <td>Reconocimiento del costo de la mercancía de la venta anterior por 120 UM</td>
+                                              </tr>
+
+                                              <tr>
+                                                <th scope="row">7</th>
+                                                <td>Reconocimiento del gastos de arrendamiento del período (lo queda debiendo) 130 UM<</td>
+                                              </tr>
+
+
+                                            </tbody>
+                                        
+                                       
+                                        </table>   
+                                        </div>
+                                        <div class="container">
+                                          <table class="table table-hover">
+                                            <thead>
+                                              <tr>
+                                                <th>Nº</th>
+                                                <th>Nombre de la cuenta</th>
+                                                <th>Débito</th>
+                                                <th>Crédito</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td rowspan="2">1</td>
+                                                <td>
+                                                  <select name="Pasivo" id="Pasivo">
+                                                  <option value="0">...</option>
+                                                  <option value="1">Activo - mercancía</option>
+                                                  <option value="2">Activo - efectivo</option>
+                                                  <option value="3">Pasivo - cuentas por pagar</option>
+                                                  <option value="4">Patrimonio - capital social</option>
+                                                  <option value="5">Activo - cuentas por cobrar</option>
+                                                  <option value="6">Ingresos - ventas</option>
+                                                  <option value="7">Costos - por ventas de mercancía</option>
+                                                  <option value="8">Gastos - arrendamientos</option>
+
+                                                </select></td>
+                                                <td>
+                                                  <input type="text" id="val_7_1">
+                                                </td>
+                                                <td>
+                                                  <input type="text" id="val_7_1_2">
+                                                </td>
+                                                
+                                              </tr>
+
+                                              <td>
+                                                <select name="Pasivo" id="Pasivo">
+                                                <option value="0">...</option>
+                                                <option value="1">Activo - mercancía</option>
+                                                <option value="2">Activo - efectivo</option>
+                                                <option value="3">Pasivo - cuentas por pagar</option>
+                                                <option value="4">Patrimonio - capital social</option>
+                                                <option value="5">Activo - cuentas por cobrar</option>
+                                                <option value="6">Ingresos - ventas</option>
+                                                <option value="7">Costos - por ventas de mercancía</option>
+                                                <option value="8">Gastos - arrendamientos</option>
+
+                                              </select></td>
+
+                                              <td>
+                                                <input type="text" id="val_7_2_1"></td>
+                                              <td>
+                                                <input type="text" id="val_7_2_2"></td>
+                                                
+                                              </tr>
+                                              <tr>
+                                                <td rowspan="2">2</td>
+                                                <td>
+                                                  <select name="Pasivo" id="Pasivo">
+                                                  <option value="0">...</option>
+                                                  <option value="1">Activo - mercancía</option>
+                                                  <option value="2">Activo - efectivo</option>
+                                                  <option value="3">Pasivo - cuentas por pagar</option>
+                                                  <option value="4">Patrimonio - capital social</option>
+                                                  <option value="5">Activo - cuentas por cobrar</option>
+                                                  <option value="6">Ingresos - ventas</option>
+                                                  <option value="7">Costos - por ventas de mercancía</option>
+                                                  <option value="8">Gastos - arrendamientos</option>
+
+                                                </select></td>
+                                                <td>
+                                                  <input type="text" id="val_7_3_1">
+                                                </td>
+                                                <td>
+                                                  <input type="text" id="val_7_3_2">
+                                                </td>
+                                                
+                                              </tr>
+
+                                              <td>
+                                                <select name="Pasivo" id="Pasivo">
+                                                <option value="0">...</option>
+                                                <option value="1">Activo - mercancía</option>
+                                                <option value="2">Activo - efectivo</option>
+                                                <option value="3">Pasivo - cuentas por pagar</option>
+                                                <option value="4">Patrimonio - capital social</option>
+                                                <option value="5">Activo - cuentas por cobrar</option>
+                                                <option value="6">Ingresos - ventas</option>
+                                                <option value="7">Costos - por ventas de mercancía</option>
+                                                <option value="8">Gastos - arrendamientos</option>
+
+                                              </select></td>
+
+                                              <td>
+                                                <input type="text" id="val_7_4_1"></td>
+                                              <td>
+                                                <input type="text" id="val_7_4_2"></td>
+                                                
+                                              </tr>
+                                              <tr>
+                                                <td rowspan="2">3</td>
+                                                <td>
+                                                  <select name="Pasivo" id="Pasivo">
+                                                  <option value="0">...</option>
+                                                  <option value="1">Activo - mercancía</option>
+                                                  <option value="2">Activo - efectivo</option>
+                                                  <option value="3">Pasivo - cuentas por pagar</option>
+                                                  <option value="4">Patrimonio - capital social</option>
+                                                  <option value="5">Activo - cuentas por cobrar</option>
+                                                  <option value="6">Ingresos - ventas</option>
+                                                  <option value="7">Costos - por ventas de mercancía</option>
+                                                  <option value="8">Gastos - arrendamientos</option>
+
+                                                </select></td>
+                                                <td>
+                                                  <input type="text" id="val_7_5_1">
+                                                </td>
+                                                <td>
+                                                  <input type="text" id="val_7_5_2">
+                                                </td>
+                                                
+                                              </tr>
+
+                                              <td>
+                                                <select name="Pasivo" id="Pasivo">
+                                                <option value="0">...</option>
+                                                <option value="1">Activo - mercancía</option>
+                                                <option value="2">Activo - efectivo</option>
+                                                <option value="3">Pasivo - cuentas por pagar</option>
+                                                <option value="4">Patrimonio - capital social</option>
+                                                <option value="5">Activo - cuentas por cobrar</option>
+                                                <option value="6">Ingresos - ventas</option>
+                                                <option value="7">Costos - por ventas de mercancía</option>
+                                                <option value="8">Gastos - arrendamientos</option>
+
+                                              </select></td>
+
+                                              <td>
+                                                <input type="text" id="val_7_6_1"></td>
+                                              <td>
+                                                <input type="text" id="val_7_6_2"></td>
+                                                
+                                              </tr>
+                                              <tr>
+                                                <td rowspan="2">4</td>
+                                                <td>
+                                                  <select name="Pasivo" id="Pasivo">
+                                                  <option value="0">...</option>
+                                                  <option value="1">Activo - mercancía</option>
+                                                  <option value="2">Activo - efectivo</option>
+                                                  <option value="3">Pasivo - cuentas por pagar</option>
+                                                  <option value="4">Patrimonio - capital social</option>
+                                                  <option value="5">Activo - cuentas por cobrar</option>
+                                                  <option value="6">Ingresos - ventas</option>
+                                                  <option value="7">Costos - por ventas de mercancía</option>
+                                                  <option value="8">Gastos - arrendamientos</option>
+
+                                                </select></td>
+                                                <td>
+                                                  <input type="text" id="val_7_7_1">
+                                                </td>
+                                                <td>
+                                                  <input type="text" id="val_7_7_2">
+                                                </td>
+                                                
+                                              </tr>
+
+                                              <td>
+                                                <select name="Pasivo" id="Pasivo">
+                                                <option value="0">...</option>
+                                                <option value="1">Activo - mercancía</option>
+                                                <option value="2">Activo - efectivo</option>
+                                                <option value="3">Pasivo - cuentas por pagar</option>
+                                                <option value="4">Patrimonio - capital social</option>
+                                                <option value="5">Activo - cuentas por cobrar</option>
+                                                <option value="6">Ingresos - ventas</option>
+                                                <option value="7">Costos - por ventas de mercancía</option>
+                                                <option value="8">Gastos - arrendamientos</option>
+
+                                              </select></td>
+
+                                              <td>
+                                                <input type="text" id="val_7_8_1"></td>
+                                              <td>
+                                                <input type="text" id="val_7_9_2"></td>
+                                                
+                                              </tr>
+                                              <tr>
+                                                <td rowspan="2">5</td>
+                                                <td>
+                                                  <select name="Pasivo" id="Pasivo">
+                                                  <option value="0">...</option>
+                                                  <option value="1">Activo - mercancía</option>
+                                                  <option value="2">Activo - efectivo</option>
+                                                  <option value="3">Pasivo - cuentas por pagar</option>
+                                                  <option value="4">Patrimonio - capital social</option>
+                                                  <option value="5">Activo - cuentas por cobrar</option>
+                                                  <option value="6">Ingresos - ventas</option>
+                                                  <option value="7">Costos - por ventas de mercancía</option>
+                                                  <option value="8">Gastos - arrendamientos</option>
+
+                                                </select></td>
+                                                <td>
+                                                  <input type="text" id="val_9_1_1">
+                                                </td>
+                                                <td>
+                                                  <input type="text" id="val_7_9_2">
+                                                </td>
+                                                
+                                              </tr>
+
+                                              <td>
+                                                <select name="Pasivo" id="Pasivo">
+                                                <option value="0">...</option>
+                                                <option value="1">Activo - mercancía</option>
+                                                <option value="2">Activo - efectivo</option>
+                                                <option value="3">Pasivo - cuentas por pagar</option>
+                                                <option value="4">Patrimonio - capital social</option>
+                                                <option value="5">Activo - cuentas por cobrar</option>
+                                                <option value="6">Ingresos - ventas</option>
+                                                <option value="7">Costos - por ventas de mercancía</option>
+                                                <option value="8">Gastos - arrendamientos</option>
+
+                                              </select></td>
+
+                                              <td>
+                                                <input type="text" id="val_7_10_1"></td>
+                                              <td>
+                                                <input type="text" id="val_7_10_2"></td>
+                                                
+                                              </tr>
+
+                                              <tr>
+                                                <td rowspan="2">6</td>
+                                                <td>
+                                                  <select name="Pasivo" id="Pasivo">
+                                                  <option value="0">...</option>
+                                                  <option value="1">Activo - mercancía</option>
+                                                  <option value="2">Activo - efectivo</option>
+                                                  <option value="3">Pasivo - cuentas por pagar</option>
+                                                  <option value="4">Patrimonio - capital social</option>
+                                                  <option value="5">Activo - cuentas por cobrar</option>
+                                                  <option value="6">Ingresos - ventas</option>
+                                                  <option value="7">Costos - por ventas de mercancía</option>
+                                                  <option value="8">Gastos - arrendamientos</option>
+
+                                                </select></td>
+                                                <td>
+                                                  <input type="text" id="val_7_11_1">
+                                                </td>
+                                                <td>
+                                                  <input type="text" id="val_7_11_2">
+                                                </td>
+                                                
+                                              </tr>
+
+                                              <td>
+                                                <select name="Pasivo" id="Pasivo">
+                                                <option value="0">...</option>
+                                                <option value="1">Activo - mercancía</option>
+                                                <option value="2">Activo - efectivo</option>
+                                                <option value="3">Pasivo - cuentas por pagar</option>
+                                                <option value="4">Patrimonio - capital social</option>
+                                                <option value="5">Activo - cuentas por cobrar</option>
+                                                <option value="6">Ingresos - ventas</option>
+                                                <option value="7">Costos - por ventas de mercancía</option>
+                                                <option value="8">Gastos - arrendamientos</option>
+
+                                              </select></td>
+
+                                              <td>
+                                                <input type="text" id="val_7_12_1"></td>
+                                              <td>
+                                                <input type="text" id="val_7_12_2"></td>
+                                                
+                                              </tr>
+                                              <tr>
+                                                <td rowspan="2">7</td>
+                                                <td>
+                                                  <select name="Pasivo" id="Pasivo">
+                                                  <option value="0">...</option>
+                                                  <option value="1">Activo - mercancía</option>
+                                                  <option value="2">Activo - efectivo</option>
+                                                  <option value="3">Pasivo - cuentas por pagar</option>
+                                                  <option value="4">Patrimonio - capital social</option>
+                                                  <option value="5">Activo - cuentas por cobrar</option>
+                                                  <option value="6">Ingresos - ventas</option>
+                                                  <option value="7">Costos - por ventas de mercancía</option>
+                                                  <option value="8">Gastos - arrendamientos</option>
+
+                                                </select></td>
+                                                <td>
+                                                  <input type="text" id="val_7_13_1">
+                                                </td>
+                                                <td>
+                                                  <input type="text" id="val_7_13_2">
+                                                </td>
+                                                
+                                              </tr>
+
+                                              <td>
+                                                <select name="Pasivo" id="Pasivo">
+                                                <option value="0">...</option>
+                                                <option value="1">Activo - mercancía</option>
+                                                <option value="2">Activo - efectivo</option>
+                                                <option value="3">Pasivo - cuentas por pagar</option>
+                                                <option value="4">Patrimonio - capital social</option>
+                                                <option value="5">Activo - cuentas por cobrar</option>
+                                                <option value="6">Ingresos - ventas</option>
+                                                <option value="7">Costos - por ventas de mercancía</option>
+                                                <option value="8">Gastos - arrendamientos</option>
+
+                                              </select></td>
+
+                                              <td>
+                                                <input type="text" id="val_7_14_1"></td>
+                                              <td>
+                                                <input type="text" id="val_7_14_2"></td>
+                                                
+                                              </tr>
+                                              <tr>
+                                                <td></td>
+                                                <td>
+                                                  <b>SUMAS IGUALES</b>
+                                                </td>
+                                                <td>
+                                                  <output name="resultado" for="valor1 valor2"></output>>
+                                                </td>
+                                                <td>
+                                                  <output name="resultado" for="valor1 valor2"></output>
+                                                </td>
+                                                
+                                              </tr>
+                                           
+                                            </tbody>
+                                          </table>
+                                          <button type="button" class="btn btn-primary" id="ValidarResultaos" name="ValidarResultaos" onclick="validar_resultados_7()">Validar Resultados</button>
+                                          <button type="button" class="btn btn-primary" onclick="reset_n7()">Reset</button>
+                                          <br><br>
+                                        </div>
+                                        <br>
+                                      </div>
+                                       <br>
+                                     
+                                        <div class="col-sm-8 justify-content-cente" > 
+                                          <div class="border border-5" >
+                                            <p class="center"> Cada una de las cuentas es como un cajoncito en donde se guardan y se extraen valores.  Pero en cualquier momento se puede saber el contenido neto del cajón o saldo así: </p>
+                                            <br>
+                                              <p style="color:#FF0000" class="center"> <b>Saldo final = saldo inicial + entradas - salidas</b></p>
+                                            <br>
+                                            <p class="center">Recordemos que en los activos son los débitos los que suman <b>(entradas)</b> y los débitos los que salen <b>(créditos)</b>.  Mientras que en los pasivos y el patrimonio los créditos suman y los débitos restan. </p>
+                                            </div>
+                                          </div>
+                                          <br><br><br>
+                                          <div class="container">
+                                            <div class="row justify-content-md-center">
+                                              <div class="col"> 
+                                                <br>
+                                                <h5> Así para los dos ejemplos anteriores, si suponemos que se tenía un saldo inicial de efectivo de 350 unidades monetarias, veamos como quedaría el saldo final.</h5> </div>
+                                    
+                                            </div>
+                                            </div>
+                                            <div class="container">
+                                              <div class="row justify-content-md-center">
+                                                <div class="col-sm">
+                                                  <img src="/Users/macbookpro/Documents/Proyect_D/proyecto_finanzas/images/saldos.png" class="img-fluid" alt="Responsive image">
+                                                </div>
+                                                <div class="col-sm">
+                                                  <img src="/Users/macbookpro/Documents/Proyect_D/proyecto_finanzas/images/compra.png" class="img-fluid" alt="Responsive image">
+                                                </div>
+                                              
+                                              </div>
+
+
+                                              </div>
+
+                                              <div class="container">
+                                                <div class="row justify-content-md-center">
+                                                  <div class="col"> 
+                                                    <br>
+                                                    <h5> Otra representación usual para una cuenta, es la cuenta T, que provee una doble entrada.  Los saldos y registros en el lado izquierdo son de naturaleza débito y los saldos o registros en la derecha son de naturaleza crédito</h5> </div>
+                                        
+                                                </div>
+                                                </div>
+                                                <br>
+                                                <div class="col-sm-8 justify-content-cente" > 
+                                                  <div class="border border-5" >
+                                                   
+                                                    <img src="/Users/macbookpro/Documents/Proyect_D/proyecto_finanzas/images/naturaleza.png" class="img-fluid" alt="Responsive image">
+                                                    
+                                                    </div>
+                                                  </div>
+                                                  <br>
+                                                  <div class="container">
+                                                    <div class="row justify-content-md-center">
+                                                      <div class="col"> 
+                                                        <img src="/Users/macbookpro/Documents/Proyect_D/proyecto_finanzas/images/cuenta_efectivo.png" class="img-fluid" alt="Responsive image">
+                                                    </div>
+                                                  </div>
+                                                </div>
+
+                                            </div>
+                                            <br>
+                                            
+                                            <div class="row justify-content-md-center">
+                                              <div class="bg-success p-2" style="--bs-bg-opacity: .5;"></div>
+                                              
+                                            </div>
+                                            <div class="container p-2 my-3 bg-secondary text-white"></div>
+                                              <div class="claseDiv2" id="claseDiv2">
+                                                <div class="card card-body bg-light text-center">
+                                                 <h2>Nivel 8</h2>
+                                                
+                                              </div>
+                                                <!-- /.Preguntas nivel 8-->
+                                                
+                                                <br>
+                                                <div class="row justify-content-md-center">
+                                                  
+                                                  <div class="container-fluid"> 
+                                                    <h5> Para el ejercicio anterior (nivel 7) introduzca los valores con el signo adecuado para hallar el saldo final de la cuenta efectivo, suponiendo que el saldo inicial es 50 UM</h5> </div>
+                                          
+                                                  <div class="row">
+                                                  <div class =col-sm-6>
+
+                                                    <div style="width: 80%" class="izquierda" >
+                                                      <p>Cuenta: Efectivo</p></div>
+                                                    <br>
+                                                    <span>Saldo inicial                                   :</span>
+                                                    <input type="text" id="txt_campo_1" onchange="sumar(this.value);" />
+                                                    <br >
+                                                    <span>Crédito por pago de mercancía:</span>
+                                                    <input type="text" id="txt_campo_2" onchange="sumar(this.value);" />
+                                                    <br >
+                                                    <span>Débito por aporte de socio:</span>
+                                                    <input type="text" id="txt_campo_3" onchange="sumar(this.value);" />
+                                                    <br >
+                                                    <span>Débito por pago del socio:</span>
+                                                    <input type="text" id="txt_campo_3" onchange="sumar(this.value);" />
+                                                    <br >
+                                                    
+                                                    <hr>
+                                                    <span>Saldo final: </span> <span id="spTotal"></span>
+
+                                                  </div>
+                                                  <div class="col-sm-6">
+                                                    <img src="/Users/macbookpro/Documents/Proyect_D/proyecto_finanzas/images/format.png" class="img-fluid" alt="Responsive image">
+              
+                                                  </div>
+                                                  
+                                                </div> 
+
+                                                <div class="alert alert-error collapse" role="alert" id="passwordsNoMatchRegister8" style="display:none;">
+                                                  <div class="alert alert-success">
+                                                    <button type="button" class="close" data-dismiss="alert" id="success" aria-label="Close">&times;</button>
+                                                    <strong>¡Felicitaciones!</strong> Siguiente ejercicio
+                                                  </div> 
+                                                  <div class="container">        
+                                                    <button type="button" class="btn btn-info btn-block" onclick="mostrar2()" id="mostrar_ejercicio2">Siguiente ejercicio</button>
+                                                  </div>
+                                                </div>
+                                  
+                                                <div class="alert alert-error collapse" role="alert" id="passwordsNoMatchRegister9" style="display:none;">
+                                                  
+                                                  <div class="alert alert-danger">
+                                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                    <strong>¡Cuidado!</strong> Inténtalo de nuevo.
+                                                    
+                                                  </div>
+                                                </div>
+                                                <div class="container p-2 my-3 bg-secondary text-white"></div>
+                                                <div  class="ejer_2" id="ejer_2">
+                                                  <div class="container-fluid"> 
+                                                    <h5> Para el ejercicio anterior (nivel 7) introduzca los valores con el signo adecuado para hallar el saldo final de la cuenta mercancía, suponiendo que el saldo inicial es 80 UM			
+                                                    </h5> </div>
+                                          
+                                                  <div class="row">
+                                                  <div class =col-sm-6>
+
+                                                    <div style="width: 80%" class="izquierda" >
+                                                      <p>Cuenta: Efectivo</p></div>
+                                                    <br>
+                                                    <span>Saldo inicial  :</span>
+                                                    <input type="text" id="txt_campo_6" onchange="sumar2(this.value);" />
+                                                    <br >
+                                                    <span>Crédito por pago de mercancía:</span>
+                                                    <input type="text" id="txt_campo_7" onchange="sumar2(this.value);" />
+                                                    <br >
+                                                    <span>Débito por aporte de socio:</span>
+                                                    <input type="text" id="txt_campo_8" onchange="sumar2(this.value);" />
+                                                    <br >
+                                                    <span>Débito por pago del socio:</span>
+                                                    <input type="text" id="txt_campo_9" onchange="sumar2(this.value);" />
+                                                    <br >
+                                                    
+                                                    <hr>
+                                                    <span>Saldo final: </span> <span id="spTotal2"></span>
+
+                                                  </div>
+                                                  <div class="col-sm-6">
+                                                    <img src="/Users/macbookpro/Documents/Proyect_D/proyecto_finanzas/images/format.png" class="img-fluid" alt="Responsive image">
+              
+                                                  </div>
+
+                                                  <div class="alert alert-error collapse" role="alert" id="passwordsNoMatchRegister10" style="display:none;">
+                                                    <div class="alert alert-success">
+                                                      <button type="button" class="close" data-dismiss="alert" id="success" aria-label="Close">&times;</button>
+                                                      <strong>¡Felicitaciones!</strong> Puedes pasar al siguiente nivel
+                                                    </div> 
+                                                    <div class="container">        
+                                                      <button type="button" class="btn btn-info btn-block" onclick="nivel9()" id="mostrar_ejercicio2">Siguiente Nivel</button>
+                                                    </div>
+                                                  </div>
+                                    
+                                                  <div class="alert alert-error collapse" role="alert" id="passwordsNoMatchRegister11" style="display:none;">
+                                                    
+                                                    <div class="alert alert-danger">
+                                                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                      <strong>¡Cuidado!</strong> Inténtalo de nuevo.
+                                                      
+                                                    </div>
+                                                  </div>
+
+                                                </div>
+                                                
+                                            </div>
+                                                        
+                                                        
+                                            
+                                        
+                                      
+                    
+                    
+               </div>
+
+                   <div class="container p-2 my-3 bg-secondary text-white"></div>
+
+
+               </div>
+
+
+              </div>
+      
+
+        </div>
+
+          
+
+    </div>
+
+          
+          
+
+
+       
+
+
+        
+
+
+
+      </div>
+  </div>
+
+</div>
+  
 
 </div>
 
- <!-- Cargar React. -->
-  <!-- Nota: cuando se despliegue, reemplazar "development.js" con "production.min.js". -->
-  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-
-  <!-- Cargamos nuestro componente de React. -->
-  <script src="like_button.js"></script>
 
 
-
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html> 
