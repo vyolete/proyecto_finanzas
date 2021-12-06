@@ -77,8 +77,10 @@ body {font-family: "Lato", sans-serif;}
 
 #table{
   
-  width: 800px;
+  width: 850px;
+  padding: 10px;
 }
+
 .tablink {
   
   color: rgb(161, 155, 155);
@@ -94,6 +96,7 @@ body {font-family: "Lato", sans-serif;}
   background-color: #777;
 }
 
+
 #lol{
   display: none;
 }
@@ -101,18 +104,28 @@ body {font-family: "Lato", sans-serif;}
 #lol1{
   display: none;
 }
+
+
 #lol2{
   display: none;
 }
+
 #lol3{
   display: none;
 }
+
 #lol4{
   display: none;
 }
 #lol5{
   display: none;
 }
+
+#lol6{
+  display: none;
+}
+
+
 
 #div1 {
     float:left;
@@ -409,7 +422,7 @@ body {font-family: "Lato", sans-serif;}
   right: 0;
 }
 
-/* coneedo de teoria parte inferior */
+/* contenedor de teoria parte inferior */
 
 .wrapper {
 	padding: 5px;
@@ -622,7 +635,7 @@ header {
 #div3_1_1 {
   float:left;
   width: 250px;
-  height: 300px;
+  height: 350px;
   padding: 10px;
   color: #fff;
   background-color: #5C7AEA;
@@ -653,7 +666,7 @@ header {
 #div3_1_3{
   float:left;
   width: 250px;
-  height: 300px;
+  height: 350px;
   padding: 10px;
   color: #51050F;
   border: px solid #aaaaaa;
@@ -681,7 +694,7 @@ header {
 #div3_1_5 {
   float:left;
   width: 250px;
-  height: 300px;
+  height: 350px;
   padding: 10px;
   color: #51050F;
   border: 2px solid #3f3d3d;
@@ -729,96 +742,133 @@ header {
 
 #clasificador_1 {
   float:left;
-  width: auto;
-  height: auto;
+  width: 580px;
+  height: 250px;
   padding: 10px;
   color: #fff;
   background-color: #998f8f;
   border: 2px solid #3f3d3d;
   border-radius: 20px;
-  margin: 0;
+  
+  margin: 5;
+  overflow-y: scroll;
+  font-size: 16px;
 }
 #clasificador_1:hover{
   background-color: #233E8B;
 }
 
+#clasificador_cuentas_2{
+  display:none;
+}
 
 #clasificador_2 {
+  
   float:left;
-  width: auto;
-  height: auto;
+  width: 580px;
+  height: 250px;
   padding: 10px;
   color: #fff;
   background-color: #998f8f;
   border: 2px solid #3f3d3d;
   border-radius: 20px;
-  margin: 0;
+  margin: 5;
+  overflow-y: scroll;
+  font-size: 16px;
 }
 #clasificador_2:hover{
   background-color: #233E8B;
 }
-
-#clasificador_3 {
+#clasificador_cuentas_3{
+  display:none;
+}
+#validarResultados2{
   float:left;
-  width: auto;
-  height: auto;
+}
+#clasificador_3 {
+  
+  float:left;
+  width: 580px;
+  height: 250px;
   padding: 10px;
   color: #fff;
   background-color: #998f8f;
   border: 2px solid #3f3d3d;
   border-radius: 20px;
-  margin: 0;
+  margin: 5;
+  overflow-y: scroll;
+  font-size: 16px;
 }
 #clasificador_3:hover{
   background-color: #233E8B;
 }
 
+#clasificador_cuentas_4{
+  display:none;
+}
+#clasificador_cuentas_5{
+  display:none;
+}
+#clasificador_cuentas_6{
+  display:none;
+}
 #clasificador_4 {
-  float: left;
-  width: auto;
-  height: auto;
+ 
+  float:left;
+  width: 580px;
+  height: 250px;
   padding: 10px;
   color: #fff;
   background-color: #998f8f;
   border: 2px solid #3f3d3d;
   border-radius: 20px;
-  margin: 0;
+  margin: 5;
+  overflow-y: scroll;
+  font-size: 16px;
 }
 #clasificador_4:hover{
   background-color: #233E8B;
 }
 
 #clasificador_5 {
-  float: left;
-  width: auto;
-  height: auto;
+  
+  float:left;
+  width: 580px;
+  height: 250px;
   padding: 10px;
   color: #fff;
   background-color: #998f8f;
   border: 2px solid #3f3d3d;
   border-radius: 20px;
-  margin: 0;
+  margin: 5;
+  overflow-y: scroll;
+  font-size: 16px;
 }
 #clasificador_5:hover{
   background-color: #233E8B;
 }
 
 #clasificador_6 {
-  float: left;
-  width: auto;
-  height: auto;
+  float:left;
+  width: 580px;
+  height: 250px;
   padding: 10px;
   color: #fff;
   background-color: #998f8f;
   border: 2px solid #3f3d3d;
   border-radius: 20px;
-  margin: 0;
+  margin: 5;
+  overflow-y: scroll;
+  font-size: 16px;
 }
 #clasificador_6:hover{
   background-color: #233E8B;
 }
 
 /* estilos  nivel 4*/
+#botonNivel4{
+  display:none;
+}
 
 .temp2{
   display: inline-block;
@@ -1014,6 +1064,9 @@ header {
 #border{
   border:#b2b2b2 1px solid;
 }
+
+
+/* Estilos Nivel5*/
 .grupos_cuentas {
   /* IMPORTANTE */
   text-align: center !important;
@@ -1027,7 +1080,17 @@ header {
   margin: 5px;
   display: inline-block;
 }
-
+/*
+#GruposCuentasNivel4_2{
+  display:none;
+}
+#GruposCuentasNivel4_3{
+  display:none;
+}
+#GruposCuentasNivel4_4{
+  display:none;
+}
+*/
 #desempeno{
   border-color: thistle;
   border-width: 3px;
@@ -1075,4 +1138,43 @@ header {
       border-radius: 10px;
     }
 
-   
+  #ResultadosNivel7{
+      display: none;
+    }
+  
+  #ResultadosNivel7_1{
+    display:none;
+  }
+
+  #ResultadosNivel7_2{
+    display:none;
+  }
+  #ResultadosNivel7_3{
+    display:none;
+  }
+  #ResultadosNivel7_4{
+    display:none;
+  }
+  #ResultadosNivel7_5{
+    display:none;
+  }
+
+    #divisor_Nivel8{
+      display:none;
+    }
+    .claseDiv2{
+      display:none
+    }
+
+    #ejer_2_2{
+      display:none;
+    }
+
+    #SegundoEjerNivel8{
+      display:none;
+    }
+
+    :required
+    {
+    border-color: red;
+    }

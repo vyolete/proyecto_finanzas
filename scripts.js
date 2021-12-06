@@ -56,7 +56,7 @@
     ){
         
         
-        alert('Felicitaciones puede pasar al siguiente nivel!');
+        /*alert('Felicitaciones puede pasar al siguiente nivel!');*/
       
         var objeto =document.getElementById('mostrar_ejercicio2');
         objeto.removeAttribute('disabled');
@@ -70,6 +70,7 @@
     }
     else{
         alert('Intentalo de nuevo');
+        
     }
       
     
@@ -78,6 +79,7 @@
   function mostrarNivel2() {
     $('#activoPasivoPatrimonio').show();
     $('#lol').show();
+    
   
   }
 
@@ -109,7 +111,8 @@ window.onload = function(){
 	html = document.getElementById('Nivel 1').innerHTML;
 };
 
-// fucion que desabilita el segundo div del nivel 2
+
+// funcion que desabilita el segundo div del nivel 2
 
 
 function toggleStatus() { 
@@ -124,7 +127,7 @@ function posicion(){
   var but2_2=document.getElementById('but2_2')
   var posicion=but2_2.getBoundingClientRect();
   console.log(posicion.left, posicion.top);
-  alert("hola")
+  
 }
 
 // funcion que valid los div de la columnas
@@ -230,12 +233,37 @@ function comprobarECU_3(){
     ){    
         alert('Excelente!');
         mostrarCuartaColumna()
-        console.log(document.getElementById('but2_5').parentNode.id)
+        
          
     }
     else{
-        alert('Intentalo de nuevo');
+        
+        $('#ErrorSignofila1').show();
+        
     } 
+  }
+
+ 
+  function dropg(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+    
+  }
+
+  function dropg2(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+    
+  }
+
+
+  function dropg3(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+    
   }
 
   function mostrarCuartaColumna(){
@@ -255,15 +283,18 @@ function comprobarECU_3(){
 function comprobarECU_4(){
     if((document.getElementById('but2_8').parentNode.id=='div_2_4_4')
     ){    
-        alert('Felicitaciones');
+        alert('Felicitaciones !');
     
         mostrarQuintaColumna();  
     }
     else{
-        alert('boo');
-        mostrarQuintaColumna();
+        
+        $('#ErrorSignofila2').show();
+        
+        
     } 
   }
+
 
   function mostrarQuintaColumna(){
     $('#niv2_5').show(); 
@@ -284,7 +315,8 @@ function comprobarECU_5(){
         mostrarNivel3()
     }
     else{
-        alert('Intentalo de nuevo');
+        
+        $('#ErrorSignofila3').show();
     } 
   }
 
@@ -301,7 +333,1988 @@ function comprobarECU_5(){
     $('#niv2_3').show();
     $('#botonNivel3').show();
     $('#lol1').show();
+    $("#nivel3_barra").removeClass( "disabled"); 
+    $("#nivel3_barra").addClass( "active");
+    $('#but2_6').hide();
+    $('#but2_7').hide();
+    $('#but2_9').hide();
+  
   }
+
+
+  function solucion1Nivel3(){
+
+    if((document.getElementById('cuenta_1_1').parentNode.id=='div3_1_3')&&
+    (document.getElementById('cuenta_1_2').parentNode.id=='div3_1_1')&&
+    (document.getElementById('cuenta_1_4').parentNode.id=='div3_1_1')&&
+    (document.getElementById('cuenta_1_8').parentNode.id=='div3_1_1')&&
+    (document.getElementById('cuenta_1_10').parentNode.id=='div3_1_1')&&
+    (document.getElementById('cuenta_1_11').parentNode.id=='div3_1_1')&&
+    (document.getElementById('cuenta_1_15').parentNode.id=='div3_1_1')&&
+    (document.getElementById('cuenta_1_3').parentNode.id=='div3_1_3')&&
+    (document.getElementById('cuenta_1_6').parentNode.id=='div3_1_3')&&
+    (document.getElementById('cuenta_1_12').parentNode.id=='div3_1_3')&&
+    (document.getElementById('cuenta_1_5').parentNode.id=='div3_1_5')&&
+    (document.getElementById('cuenta_1_7').parentNode.id=='div3_1_5')&&
+    (document.getElementById('cuenta_1_9').parentNode.id=='div3_1_5')&&
+    (document.getElementById('cuenta_1_13').parentNode.id=='div3_1_5')&&
+    (document.getElementById('cuenta_1_14').parentNode.id=='div3_1_5')
+    ){
+        
+      alert('Clasificación Correcta');
+      
+      $('#Clasificacion1Nivel2_1').hide();
+      $('#clasificador_cuentas_2').show();
+
+    }else{
+        alert('Intentalo de nuevo');
+        $('#ErrorSignofila1').show();
+        
+    }
+
+  }
+
+  function solucion2Nivel3(){
+    if((document.getElementById('cuenta_2_1').parentNode.id=='div3_1_3')&&
+    (document.getElementById('cuenta_2_2').parentNode.id=='div3_1_1')&&
+    (document.getElementById('cuenta_2_3').parentNode.id=='div3_1_3')&&
+    (document.getElementById('cuenta_2_4').parentNode.id=='div3_1_1')&&
+    (document.getElementById('cuenta_2_5').parentNode.id=='div3_1_5')&&
+    (document.getElementById('cuenta_2_6').parentNode.id=='div3_1_3')&&
+    (document.getElementById('cuenta_2_7').parentNode.id=='div3_1_5')&&
+    (document.getElementById('cuenta_2_8').parentNode.id=='div3_1_3')&&
+    (document.getElementById('cuenta_2_9').parentNode.id=='div3_1_5')&&
+    (document.getElementById('cuenta_2_10').parentNode.id=='div3_1_1')&&
+    (document.getElementById('cuenta_2_11').parentNode.id=='div3_1_1')&&
+    (document.getElementById('cuenta_2_12').parentNode.id=='div3_1_1')&&
+    (document.getElementById('cuenta_2_13').parentNode.id=='div3_1_5')&&
+    (document.getElementById('cuenta_2_14').parentNode.id=='div3_1_5')&&
+    (document.getElementById('cuenta_2_15').parentNode.id=='div3_1_1')
+
+    
+    
+    ){
+      alert('Clasificación Correcta');
+      $('#clasificador_cuentas_2').hide();
+      $('#clasificador_cuentas_3').show();
+
+  }
+ 
+  else{
+    alert("intentalo de nuevo");
+  }
+}
+
+
+function solucion3Nivel3(){
+  if((document.getElementById('cuenta_3_1').parentNode.id=='div3_1_5')&&
+  (document.getElementById('cuenta_3_2').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_3_3').parentNode.id=='div3_1_3')&&
+  (document.getElementById('cuenta_3_4').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_3_5').parentNode.id=='div3_1_3')&&
+  (document.getElementById('cuenta_3_6').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_3_8').parentNode.id=='div3_1_3')&&
+  (document.getElementById('cuenta_3_9').parentNode.id=='div3_1_5')&&
+  (document.getElementById('cuenta_3_10').parentNode.id=='div3_1_3')&&
+  (document.getElementById('cuenta_3_11').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_3_12').parentNode.id=='div3_1_5')&&
+  (document.getElementById('cuenta_3_13').parentNode.id=='div3_1_5')&&
+  (document.getElementById('cuenta_3_14').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_3_15').parentNode.id=='div3_1_1')
+  
+  ){
+    alert('Clasificación Correcta');
+    $('#clasificador_cuentas_3').hide();
+    $('#clasificador_cuentas_4').show();
+
+}
+
+else{
+  alert("intentalo de nuevo");
+}
+}
+function solucion4Nivel3(){
+  if((document.getElementById('cuenta_4_1').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_4_2').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_4_3').parentNode.id=='div3_1_5')&&
+  (document.getElementById('cuenta_4_4').parentNode.id=='div3_1_5')&&
+  (document.getElementById('cuenta_4_5').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_4_6').parentNode.id=='div3_1_3')&&
+  (document.getElementById('cuenta_4_7').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_4_8').parentNode.id=='div3_1_3')&&
+  (document.getElementById('cuenta_4_9').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_4_10').parentNode.id=='div3_1_3')&&
+  (document.getElementById('cuenta_4_11').parentNode.id=='div3_1_3')&&
+  (document.getElementById('cuenta_4_12').parentNode.id=='div3_1_5')&&
+  (document.getElementById('cuenta_4_13').parentNode.id=='div3_1_3')&&
+  (document.getElementById('cuenta_4_14').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_4_15').parentNode.id=='div3_1_5')
+
+  ){
+    alert('Clasificación Correcta');
+    $('#clasificador_cuentas_4').hide();
+    $('#clasificador_cuentas_5').show();
+
+}
+
+else{
+  alert("intentalo de nuevo");
+  $('#ErrorSignofila1').show();
+}
+}
+
+function solucion5Nivel3(){
+  if((document.getElementById('cuenta_5_1').parentNode.id=='div3_1_5')&&
+  (document.getElementById('cuenta_5_2').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_5_3').parentNode.id=='div3_1_3')&&
+  (document.getElementById('cuenta_5_4').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_5_5').parentNode.id=='div3_1_3')&&
+  (document.getElementById('cuenta_5_6').parentNode.id=='div3_1_5')&&
+  (document.getElementById('cuenta_5_7').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_5_8').parentNode.id=='div3_1_5')&&
+  (document.getElementById('cuenta_5_9').parentNode.id=='div3_1_3')&&
+  (document.getElementById('cuenta_5_10').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_5_11').parentNode.id=='div3_1_1')&&
+  (document.getElementById('cuenta_5_12').parentNode.id=='div3_1_5')&&
+  (document.getElementById('cuenta_5_13').parentNode.id=='div3_1_5')&&
+  (document.getElementById('cuenta_5_14').parentNode.id=='div3_1_3')&&
+  (document.getElementById('cuenta_5_15').parentNode.id=='div3_1_3')
+
+  ){
+    alert("Felicitaciones, ya puedes pasar al nivel 4");
+    mostrarNivel4()
+    $('#botonNivel4').show();
+    
+
+}
+
+else{
+  alert("intentalo de nuevo");
+  $('#ErrorSignofila1').show();
+}
+}
+
+//scrip nivel   4
+
+
+
+
+function mostrarNivel4(){
+  $('#lol2').show();
+  $("#nivel4_barra").removeClass( "disabled"); 
+  $("#nivel4_barra").addClass( "active");
+
+}
+
+var contN4 =0;
+function ValidaNIvel4_1()
+{
+
+
+  if(document.getElementById('AcionesDeOtrasEmpresasNivel4').value == "Db" ) {
+    
+      contN4++;
+      alert("Usted lleva "+contN4+" consecutivos")
+      validaContNivel4();
+  }
+  else{
+      resetNivel4()
+      contN4=0;
+  }
+    
+}
+
+
+function ValidaNIvel4_2()
+{
+
+      if(document.getElementById('AcrededoresVariosNivel4').value == "Cr" ) {
+
+      contN4+=1;
+      
+      alert("Usted lleva "+contN4+" consecutivos")
+      validaContNivel4()
+      }
+      else{
+      resetNivel4()
+      contN4=0;
+      }
+ 
+}
+
+function ValidaNIvel4_3()
+{
+  if(document.getElementById('ActivoNivel4').value == "Db" ) {
+
+    contN4+=1;
+    bandera=true;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+      resetNivel4()
+      contN4=0;
+  }
+}
+
+function ValidaNIvel4_4()
+{
+
+  if(document.getElementById('AnticiposEntregadosPorLaEmpresaN4').value == "Db" ) {
+    
+    contN4+=1;
+  
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+  resetNivel4()
+  contN4=0;
+  }  
+}
+
+function ValidaNIvel4_5()
+{
+  if(document.getElementById('AportesSocialesN4').value == "Cr" ) {
+    contN4+=1;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_6()
+{
+  if(document.getElementById('BeneficiosAempleadosN4').value == "Cr" ) {
+    contN4+=1;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+    }
+    else{
+    resetNivel4()
+    contN4=0;
+    }
+}
+
+function ValidaNIvel4_7()
+{
+  if(document.getElementById('Bonos(emitidos por otras empresas)N4').value == "Db" ) {
+    contN4+=1;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+    else{
+    resetNivel4()
+    contN4=0;
+    }
+}
+
+function ValidaNIvel4_8()
+{
+  if(document.getElementById('CapitalSocialN4').value == "Cr" ) {
+      contN4+=1;
+      alert("Usted lleva "+contN4+" consecutivos")
+      validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+
+}
+
+function ValidaNIvel4_9()
+{
+  if(document.getElementById('CapitalSuscritoYpagadoN4').value == "Cr" ) {
+  contN4+=1;
+  alert("Usted lleva "+contN4+" consecutivos")
+  validaContNivel4()
+  }
+  else{
+  resetNivel4()
+  contN4=0;
+  }
+}
+
+
+function ValidaNIvel4_10()
+{
+  if(document.getElementById('CartaDeCreditoDeUnBancoN4').value == "Cr" ) {
+    contN4+=1; 
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_11()
+{
+  if(document.getElementById('CertificadoDedepositoAterminoN4').value == "Db" ) {
+    contN4+=1;
+    bandera=true;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_12()
+{
+  if(document.getElementById('ChequesEnAajaGeneralN4').value == "Db" ) {
+    contN4+=1; 
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_13()
+{
+  if(document.getElementById('ClientesN4').value == "Db" ) {
+    contN4+=1;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_14()
+{
+  if(document.getElementById('ComputadoresN4').value == "Db" ) {
+    contN4+=1;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_15()
+{
+  if(document.getElementById('CostosN4').value == "Db" ) {
+    contN4+=1; 
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_16()
+{
+  if(document.getElementById('CostosYgastosPorPagarN4').value == "Cr" ) {
+    contN4+=1; 
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_17()
+{
+  if(document.getElementById('CuentaPorCobrarAtrabajadoresN4').value == "Cr" ) {
+    contN4+=1;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_18()
+{
+  if(document.getElementById('CuentasPorCobrarN4').value == "Db" ) {
+    contN4+=1;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+    }
+}
+
+function ValidaNIvel4_19()
+{
+  if(document.getElementById('CuentasPorPagarN4').value == "Cr" ) {
+    contN4+=1;
+    bandera=true;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_20()
+{
+  if(document.getElementById('CuentasPorPagarAsociosN4').value == "Cr" ) {
+    contN4+=1;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+
+function ValidaNIvel4_21()
+{
+  if(document.getElementById('CuotasOpartesDeInteresSocialN4').value == "Cr" ) {
+  contN4+=1;
+  alert("Usted lleva "+contN4+" consecutivos")
+  validaContNivel4()
+}
+  else{
+  resetNivel4()
+  contN4=0;
+  }
+}
+function ValidaNIvel4_22()
+{
+  if(document.getElementById('DerechosDeFranquiciaN4').value == "Db" ) {
+  contN4+=1;
+  alert("Usted lleva "+contN4+" consecutivos")
+  validaContNivel4()
+  }
+  else{
+  resetNivel4()
+  contN4=0;
+  }
+}
+function ValidaNIvel4_23()
+{
+  if(document.getElementById('DeudoresVariosN4').value == "Cr" ) {
+    contN4+=1;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+    }
+  else{
+    resetNivel4()
+    contN4=0;
+    }
+}
+
+function ValidaNIvel4_24()
+{
+  if(document.getElementById('DividendosDecretadosEnAccionesN4').value == "Cr" ) {
+  contN4+=1;
+  alert("Usted lleva "+contN4+" consecutivos")
+  validaContNivel4()
+}
+else{
+  resetNivel4()
+  contN4=0;
+  }
+}
+
+function ValidaNIvel4_25()
+{
+  if(document.getElementById('EfectivoN4').value == "Db" ) {
+    contN4+=1;
+    bandera=true;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+  resetNivel4()
+  contN4=0;
+  }
+}
+
+function ValidaNIvel4_26()
+{
+  if(document.getElementById('EfectivoEnBancosN4').value == "Db" ) {
+    contN4+=1; 
+    alert("Usted lleva "+contN4+" consecutivos")
+    console.log(contN4)
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_27()
+{
+  if(document.getElementById('EfectivoEnCajaMenorN4').value == "Db" ) {
+    contN4+=1;
+    bandera=true;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+
+function ValidaNIvel4_28()
+{
+  if(document.getElementById('EnvasesYempaquesN4').value == "Db" ) {  
+    contN4+=1;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_29()
+{
+  if(document.getElementById('GananciasAcumuladasN4').value == "Cr" ) {
+    contN4+=1;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_30()
+{
+  if(document.getElementById('GastosN4').value == "Db" ) {
+    contN4+=1;
+    bandera=true;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_31()
+{
+  if(document.getElementById('ImpuestoAlasVentasN4').value == "Cr" ) {
+    contN4+=1;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_32()
+{
+  if(document.getElementById('ImpuestoDerentaPorPagarN4').value == "Cr" ) {
+    contN4+=1;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_33()
+{
+  if(document.getElementById('ImpuestosPorPagarN4').value == "Cr" ) {
+
+    contN4+=1;
+    bandera=true;
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_34()
+{
+    var bandera=false
+    console.log(contN4)
+
+    if(document.getElementById('ImpuestosGravamenesYtasasN4').value == "Cr" ) {
+
+      contN4+=1;
+      bandera=true;
+      alert("Usted lleva "+contN4+" consecutivos")
+      validaContNivel4()
+    }
+    else{
+      resetNivel4()
+      contN4=0;
+    }
+      
+}
+
+function ValidaNIvel4_35()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('IngresosN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+
+}
+
+
+function ValidaNIvel4_36()
+{
+
+  if(document.getElementById('IntangiblesN4').value == "Db" ) {
+
+    contN4+=1; 
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+
+}
+
+
+function ValidaNIvel4_37()
+{
+  var bandera=false
+  console.log(contN4)
+
+  if(document.getElementById('InventariosN4').value == "Db" ) {
+
+  contN4+=1;
+  bandera=true;
+  alert("Usted lleva "+contN4+" consecutivos")
+  validaContNivel4()
+  }
+  else{
+  resetNivel4()
+  contN4=0;
+  }
+
+}
+
+
+function ValidaNIvel4_38()
+{
+  var bandera=false
+  console.log(contN4)
+
+  if(document.getElementById('InversionesN4').value == "Db" ) {
+
+    contN4+=1;
+
+    alert("Usted lleva "+contN4+" consecutivos")
+    validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+ 
+}
+
+
+function ValidaNIvel4_39()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('InversionesAvalorRazonableN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+
+}
+
+function ValidaNIvel4_40()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('LicenciasDeSoftwareN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+
+}
+
+
+function ValidaNIvel4_41()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('LocalComercialN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+
+}
+
+function ValidaNIvel4_42()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('MarcasAdquiridasN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+
+}
+
+function ValidaNIvel4_43()
+{
+  var bandera=false
+  console.log(contN4)
+
+  if(document.getElementById('MateriaPrimaN4').value == "Db" ) {
+
+      contN4+=1;
+      bandera=true;
+      alert("Usted lleva "+contN4+" consecutivos")
+      validaContNivel4()
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+ 
+}
+
+function ValidaNIvel4_44()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('MercancíaN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+
+}
+
+
+function ValidaNIvel4_45()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('ObligacionesDeFinanciamientoN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_46()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('ObligacionesFinancierasN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_47()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('ObligacionesLaboralesN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_48()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('OtrosResultadosAcumuladosN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_49()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('OtrosResultadosIntegralesN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_50()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('Pagare(en un banco)N4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_51()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('PasivoN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_52()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('PatrimonioN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_53()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('PrestacionesSocialesPorPagarN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_54()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('PrestamoDeUnaCooperativaN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+function ValidaNIvel4_55()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('PrimaEnColocaciónDeAccionesN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_56()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('ProductosTerminadosN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_57()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('PropiedadPlantaYequipoN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_58()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('PropiedadesN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+
+function ValidaNIvel4_59()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('ProveedoresN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_60()
+{
+  var bandera=false
+  console.log(contN4)
+
+  if(document.getElementById('ReservaEstatutariaN4').value == "Cr" ) {
+
+    contN4+=1;
+    bandera=true;
+    alert("Usted lleva "+contN4+" consecutivos")
+    
+  }
+  else{
+    resetNivel4()
+    contN4=0;
+  }
+}
+
+function ValidaNIvel4_61()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('ReservaLegalN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_62()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('ReservaOcasionalN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_63()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('ReservasN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_64()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('ResultadosDelEjercicioN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_65()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('ResultadosEjerciciosAnterioresN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_66()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('SalariosPorPagarN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+function ValidaNIvel4_67()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('SeguridadSocialPorPagarN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_68()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('Sobregiro(en un banco)N4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_69()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('SuperavitDeCapitalrN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+
+function ValidaNIvel4_70()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('UtilidadDelPeriodoN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_71()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('VehiculoN5').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_72()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('VentasN5').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_73()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('GastosDeAdministraciónN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_74()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('GastosDePersonalN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_75()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('OtrosIngresosN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_76()
+{
+  var bandera=false
+  console.log(contN4)
+
+  if(document.getElementById('OtrosGastosN4').value == "Db" ) {
+
+  contN4+=1;
+  bandera=true;
+  alert("Usted lleva "+contN4+" consecutivos")
+  validaContNivel4()
+  }
+  else{
+  resetNivel4()
+  contN4=0;
+  }
+}
+
+function ValidaNIvel4_77()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('GastosFinancierosN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_78()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('CostosDeVentasN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_79()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('IngresosPorServiciosN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+
+function ValidaNIvel4_80()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('GastosDeArrendamientoN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_81()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('IngresosOrdinariosN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_82()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('GastosDeVentasN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_83()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('GastosOperacionalesN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_84()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('IngresosNoOperacionalesN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_85()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('IngresosPorComercioAlPorMayorYalPorMenorN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_86()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('IngresosFinancierosN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+
+function ValidaNIvel4_87()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('GastosPorServiciosN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+
+function ValidaNIvel4_88()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('CostosDeLaPrestaciónDelServicioN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+function ValidaNIvel4_89()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('IngresoPorConstrucciónN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+
+
+function ValidaNIvel4_90()
+{
+  var bandera=false
+  console.log(contN4)
+
+  if(document.getElementById('IngresoPorConstrucciónN4').value == "Cr" ) {
+
+  contN4+=1;
+  bandera=true;
+  alert("Usted lleva "+contN4+" consecutivos")
+  validaContNivel4()
+  }
+  else{
+  resetNivel4()
+  contN4=0;
+}
+}
+
+function ValidaNIvel4_91()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('IngresosPrestacionDeServiciosN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+
+}
+}
+
+function ValidaNIvel4_92()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('VentasActividadDeGanaderiaN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+
+}
+}
+
+function ValidaNIvel4_93()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('VentasPorExplotacionDeMinasN4').value == "Cr" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+
+}
+}
+
+function ValidaNIvel4_94()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('GastosDeSegurosN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+
+}
+}
+
+function ValidaNIvel4_95()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('GastosPorDepreciacionesN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+
+}
+}
+
+
+function ValidaNIvel4_96()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('GastosDiversosN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+
+}
+}
+
+function ValidaNIvel4_97()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('GastosDeMantenimientoN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+
+}
+}
+
+
+function ValidaNIvel4_98()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('CostosActividadFinancieraN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+
+function ValidaNIvel4_99()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('CostosPorServicioDeHotelesN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+
+function ValidaNIvel4_100()
+{
+var bandera=false
+console.log(contN4)
+
+if(document.getElementById('CostosPorComercioAlPorMayorYAlPorMenorN4').value == "Db" ) {
+
+contN4+=1;
+bandera=true;
+alert("Usted lleva "+contN4+" consecutivos")
+validaContNivel4()
+}
+else{
+resetNivel4()
+contN4=0;
+}
+}
+
+
+function validaContNivel4(){
+  if (contN4==2){
+    alert(" Ya puedes pasar al siguiente nivel")
+    const button = document.getElementById('nivel_5')
+    button.disabled=false;
+    const nav6= document.getElementById('nav-link disabled')
+    nav5.disable=false
+  }
+
+  
+}
+
+
+
+
+  function resetNivel4(){ // reset nivel 4
+    contN4=0;
+    document.getElementById("AcionesDeOtrasEmpresasNivel4").selectedIndex = 0;
+    document.getElementById("AcrededoresVariosNivel4").selectedIndex = 0;
+    document.getElementById("ActivoNivel4").selectedIndex = 0;
+    document.getElementById("AnticiposEntregadosPorLaEmpresaN4").selectedIndex = 0;
+    document.getElementById("AportesSocialesN4").selectedIndex = 0;
+    document.getElementById("BeneficiosAempleadosN4").selectedIndex = 0;
+    document.getElementById("Bonos(emitidos por otras empresas)N4").selectedIndex = 0;
+    document.getElementById("CapitalSocialN4").selectedIndex = 0;
+    document.getElementById("CapitalSuscritoYpagadoN4").selectedIndex = 0;
+    document.getElementById("CartaDeCreditoDeUnBancoN4").selectedIndex = 0;
+    document.getElementById("CertificadoDedepositoAterminoN4").selectedIndex = 0;
+    document.getElementById("ChequesEnAajaGeneralN4").selectedIndex = 0;
+    document.getElementById("ClientesN4").selectedIndex = 0;
+    document.getElementById("ComputadoresN4").selectedIndex = 0;
+    document.getElementById("CostosN4").selectedIndex = 0;
+    document.getElementById("CostosYgastosPorPagarN4").selectedIndex = 0;
+    document.getElementById("CuentaPorCobrarAtrabajadoresN4").selectedIndex = 0;
+    document.getElementById("CuentasPorCobrarN4").selectedIndex = 0;
+    document.getElementById("CuentasPorPagarN4").selectedIndex = 0;
+    document.getElementById("CuentasPorPagarAsociosN4").selectedIndex = 0;
+    document.getElementById("CuotasOpartesDeInteresSocialN4").selectedIndex = 0;
+    document.getElementById("DerechosDeFranquiciaN4").selectedIndex = 0;
+    document.getElementById("DeudoresVariosN4").selectedIndex = 0;
+    document.getElementById("DividendosDecretadosEnAccionesN4").selectedIndex = 0;
+    document.getElementById("EfectivoN4").selectedIndex = 0;
+    document.getElementById("EfectivoEnBancosN4").selectedIndex = 0;
+    document.getElementById("EfectivoEnCajaMenorN4").selectedIndex = 0;
+    document.getElementById("EnvasesYempaquesN4").selectedIndex = 0;
+    document.getElementById("GananciasAcumuladasN4").selectedIndex = 0;
+    document.getElementById("GastosN4").selectedIndex = 0;
+    document.getElementById("ImpuestoAlasVentasN4").selectedIndex = 0;
+    document.getElementById("ImpuestoDerentaPorPagarN4").selectedIndex = 0;
+    document.getElementById("ImpuestosPorPagarN4").selectedIndex = 0;
+    document.getElementById("ImpuestosGravamenesYtasasN4").selectedIndex = 0;
+    document.getElementById("IngresosN4").selectedIndex = 0;
+    document.getElementById("IntangiblesN4").selectedIndex = 0;
+    document.getElementById("InventariosN4").selectedIndex = 0;
+    document.getElementById("InversionesN4").selectedIndex = 0;
+    document.getElementById("InversionesAvalorRazonableN4").selectedIndex = 0;
+    document.getElementById("LicenciasDeSoftwareN4").selectedIndex = 0;
+    document.getElementById("LocalComercialN4").selectedIndex = 0;
+    document.getElementById("MarcasAdquiridasN4").selectedIndex = 0;
+    document.getElementById("MateriaPrimaN4").selectedIndex = 0;
+    document.getElementById("MercancíaN4").selectedIndex = 0;
+    document.getElementById("ObligacionesDeFinanciamientoN4").selectedIndex = 0;
+    document.getElementById("ObligacionesFinancierasN4").selectedIndex = 0;
+    document.getElementById("ObligacionesLaboralesN4").selectedIndex = 0;
+    document.getElementById("OtrosResultadosAcumuladosN4").selectedIndex = 0;
+    document.getElementById("OtrosResultadosIntegralesN4").selectedIndex = 0;
+    document.getElementById("Pagare(en un banco)N4").selectedIndex = 0;
+    document.getElementById("PasivoN4").selectedIndex = 0;
+    document.getElementById("PatrimonioN4").selectedIndex = 0;
+    document.getElementById("PrestacionesSocialesPorPagarN4").selectedIndex = 0;
+    document.getElementById("PrestamoDeUnaCooperativaN4").selectedIndex = 0;
+    document.getElementById("PrimaEnColocaciónDeAccionesN4").selectedIndex = 0;
+    document.getElementById("ProductosTerminadosN4").selectedIndex = 0;
+    document.getElementById("PropiedadPlantaYequipoN4").selectedIndex = 0;
+    document.getElementById("PropiedadesN4").selectedIndex = 0;
+    document.getElementById("ProveedoresN4").selectedIndex = 0;
+    document.getElementById("ReservaEstatutariaN4").selectedIndex = 0;
+    document.getElementById("ReservaLegalN4").selectedIndex = 0;
+    document.getElementById("ReservaOcasionalN4").selectedIndex = 0;
+    document.getElementById("ReservasN4").selectedIndex = 0;
+    document.getElementById("ResultadosDelEjercicioN4").selectedIndex = 0;
+    document.getElementById("ResultadosEjerciciosAnterioresN4").selectedIndex = 0;
+    document.getElementById("SalariosPorPagarN4").selectedIndex = 0;
+    document.getElementById("SeguridadSocialPorPagarN4").selectedIndex = 0;
+    document.getElementById("Sobregiro(en un banco)N4").selectedIndex = 0;
+    document.getElementById("SuperavitDeCapitalrN4").selectedIndex = 0;
+    document.getElementById("UtilidadDelPeriodoN4").selectedIndex = 0;
+    document.getElementById("VehiculoN5").selectedIndex = 0;
+    document.getElementById("VentasN5").selectedIndex = 0;
+    document.getElementById("GastosDeAdministraciónN4").selectedIndex = 0;
+    document.getElementById("GastosDePersonalN4").selectedIndex = 0;
+    document.getElementById("OtrosIngresosN4").selectedIndex = 0;
+    document.getElementById("OtrosGastosN4").selectedIndex = 0;
+    document.getElementById("GastosFinancierosN4").selectedIndex = 0;
+    document.getElementById("CostosDeVentasN4").selectedIndex = 0;
+    document.getElementById("IngresosPorServiciosN4").selectedIndex = 0;
+    document.getElementById("GastosDeArrendamientoN4").selectedIndex = 0;
+    document.getElementById("IngresosOrdinariosN4").selectedIndex = 0;
+    document.getElementById("GastosDeVentasN4").selectedIndex = 0;
+    document.getElementById("GastosOperacionalesN4").selectedIndex = 0;
+    document.getElementById("IngresosNoOperacionalesN4").selectedIndex = 0;
+    document.getElementById("IngresosPorComercioAlPorMayorYalPorMenorN4").selectedIndex = 0;
+    document.getElementById("IngresosFinancierosN4").selectedIndex = 0;
+    document.getElementById("GastosPorServiciosN4").selectedIndex = 0;
+    document.getElementById("CostosDeLaPrestaciónDelServicioN4").selectedIndex = 0;
+    document.getElementById("IngresoPorConstrucciónN4").selectedIndex = 0;
+    document.getElementById("IngresosPorExplotaciónDeMinasN4").selectedIndex = 0;
+    document.getElementById("IngresosPrestacionDeServiciosN4").selectedIndex = 0;
+    document.getElementById("VentasActividadDeGanaderiaN4").selectedIndex = 0;
+    document.getElementById("VentasPorExplotacionDeMinasN4").selectedIndex = 0;
+    document.getElementById("GastosDeSegurosN4").selectedIndex = 0;
+    document.getElementById("GastosPorDepreciacionesN4").selectedIndex = 0;
+    document.getElementById("GastosDiversosN4").selectedIndex = 0;
+    document.getElementById("GastosDeMantenimientoN4").selectedIndex = 0;
+    document.getElementById("CostosActividadFinancieraN4").selectedIndex = 0;
+    document.getElementById("CostosPorServicioDeHotelesN4").selectedIndex = 0;
+    document.getElementById("CostosPorComercioAlPorMayorYAlPorMenorN4").selectedIndex = 0;
+}
 
   //script nivel 6
   
@@ -318,7 +2331,7 @@ if(document.getElementById('Acciones (de otras empresas)').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -335,7 +2348,7 @@ if(document.getElementById('Acreedores varios').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -356,7 +2369,7 @@ if(document.getElementById('Activo').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -377,7 +2390,7 @@ if(document.getElementById('Anticipos entregados por la empresa').value == "B" )
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -393,7 +2406,7 @@ if(document.getElementById('Aportes sociales').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -409,7 +2422,7 @@ if(document.getElementById('Beneficios a empleados').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -426,7 +2439,7 @@ if(document.getElementById('Bonos (emitidos por otras empresas)').value == "B" )
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -447,7 +2460,7 @@ if(document.getElementById('Capital social').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -469,7 +2482,7 @@ if(document.getElementById('Capital suscrito y pagado').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -490,7 +2503,7 @@ if(document.getElementById('Carta de crédito de un banco').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -511,7 +2524,7 @@ if(document.getElementById('Certificado de depósito a término').value == "B" )
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -532,7 +2545,7 @@ if(document.getElementById('Cheques en caja general').value == "B" ) {
   validar_cont()
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   
 }
 else{
@@ -549,7 +2562,7 @@ if(document.getElementById('Clientes').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -567,7 +2580,7 @@ if(document.getElementById('Computadores').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -583,7 +2596,7 @@ if(document.getElementById('Costos').value =="B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -600,7 +2613,7 @@ if(document.getElementById('Costos y gastos por pagar').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -616,7 +2629,7 @@ if(document.getElementById('Cuenta por cobrar a trabajadores').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -634,7 +2647,7 @@ if(document.getElementById('Cuentas por cobrar').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -650,7 +2663,7 @@ if(document.getElementById('Cuentas por pagar').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -665,7 +2678,7 @@ if(document.getElementById('Cuentas por pagar a socios').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -681,7 +2694,7 @@ if(document.getElementById('Cuotas o partes de interés social').value == "B" ) 
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -697,7 +2710,7 @@ if(document.getElementById('Derechos de franquicia').value == "B" ) {
   
   cont+=1;
   
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -712,7 +2725,7 @@ if(document.getElementById('Deudores varios').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -728,7 +2741,7 @@ if(document.getElementById('Dividendos decretados en acciones').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -743,7 +2756,7 @@ if(document.getElementById('Efectivo').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -758,7 +2771,7 @@ if(document.getElementById('Efectivo en bancos').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -773,7 +2786,7 @@ if(document.getElementById('Efectivo en caja menor').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -789,7 +2802,7 @@ if(document.getElementById('Envases y empaques').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -805,7 +2818,7 @@ if(document.getElementById('Ganancias acumuladas').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -820,7 +2833,7 @@ if(document.getElementById('Gastos').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -836,7 +2849,7 @@ if(document.getElementById('Impuesto a las ventas').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -851,7 +2864,7 @@ if(document.getElementById('Impuesto de renta por pagar').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -867,7 +2880,7 @@ if(document.getElementById('Impuestos por pagar').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -883,7 +2896,7 @@ if(document.getElementById('Impuestos, gravámenes y tasas').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -899,7 +2912,7 @@ if(document.getElementById('Ingresos').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -915,7 +2928,7 @@ if(document.getElementById('Intangibles').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -931,7 +2944,7 @@ if(document.getElementById('Inventarios').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -946,7 +2959,7 @@ if(document.getElementById('Inversiones').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -962,7 +2975,7 @@ if(document.getElementById('Inversiones a valor razonable').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -978,7 +2991,7 @@ if(document.getElementById('Licencias de software').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -993,7 +3006,7 @@ if(document.getElementById('Local comercial').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -1009,7 +3022,7 @@ if(document.getElementById('Marcas adquiridas').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -1025,7 +3038,7 @@ if(document.getElementById('Materia prima').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -1045,7 +3058,7 @@ if(document.getElementById('Mercancía').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -1062,7 +3075,7 @@ if(document.getElementById('Obligaciones de financiamiento').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -1078,7 +3091,7 @@ if(document.getElementById('Obligaciones financieras').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -1095,7 +3108,7 @@ if(document.getElementById('Obligaciones laborales').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -1111,7 +3124,7 @@ if(document.getElementById('Otros resultados acumulados').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -1127,7 +3140,7 @@ if(document.getElementById('Otros resultados acumulados').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -1144,7 +3157,7 @@ if(document.getElementById('Otros resultados integrales').value == "B" ) {
   
   cont+=1;
   bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
+  alert("Usted lleva "+cont+" consecutivos")
   validar_cont()
 }
 else{
@@ -1154,328 +3167,674 @@ else{
 }
 function ShowSelected50()
 {
-
-
-if(document.getElementById('Pagaré (en un banco)').value == "B" ) {
-  
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  validar_cont()
-}
-else{
-  cont=0;
-  reset()
-}
+  if(document.getElementById('Pagaré (en un banco)').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
 }
 
+
+function ShowSelected51()
+{
+  if(document.getElementById('PasivoN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+
+function ShowSelected52()
+{
+  if(document.getElementById('PatrimonioN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected53()
+{
+  if(document.getElementById('PrestacionesSocialesPorPagarN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected54()
+{
+  if(document.getElementById('PrestamoDeUnaCooperativaN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected55()
+{
+  if(document.getElementById('PrimaEnColocacionDeAccionesN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected56()
+{
+  if(document.getElementById('ProductosTerminadosN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected57()
+{
+  if(document.getElementById('PropiedadPlantaYequipoN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected58()
+{
+  if(document.getElementById('PropiedadesN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected59()
+{
+  if(document.getElementById('ProveedoresN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected60()
+{
+  if(document.getElementById('ReservaEstatutariaN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected61()
+{
+  if(document.getElementById('ReservaLegalN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected62()
+{
+  if(document.getElementById('ReservaOcasionalN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected63()
+{
+  if(document.getElementById('ReservasN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected64()
+{
+  if(document.getElementById('ResultadosDelEjercicioN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected65()
+{
+  if(document.getElementById('ResultadosEjerciciosAnterioresN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected66()
+{
+  if(document.getElementById('SalariosPorPagarN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected67()
+{
+  if(document.getElementById('SeguridadSocialPorPagarN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected68()
+{
+  if(document.getElementById('sobregiro(en un banco)N5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected69()
+{
+  if(document.getElementById('SuperavitDeCapitalN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected70()
+{
+  if(document.getElementById('UtilidadDelPeriodoN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected71()
+{
+  if(document.getElementById('VehiculosN5').value == "B" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected72()
+{
+  if(document.getElementById('VentaN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected73()
+{
+  if(document.getElementById('GastosDeAdministracionN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected74()
+{
+  if(document.getElementById('GastosDePersonalN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected75()
+{
+  if(document.getElementById('OtrosIngresosN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected76()
+{
+  if(document.getElementById('OtrosGastosN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected77()
+{
+  if(document.getElementById('GastosFinancierosN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected78()
+{
+  if(document.getElementById('CostosDeVentasN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected79()
+{
+  if(document.getElementById('IngresosPorServiciosN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected80()
+{
+  if(document.getElementById('GastosDeArrendamientoN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected81()
+{
+  if(document.getElementById('IngresosOrdinariosN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected82()
+{
+  if(document.getElementById('GastosDeVentasN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected83()
+{
+  if(document.getElementById('GastosOperacionalesN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected84()
+{
+  if(document.getElementById('GastosOperacionalesN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected85()
+{
+  if(document.getElementById('IngresosPorComercioAlPorMayorYalPorMenorN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected86()
+{
+  if(document.getElementById('IngresosfinancierosN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected87()
+{
+  if(document.getElementById('GastosPorServiciosN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected88()
+{
+  if(document.getElementById('CostosDeLaPrestacionDelServicioN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected89()
+{
+  if(document.getElementById('IngresosPorConstruccionN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected90()
+{
+  if(document.getElementById('IngresosPorexplotacionDeminasN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected91()
+{
+  if(document.getElementById('IngresosPrestacionDeServiciosN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected92()
+{
+  if(document.getElementById('VentasAactividadDeGanaderiaN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected93()
+{
+  if(document.getElementById('VentasPorExplotacionDeMinasN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected94()
+{
+  if(document.getElementById('GastosDeSegurosN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected95()
+{
+  if(document.getElementById('GastosPorDepreciacionesN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected96()
+{
+  if(document.getElementById('GastosDiversosN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected97()
+{
+  if(document.getElementById('GastosDeMantenimientoN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected98()
+{
+  if(document.getElementById('CostosActividadFinancieraN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected99()
+{
+  if(document.getElementById('CostosPorServicioDeHotelesN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
+
+function ShowSelected100()
+{
+  if(document.getElementById('CostosPorServicioDeHotelesN5').value == "R" ) {
+    cont+=1;
+    alert("Usted lleva "+cont+" consecutivos")
+    validar_cont()
+  }
+  else{
+    cont=0;
+    reset()
+  }
+}
 /*
-function ShowSelected48()
-{
-
-
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;*/
-
-/*
-
-if(document.getElementById('Otros resultados acumulados').value == "B" ) {
-  validar_cont()
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  
-}
-else{
-  cont=0;
-  reset()
-}
-}
-function ShowSelected48()
-{
-
-
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;
-var bandera=false
-
-
-if(document.getElementById('Otros resultados acumulados').value == "B" ) {
-  validar_cont()
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  
-}
-else{
-  cont=0;
-  reset()
-}
-}
-function ShowSelected48()
-{
-
-
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;
-var bandera=false
-
-
-if(document.getElementById('Otros resultados acumulados').value == "B" ) {
-  validar_cont()
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  
-}
-else{
-  cont=0;
-  reset()
-}
-}
-function ShowSelected48()
-{
-
-
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;
-var bandera=false
-
-
-if(document.getElementById('Otros resultados acumulados').value == "B" ) {
-  validar_cont()
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  
-}
-else{
-  cont=0;
-  reset()
-}
-}
-function ShowSelected48()
-{
-
-
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;
-var bandera=false
-
-
-if(document.getElementById('Otros resultados acumulados').value == "B" ) {
-  validar_cont()
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  
-}
-else{
-  cont=0;
-  reset()
-}
-}
-function ShowSelected48()
-{
-
-
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;
-var bandera=false
-
-
-if(document.getElementById('Otros resultados acumulados').value == "B" ) {
-  validar_cont()
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  
-}
-else{
-  cont=0;
-  reset()
-}
-}
-function ShowSelected48()
-{
-
-
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;
-var bandera=false
-
-
-if(document.getElementById('Otros resultados acumulados').value == "B" ) {
-  validar_cont()
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  
-}
-else{
-  cont=0;
-  reset()
-}
-}
-function ShowSelected48()
-{
-
-
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;
-var bandera=false
-
-
-if(document.getElementById('Otros resultados acumulados').value == "B" ) {
-  validar_cont()
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  
-}
-else{
-  cont=0;
-  reset()
-}
-}
-function ShowSelected48()
-{
-
-
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;
-var bandera=false
-
-
-if(document.getElementById('Otros resultados acumulados').value == "B" ) {
-  validar_cont()
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  
-}
-else{
-  cont=0;
-  reset()
-}
-}
-function ShowSelected48()
-{
-
-
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;
-var bandera=false
-
-
-if(document.getElementById('Otros resultados acumulados').value == "B" ) {
-  validar_cont()
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  
-}
-else{
-  cont=0;
-  reset()
-}
-}
-function ShowSelected48()
-{
-
-
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;
-var bandera=false
-
-
-if(document.getElementById('Otros resultados acumulados').value == "B" ) {
-  validar_cont()
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  
-}
-else{
-  cont=0;
-  reset()
-}
-}
-function ShowSelected48()
-{
-
-
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;*/
-/*
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;
-var bandera=false
-
-
-if(document.getElementById('Otros resultados acumulados').value == "B" ) {
-  validar_cont()
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  
-}
-else{
-  cont=0;
-  reset()
-}
-}
-function ShowSelected48()
-{
-
-
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;
-var bandera=false
-
-
-if(document.getElementById('Otros resultados acumulados').value == "B" ) {
-  validar_cont()
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  
-}
-else{
-  cont=0;
-  reset()
-}
-}
-function ShowSelected48()
-{
-
-
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;
-var bandera=false
-
-
-if(document.getElementById('Otros resultados acumulados').value == "B" ) {
-  validar_cont()
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  
-}
-else{
-  cont=0;
-  reset()
-}
-}
-function ShowSelected48()
-{
-
-
-/*var cod = document.getElementById("Acciones (de otras empresas)").value;
-var bandera=false
-
-
-if(document.getElementById('Otros resultados acumulados').value == "B" ) {
-  validar_cont()
-  cont+=1;
-  bandera=true;
-  alert("Usted llleva "+cont+" consecutivos")
-  
-}
-else{
-  cont=0;
-  reset()
-}
-}
-
-*/
 const button = document.querySelector('.nivel_6')
 nivel_6.disabled = true;
+
+*/
+
 
 
 function validar_cont(){
@@ -1539,29 +3898,56 @@ function reset(){
   document.getElementById('Otros resultados acumulados').selectedIndex=0; 
   document.getElementById('Otros resultados integrales').selectedIndex=0; 
   document.getElementById('Pagaré (en un banco)').selectedIndex=0; 
-
-  /*
-  document.getElementById('Pasivo').selectedIndex=0; 
-  document.getElementById('Patrimonio').selectedIndex=0; 
-  document.getElementById('Prestaciones sociales por pagar').selectedIndex=0; 
-  document.getElementById('Préstamo de una cooperativa').selectedIndex=0; 
-  document.getElementById('Prima en colocación de acciones').selectedIndex=0;
-  document.getElementById("Productos terminados").selectedIndex = 0;
-  document.getElementById("Propiedad, planta y equipo").selectedIndex = 0;
-  document.getElementById('Propiedades').selectedIndex=0; 
-  document.getElementById('Proveedores').selectedIndex=0; 
-  document.getElementById('Reserva estatutaria').selectedIndex=0; 
-  document.getElementById('Reserva legal').selectedIndex=0; 
-  document.getElementById('Capital social').selectedIndex=0; 
-  document.getElementById('Reserva ocasional').selectedIndex=0; 
-  document.getElementById('Reservas').selectedIndex=0; 
-  document.getElementById('Resultados del ejercicio').selectedIndex=0; 
-  document.getElementById('Resultados ejercicios anteriores').selectedIndex=0; 
-  document.getElementById('Salarios por pagar').selectedIndex=0; 
-  document.getElementById('Seguridad social por pagar').selectedIndex=0;
-  //1 = option 2
-  }
-*/
+  document.getElementById('PasivoN5').selectedIndex=0;
+  document.getElementById('PatrimonioN5').selectedIndex=0;
+  document.getElementById('PrestacionesSocialesPorPagarN5').selectedIndex=0;
+  document.getElementById('PrestamoDeUnaCooperativaN5').selectedIndex=0;
+  document.getElementById('PrimaEnColocacionDeAccionesN5').selectedIndex=0;
+  document.getElementById('ProductosTerminadosN5').selectedIndex=0;
+  document.getElementById('PropiedadPlantaYequipoN5').selectedIndex=0;
+  document.getElementById('PropiedadesN5').selectedIndex=0;
+  document.getElementById('ProveedoresN5').selectedIndex=0;
+  document.getElementById('ReservaEstatutariaN5').selectedIndex=0;
+  document.getElementById('ReservaLegalN5').selectedIndex=0;
+  document.getElementById('ReservaOcasionalN5').selectedIndex=0;
+  document.getElementById('ReservasN5').selectedIndex=0;
+  document.getElementById('ResultadosDelEjercicioN5').selectedIndex=0;
+  document.getElementById('ResultadosEjerciciosAnterioresN5').selectedIndex=0;
+  document.getElementById('SalariosPorPagarN5').selectedIndex=0;
+  document.getElementById('SeguridadSocialPorPagarN5').selectedIndex=0;
+  document.getElementById('sobregiro(en un banco)N5').selectedIndex=0;
+  document.getElementById('SuperavitDeCapitalN5').selectedIndex=0;
+  document.getElementById('UtilidadDelPeriodoN5').selectedIndex=0;
+  document.getElementById('VehiculosN5').selectedIndex=0;
+  document.getElementById('VentaN5').selectedIndex=0;
+  document.getElementById('GastosDeAdministracionN5').selectedIndex=0;
+  document.getElementById('GastosDePersonalN5').selectedIndex=0;
+  document.getElementById('OtrosIngresosN5').selectedIndex=0;
+  document.getElementById('OtrosGastosN5').selectedIndex=0;
+  document.getElementById('GastosFinancierosN5').selectedIndex=0;
+  document.getElementById('CostosDeVentasN5').selectedIndex=0;
+  document.getElementById('IngresosPorServiciosN5').selectedIndex=0;
+  document.getElementById('GastosDeArrendamientoN5').selectedIndex=0;
+  document.getElementById('IngresosOrdinariosN5').selectedIndex=0;
+  document.getElementById('GastosDeVentasN5').selectedIndex=0;
+  document.getElementById('GastosOperacionalesN5').selectedIndex=0;
+  document.getElementById('IngresosNoOperacionalesN5').selectedIndex=0;
+  document.getElementById('IngresosPorComercioAlPorMayorYalPorMenorN5').selectedIndex=0;
+  document.getElementById('IngresosfinancierosN5').selectedIndex=0;
+  document.getElementById('GastosPorServiciosN5').selectedIndex=0;
+  document.getElementById('CostosDeLaPrestacionDelServicioN5').selectedIndex=0;
+  document.getElementById('IngresosPorConstruccionN5').selectedIndex=0;
+  document.getElementById('IngresosPorexplotacionDeminasN5').selectedIndex=0;
+  document.getElementById('IngresosPrestacionDeServiciosN5').selectedIndex=0;
+  document.getElementById('VentasAactividadDeGanaderiaN5').selectedIndex=0;
+  document.getElementById('VentasPorExplotacionDeMinasN5').selectedIndex=0;
+  document.getElementById('GastosDeSegurosN5').selectedIndex=0;
+  document.getElementById('GastosPorDepreciacionesN5').selectedIndex=0;
+  document.getElementById('GastosDiversosN5').selectedIndex=0;
+  document.getElementById('GastosDeMantenimientoN5').selectedIndex=0;
+  document.getElementById('CostosActividadFinancieraN5').selectedIndex=0;
+  document.getElementById('CostosPorServicioDeHotelesN5').selectedIndex=0;
+  document.getElementById('CostosPorComercioAlPorMayorYalPorMenorN5').selectedIndex=0;
 }
 
 
@@ -1615,23 +4001,23 @@ function validar_resultados(){
 
   if(
         (document.getElementById("CompraMercancia").value == 1) //&& 
-       // (document.getElementById("CompraMercancia_con").value== 7) &&
-       // (document.getElementById("CompraMercanciaCredito").value= 1)//&&
-       // (document.getElementById("CompraMercanciaCredito_con").value = 2)&&
-       // (document.getElementById("IngresaNuevoSocio").value = 3)&&
-       // (document.getElementById("IngresaNuevoSocio_con").value= 1)&&
-       // (document.getElementById("PagoValorAdedudado").value = 7)&&
-        //(document.getElementById("PagoValorAdedudado_con").value = 1)&&
-       // (document.getElementById("VentaMercancia").value = 4)&&
-       // (document.getElementById("VentaMercancia_con").value = 1)&&
-       // (document.getElementById("ReconocimientoCosto").value = 6)&&
-       // (document.getElementById("ReconocimientoCosto_con").value = 7)&&
-       // (document.getElementById("ReconocimientoGasto").value = 5)&&
-       // (document.getElementById("ReconocimientoGasto_con").value = 2)
+        //(document.getElementById("CompraMercancia_con").value== 7) &&
+        /*(document.getElementById("CompraMercanciaCredito").value= 1)&&
+        (document.getElementById("CompraMercanciaCredito_con").value = 2)&&
+        (document.getElementById("IngresaNuevoSocio").value = 3)&&
+        (document.getElementById("IngresaNuevoSocio_con").value= 1)&&
+        (document.getElementById("PagoValorAdedudado").value = 7)&&
+        (document.getElementById("PagoValorAdedudado_con").value = 1)&&
+        (document.getElementById("VentaMercancia").value = 4)&&
+        (document.getElementById("VentaMercancia_con").value = 1)&&
+        (document.getElementById("ReconocimientoCosto").value = 6)&&
+        (document.getElementById("ReconocimientoCosto_con").value = 7)&&
+        (document.getElementById("ReconocimientoGasto").value = 5)&&
+        (document.getElementById("ReconocimientoGasto_con").value = 2)*/
         ){
          
        
-          alert("bien"+valor)
+          
           $('#passwordsNoMatchRegister').show();
   
 
@@ -1648,8 +4034,192 @@ function mostrar_nivel7(){
 }
 
 
+/*script nivel 7*/
+
+/*
+function sumarNivel7 (inputValue){
+  var totalN7= 0;
+  
+  inputValue = parseInt(inputValue);
+  totalN7 = document.getElementById('TotalCreditoN7').innerHTML;
+  totalN7 = (totalN7 == null || totalN7 == undefined || totalN7 == "") ? 0 : totalN7;
+  totalN7 = (parseInt(totalN7) + parseInt(inputValue));
+  document.getElementById('TotalCreditoN7').innerHTML = totalN7;
+  console.log(inputValue);
+}
+*/
+
+
+var debito1
+var debito2
+var debito3
+var debito4
+var debito5
+var debito6
+var debito7
+
+
+function val_7_1(debito1){
+  debito1 = parseInt(debito1);
+  console.log(debito1)
+  
+}
+function val_7_3_1(debito2){
+  debito2 = parseInt(debito2);
+  
+}
+function val_7_5_1(debito3){
+  debito3 = parseInt(debito3);
+  
+}
+function val_7_7_1(debito4){
+  debito4 = parseInt(debito4);
+  
+}
+function val_9_1_1(debito5){
+  debito5 = parseInt(debito5);
+  
+}
+function val_7_11_1(debito6){
+  debito6 = parseInt(debito6);
+  
+}
+function val_7_13_1(debito7){
+  debito7 = parseInt(debito7);
+  
+}
+
+var credito1
+var credito2
+var credito3
+var credito4
+var credito5
+var credito6
+var credito7
+
+function validar_resultados_7(){
+
+
+
+
+  /* Declaracion de totalizadores nivel7*/
+
+  var TotaldebitoN7=0;
+  var TotalCreditoN7=0;
+
+  /* obtener los valores de debito*/
+  debito1=parseInt(document.getElementById('val_7_1').value);
+  debito2= parseInt(document.getElementById('val_7_3_1').value);
+  debito3= parseInt(document.getElementById('val_7_5_1').value);
+  debito4= parseInt(document.getElementById('val_7_7_1').value);
+  debito5= parseInt(document.getElementById('val_9_1_1').value);
+  debito6= parseInt(document.getElementById('val_7_11_1').value);
+  debito7= parseInt(document.getElementById('val_7_13_1').value);
+
+  /*Obtener los valores de credito*/
+
+  credito1=parseInt(document.getElementById('val_7_2_2').value);
+  credito2=parseInt(document.getElementById('val_7_4_2').value);
+  credito3=parseInt(document.getElementById('val_7_6_2').value);
+  credito4=parseInt(document.getElementById('val_7_9_2').value);
+  credito5=parseInt(document.getElementById('val_7_10_2').value);
+  credito6=parseInt(document.getElementById('val_7_12_2').value);
+  credito7=parseInt(document.getElementById('val_7_14_2').value);
+
+
+ 
+
+  /*suma de totales debito*/
+  
+  TotaldebitoN7 = debito1+debito2+debito3+debito4+debito5+debito6+debito7;
+  
+  document.getElementById('TotaldebitoN7').innerHTML = TotaldebitoN7;
+
+  /*suma de totales credito*/
+
+  TotalCreditoN7 = credito1+credito2+credito3+credito4+credito5+credito6+credito7;
+  
+  console.log(TotaldebitoN7)
+  document.getElementById('TotalCreditoN7').innerHTML = TotalCreditoN7;
+
+  if (
+    (document.getElementById('DebitoFila1').value == 1)/*&&
+    (document.getElementById('CreditoFila1').value == 2)&&
+    (document.getElementById('DebitoFila2').value == 1)&&
+    (document.getElementById('CreditoFila2').value == 3)&&
+    (document.getElementById('DebitoFila3').value == 2)&&
+    (document.getElementById('CreditoFila3').value == 4)&&
+    (document.getElementById('DebitoFila4').value == 2)&&
+    (document.getElementById('CreditoFila4').value == 5)&&
+    (document.getElementById('DebitoFila5').value == 5)&&
+    (document.getElementById('CreditoFila5').value == 6)&&
+    (document.getElementById('DebitoFila6').value == 7)&&
+    (document.getElementById('CreditoFila6').value == 1)&&
+    (document.getElementById('DebitoFila7').value == 8)&&
+    (document.getElementById('CreditoFila7').value == 3)&&
+    (TotaldebitoN7==1400)&&
+    (TotalCreditoN7==1400)*/
+  )
+  {
+    $('#passwordsNoMatchRegisterNivel8').show();
+    $('#ResultadosNivel7').show();
+    $('#divisor_Nivel8').show();
+    $('#ResultadosNivel7_1').show();
+    $('#ResultadosNivel7_2').show();
+    $('#ResultadosNivel7_3').show();
+    $('#ResultadosNivel7_4').show();
+    $('#ResultadosNivel7_5').show();
+
+
+  }  else{
+    alert('malo')
+    $('#passwordsNoMatchRegisterNivel8_2').show();
+  } 
+}
+
+function reset_n7(){
+  document.getElementById('DebitoFila1').selectedIndex = 0;
+  document.getElementById('CreditoFila1').selectedIndex = 0;
+  document.getElementById('DebitoFila2').selectedIndex =0;
+  document.getElementById('CreditoFila2').selectedIndex =0;
+  document.getElementById('DebitoFila3').selectedIndex = 0;
+  document.getElementById('CreditoFila3').selectedIndex =0;
+  document.getElementById('DebitoFila4').selectedIndex =0;
+  document.getElementById('CreditoFila4').selectedIndex =0;
+  document.getElementById('DebitoFila5').selectedIndex =0;
+  document.getElementById('CreditoFila5').selectedIndex = 0;
+  document.getElementById('DebitoFila6').selectedIndex = 0;
+  document.getElementById('CreditoFila6').selectedIndex = 0;
+  document.getElementById('DebitoFila7').selectedIndex = 0;
+  document.getElementById('CreditoFila7').selectedIndex = 0;
+  document.getElementById('val_7_1').value  = '';
+  document.getElementById('val_7_3_1').value = '';
+  document.getElementById('val_7_5_1').value ='';
+  document.getElementById('val_7_7_1').value ='';
+  document.getElementById('val_9_1_1').value ='';
+  document.getElementById('val_7_11_1').value='';
+  document.getElementById('val_7_13_1').value='';
+  document.getElementById('val_7_2_2').value ='';
+  document.getElementById('val_7_4_2').value ='';
+  document.getElementById('val_7_6_2').value ='';
+  document.getElementById('val_7_9_2').value ='';
+  document.getElementById('val_7_10_2').value ='';
+  document.getElementById('val_7_12_2').value = '';
+  document.getElementById('val_7_14_2').value ='';
+  
+}
+
 /*nivel 8*/
 
+function mostrar_nivel8(){
+  $('#claseDiv2').show();
+  $('#lol6').show()
+  $("#nivel8_barra").removeClass( "disabled"); 
+  $("#nivel8_barra").addClass( "active");
+
+}
+
+/*
 function sumar (valor) {
   var total = 0;	
   valor = parseInt(valor); // Convertir el valor a un entero (número).
@@ -1660,20 +4230,64 @@ function sumar (valor) {
   total = (total == null || total == undefined || total == "") ? 0 : total;
 
   /* Esta es la suma. */
-  total = (parseInt(total) + parseInt(valor));
+ /* total = (parseInt(total) + parseInt(valor));
 
   // Colocar el resultado de la suma en el control "span".
-  document.getElementById('spTotal').innerHTML = total;
+ /* document.getElementById('spTotal').innerHTML = total;
 
   if (total == 650){
     alert("Respuesta Correcta");
     $('#passwordsNoMatchRegister8').show();
-    
+  }
+    /*alert("respuesta Incorrecta")
+    $('#passwordsNoMatchRegister9').show();
+
+
+}*/
+
+var TotalSumaNivel8_1=0;
+var campo8_1_1=0;
+var campo8_1_2=0;
+var campo8_1_3=0;
+var campo8_1_4=0;
+
+function SumaNivel8_1(){
+  
+  campo8_1_1=parseInt(document.getElementById('txt_campo_1').value);
+  campo8_1_2=parseInt(document.getElementById('txt_campo_2').value);
+  campo8_1_3=parseInt(document.getElementById('txt_campo_3').value);
+  campo8_1_4=parseInt(document.getElementById('txt_campo_4').value);
+
+  TotalSumaNivel8_1 = campo8_1_1+campo8_1_2+campo8_1_3+campo8_1_4;
+  
+  document.getElementById('spTotal').innerHTML = TotalSumaNivel8_1;
+
+  if (TotalSumaNivel8_1 == 650){
+    alert("Respuesta Correcta");
+    $('#passwordsNoMatchRegister8').show();
+  }
+  else{
+    $('#ErrorNivel8_1').show();
   }
 }
 
+
+
+function reset_n8_1(){
+  document.getElementById('txt_campo_1').value ='';
+  document.getElementById('txt_campo_2').value ='';
+  document.getElementById('txt_campo_3').value ='';
+  document.getElementById('txt_campo_4').value ='';
+
+}
+
+/*Ejercicio dos Nivel 8*/
 function mostrar2() {
   $('#ejer_2').show();
+  $('#ejer_2_2').show();
+  $('#rowNivel8_2').show();
+  $('#SegundoEjerNivel8').show();
+  $('#PreguntasNivel8_2').show();
 
 }
 
@@ -1691,10 +4305,39 @@ function sumar2 (valor) {
 
   // Colocar el resultado de la suma en el control "span".
   document.getElementById('spTotal2').innerHTML = total;
+}
 
-  if (total == 210){
+
+var TotalSumaNivel8_2=0;
+var campo8_1_5=0;
+var campo8_1_6=0;
+var campo8_1_7=0;
+var campo8_1_8=0;
+
+function SumaNivel8_2(){
+  
+  campo8_1_5=parseInt(document.getElementById('txt_campo_6').value);
+  campo8_1_6=parseInt(document.getElementById('txt_campo_7').value);
+  campo8_1_7=parseInt(document.getElementById('txt_campo_8').value);
+  campo8_1_8=parseInt(document.getElementById('txt_campo_9').value);
+
+  TotalSumaNivel8_2 = campo8_1_5+campo8_1_6+campo8_1_7+campo8_1_8;
+  
+  document.getElementById('spTotal2').innerHTML = TotalSumaNivel8_2;
+
+  if (TotalSumaNivel8_2 == 210){
     alert("Respuesta Correcta");
     $('#passwordsNoMatchRegister10').show();
-    
   }
+  else{
+    $('#ErrorNivel8_2').show();
+  }
+}
+
+function reset_n8_2(){
+  document.getElementById('txt_campo_6').value ='';
+  document.getElementById('txt_campo_7').value ='';
+  document.getElementById('txt_campo_8').value ='';
+  document.getElementById('txt_campo_9').value ='';
+
 }

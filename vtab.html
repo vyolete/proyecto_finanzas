@@ -28,7 +28,7 @@
 <body>
 
 <div class="container-fluid p-2 bg-dark text-white text-center">
-<h1>Proyecto Finanzas</h1>
+<h1>Lógica Contable</h1>
 <p></p>
 </div>
 
@@ -38,13 +38,13 @@
       <a class="nav-link" onclick="openCity(event, 'Nivel 1')" id="defaultOpen">Ecuación Contable</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" onclick="openCity(event, 'Nivel 3')">Clasificación de Cuentas</a>
+      <a class="nav-link disabled" onclick="openCity(event, 'Nivel 3')" id="nivel3_barra">Clasificación de Cuentas</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" onclick="openCity(event, 'Nivel 4')" >Cuentas Resultados</a>
+      <a class="nav-link disabled" onclick="openCity(event, 'Nivel 4')" id="nivel4_barra">Cuentas Resultados</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled" onclick="openCity(event, 'Nivel 6')" href="#">Partida Doble</a>
+      <a class="nav-link disabled" onclick="openCity(event, 'Nivel 6')" href="#" id="nivel8_barra">Partida Doble</a>
     <li class="nav-item">
       <a class="nav-link disabled" href="#">Conta</a>
     <li class="nav-item">
@@ -60,7 +60,9 @@
   <button id= "lol2" class="tablinks" onclick="openCity(event, 'Nivel 4')" >Nivel 4</button>
   <button id= "lol3" class="tablinks" onclick="openCity(event, 'Nivel 5')" >Nivel 5 </button>
   <button id= "lol4" class="tablinks" onclick="openCity(event, 'Nivel 6')" >Nivel 6 </button>
-  <button id= "lol5" class="tablinks" onclick="openCity(event, 'Nivel 6')" >Nivel 7 </button>
+  <a href="#Nivel_7"><button id= "lol5" class="tablinks" >Nivel 7 </button></a>
+  <a href="#Nivel_8"><button id= "lol6" class="tablinks"  >Nivel 8 </button></a>
+  
   
 </div>
 
@@ -75,7 +77,7 @@
   <p>Cada una de  de las 10 fichas aparecen en desorden y se tienen que arrastrar hasta su lugar correspondiente en el rompecabezas.</p></div>
   
 
-    <div id= "table">
+    <div id= "table" class= "justify-content-center">
       
         <div class = "Heading">
           <div id="div1" >
@@ -177,7 +179,9 @@
           <div class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert" id="success" aria-label="Close">&times;</button>
             <strong>¡Felicitaciones!</strong> Puedes pasar al Nivel 2
-          
+            <audio id="audio" autoplay loop>
+              <source type="audio/mp3" src="sonidos/completo.mp3">
+              </audio>          
             <br><br>
            
           
@@ -238,7 +242,7 @@
       <!--
         <div id= "niv2_1" class = "p-3 mb-2 bg-light text-dark" style="display-none"> /.primera columna del nivel 2 
           <form ud="lilita">
-          <div id="zona_1"> <!--donde puedo move los botones
+          <div id="zona_1"> 
 
               <div id="div_2_1"><p>Patrimonio</p></div>
               <div id="div_2_2" ><p>=</p></div>
@@ -275,7 +279,7 @@
       
         <div id= "niv2_3" class="p-3 mb-2 bg-light text-dark"> <!-- /.tercera columna del nivel 2 -->
 
-        <div>
+        <div> 
 
             <div id="div_2_1"> <p>Patrimonio</p></div>
             <div id="div_2_4_3" ondrop="drop4(event)" ondragover="allowDrop(event)"></div> 
@@ -283,18 +287,25 @@
             <div id="div_2_2" > <p>=</p></div>
             <div id="div_2_5" ><div><p>Activo</p></div>
         </div>   
-          <div>
+          <div id= "fila1" ondrop="dropg(event)" ondragover="allowDrop(event)">
             <button id="but2_5" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">+ </button>
             <br>
             <button id="but2_6" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">-</button>
-          </div>    
-
+          </div>       
       </div>  
+      <br>
+      <div class="alert alert-error collapse" role="alert" id="ErrorSignofila1" style="display:none;"> 
+        <div class="alert alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>¡Incorrecto!</strong> Cierre este mensaje y devuelva el signo .     
+        </div>   
+              
+    </div>
            
-        </div>
+        </div >
         <div id= "niv2_4" class="p-3 mb-2 bg-light text-dark"> <!-- /.cuarta columna del nivel 2 -->
 
-          <div >
+          <div  >
 
             <div id="div_2_5"> <p>Activo</p></div>
             <div id="div_2_4_4" ondrop="drop5(event)" ondragover="allowDrop(event)"></div> 
@@ -302,16 +313,25 @@
             <div id="div_2_2" > <p>=</p></div>
             <div id="div_2_3" ><div><p>Pasivo</p></div></div> 
           </div>   
-          <div>
+          <div class="border" div id= "fila2" ondrop="dropg2(event)" ondragover="allowDrop(event)">
             <button id="but2_7" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">+ </button>
             <br>
             <button id="but2_8" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">-</button>
           </div>   
-            
-       
+          <div class="alert alert-error collapse" role="alert" id="ErrorSignofila2" style="display:none;">
+          
+            <div class="alert alert-danger">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>¡Incorrecto!</strong> Cierre este mensaje y devuelva el signo .
+              
+            </div>
+          
+                  
+        </div>
         </div> 
-        <br> 
-        <div id= "niv2_5" class="p-3 mb-2 bg-light text-dark"> <!-- /.cuarta columna del nivel 2 -->
+        
+       
+        <div id= "niv2_5" class="p-3 mb-2 bg-light text-dark"> <!-- /.quinta columna del nivel 2 -->
 
           <div >
 
@@ -321,7 +341,7 @@
             <div id="div_2_2" > <p>=</p></div>
             <div id="div_2_1" ><div><p>Patrimonio</p></div></div>
           </div>   
-          <div>
+          <div div id= "fila2" ondrop="dropg2(event)" ondragover="allowDrop(event)">
             <button id="but2_9" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">+ </button>
             <br>
             <button id="but2_10" type="button" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">-</button>
@@ -330,25 +350,14 @@
             <div class="alert alert-success">
               <button type="button" class="close" data-dismiss="alert" id="success" aria-label="Close">&times;</button>
               <strong>¡Felicitaciones!</strong> Puedes pasar al Nivel 3
-              <audio autoplay>
-                <source src="sonidos/completo.mp3" type="audio/mp3">
-                Tu navegador no soporta HTML5 audio.
-            </audio>
-            
-              <br><br>
-
-
-             
-            
+   
           </div>
           </div>
       
-          <div class="alert alert-error collapse" role="alert" id="passwordsNoMatchRegister9" style="display:none;">
-            
+          <div class="alert alert-error collapse" role="alert" id="ErrorSignofila3" style="display:none;">
             <div class="alert alert-danger">
               <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <strong>¡Cuidado!</strong> Inténtalo de nuevo.
-            
+              <strong>¡Incorrecto!</strong> Cierre este mensaje y devuelva el signo .
             </div>
               
           </div>
@@ -362,10 +371,12 @@
     
         </div>
        </div>
-       <br>
-        <div class="bg-success p-2" style="--bs-bg-opacity: .5;"></div>         
-    </div>
-    
+
+
+  
+    <br>
+    <div class="bg-success p-2" style="--bs-bg-opacity: .5;"></div>   
+</div>
 </div>
 <!-- /.nivel 3 -->
 <div id="Nivel 3" class="tabcontent">
@@ -374,9 +385,9 @@
   <p>Clasifique cada uno de los siguientes entre las categorías correspondientes </p>
 
   <div id="principal 3" class="p-3 mb-4 bg-light text-dark">
-
+      <div id="Clasificacion1Nivel2_1">
     <div id=  "nivel3_3" class = "Heading3">
-      <div id="div3_1_1" ondrop="drop7(event)" ondragover="allowDrop(event)" >
+      <div id="div3_1_1" ondrop="drop(event)" ondragover="allowDrop(event)" >
          <div id="cuentas"><p>Activo</p><span>(Recursos)</span></P></div>
           <ul id="Activos"></ul>
           
@@ -402,8 +413,8 @@
 
     </div>
     <br>
-    <div id="clasificador_cuentas">
-      <div id="clasificador_1">       
+    <div id="clasificador_cuentas_1" class="row justify-content-md-center">
+      <div id="clasificador_1" class="container-fluid bg-1 text-center">        
             <p id="cuenta_1_1" ondragstart="drag(event)" draggable="true" >Obligaciones Financieras</p>
             <p id="cuenta_1_2" ondragstart="drag(event)" draggable="true" >Inversiones</p>
             <p id="cuenta_1_3" ondragstart="drag(event)" draggable="true" >Obligaciones Laborales</p>
@@ -412,7 +423,7 @@
             <p id="cuenta_1_6" ondragstart="drag(event)" draggable="true" >Cuentas por pagar</p>
             <p id="cuenta_1_7" ondragstart="drag(event)" draggable="true" >Resultados del período</p>
             <p id="cuenta_1_8" ondragstart="drag(event)" draggable="true" >Cuentas por cobrar</p>
-            <p id="cuenta_1_9" ondragstart="drag(event)" draggable="true" >Ganancias Articuladas</p>
+            <p id="cuenta_1_9" ondragstart="drag(event)" draggable="true" >Ganancias Acumuladas</p>
             <p id="cuenta_1_10" ondragstart="drag(event)" draggable="true" >Inventarios</p>
             <p id="cuenta_1_11" ondragstart="drag(event)" draggable="true" >Efectivo</p>
             <p id="cuenta_1_12" ondragstart="drag(event)" draggable="true" >Impuestos por pagar</p>
@@ -421,7 +432,42 @@
             <p id="cuenta_1_15" ondragstart="drag(event)" draggable="true" >Propiedades</p>
 
       </div>
-      <div id="clasificador_2">       
+      <br>
+      <button class="button" onclick="solucion1Nivel3()">Validar Resultados</button>
+      <button onclick="reset()">Reset</button>
+    </div>  
+      </div>
+
+      <div id="clasificador_cuentas_2">
+  <div id=  "nivel3_3" class = "Heading3">
+    <div id="div3_1_1" ondrop="drop(event)" ondragover="allowDrop(event)" >
+       <div id="cuentas"><p>Activo</p><span>(Recursos)</span></P></div>
+        <ul id="Activos"></ul>
+        
+    </div>
+
+    <div id="div3_1_2" >
+      <div><p>=</p></div>
+    </div>
+
+    <div id="div3_1_3" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div id="cuentas_p"><p>Pasivo</p><span>(Fuentes Externas</span></div>
+      <ul id="Pasivos"> </ul>
+    </div> 
+
+    <div id="div3_1_4" >  
+        <p>+</p>
+    </div>
+
+    <div id="div3_1_5" ondrop="drop(event)" ondragover="allowDrop(event)">
+       <div id="cuentas_F"><p>Patrimonio</p><span>(Fuentes Propias)</span></div>
+       <ul id="Patrimonios"> </ul>
+    </div>
+  </div>
+  
+  <br>
+  <div id="clasificador_cuentas_1" class="row justify-content-md-center">
+      <div id="clasificador_2" class="container-fluid bg-1 text-center">       
         <p id="cuenta_2_1" ondragstart="drag(event)" draggable="true" >Beneficios a empleados</p>
         <p id="cuenta_2_2" ondragstart="drag(event)" draggable="true" >Inversiones a valor razonable</p>
         <p id="cuenta_2_3" ondragstart="drag(event)" draggable="true" >Obligaciones de financiamiento</p>
@@ -439,89 +485,187 @@
         <p id="cuenta_2_15" ondragstart="drag(event)" draggable="true" >Intangibles</p>
 
        </div>
-
-       <div id="clasificador_3">       
-        <p id="cuenta_2_1" ondragstart="drag(event)" draggable="true" >Prima en colocación de acciones</p>
-        <p id="cuenta_2_2" ondragstart="drag(event)" draggable="true" >Local comercial</p>
-        <p id="cuenta_2_3" ondragstart="drag(event)" draggable="true" >Sobregiro (en un banco)</p>
-        <p id="cuenta_2_4" ondragstart="drag(event)" draggable="true" >Acciones (de otras empresas)</p>
-        <p id="cuenta_2_5" ondragstart="drag(event)" draggable="true" >Salarios por pagar</p>
-        <p id="cuenta_2_6" ondragstart="drag(event)" draggable="true" >Materia prima</p>
-        <p id="cuenta_2_7" ondragstart="drag(event)" draggable="true" >Ganancias acumuladas</p>
-        <p id="cuenta_2_8" ondragstart="drag(event)" draggable="true" >Impuesto a las ventas</p>
-        <p id="cuenta_2_9" ondragstart="drag(event)" draggable="true" >Utilidad del período</p>
-        <p id="cuenta_2_10" ondragstart="drag(event)" draggable="true" >Costos y gastos por pagar</p>
-        <p id="cuenta_2_11" ondragstart="drag(event)" draggable="true" >Derechos de franquicia</p>
-        <p id="cuenta_2_12" ondragstart="drag(event)" draggable="true" >Reserva legal</p>
-        <p id="cuenta_2_13" ondragstart="drag(event)" draggable="true" >Capital suscrito y pagado</p>
-        <p id="cuenta_2_14" ondragstart="drag(event)" draggable="true" >Clientes</p>  
-        <p id="cuenta_2_15" ondragstart="drag(event)" draggable="true" >Efectivo en bancos</p>
-
-       </div>
-
-       <div id="clasificador_4">       
-        <p id="cuenta_2_1" ondragstart="drag(event)" draggable="true" >Efectivo en caja menor</p>
-        <p id="cuenta_2_2" ondragstart="drag(event)" draggable="true" >Anticipos entregados por la empresa</p>
-        <p id="cuenta_2_3" ondragstart="drag(event)" draggable="true" >Cuotas o partes de interés social</p>
-        <p id="cuenta_2_4" ondragstart="drag(event)" draggable="true" >Reserva ocasional</p>
-        <p id="cuenta_2_5" ondragstart="drag(event)" draggable="true" >Marcas adquiridas</p>
-        <p id="cuenta_2_6" ondragstart="drag(event)" draggable="true" >Prestaciones sociales/p>
-        <p id="cuenta_2_7" ondragstart="drag(event)" draggable="true" >Bonos (no emitidos por la empresa)</p>
-        <p id="cuenta_2_8" ondragstart="drag(event)" draggable="true" >Préstamo de una cooperativa/p>
-        <p id="cuenta_2_9" ondragstart="drag(event)" draggable="true" >Computadores</p>
-        <p id="cuenta_2_10" ondragstart="drag(event)" draggable="true" >Carta de crédito de un banco</p>
-        <p id="cuenta_2_11" ondragstart="drag(event)" draggable="true" >Acreedores varios</p>
-        <p id="cuenta_2_12" ondragstart="drag(event)" draggable="true" >Otros resultados integrales</p>
-        <p id="cuenta_2_13" ondragstart="drag(event)" draggable="true" >Impuesto de renta por pagar</p>
-        <p id="cuenta_2_14" ondragstart="drag(event)" draggable="true" >Envases y empaques</p>  
-        <p id="cuenta_2_15" ondragstart="drag(event)" draggable="true" >Dividendos decretados en acciones</p>
-
-       </div>
-
-       <div id="clasificador_5">       
-        <p id="cuenta_2_1" ondragstart="drag(event)" draggable="true" >Efectivo en caja menor</p>
-        <p id="cuenta_2_2" ondragstart="drag(event)" draggable="true" >Anticipos entregados por la empresa</p>
-        <p id="cuenta_2_3" ondragstart="drag(event)" draggable="true" >Cuotas o partes de interés social</p>
-        <p id="cuenta_2_4" ondragstart="drag(event)" draggable="true" >Reserva ocasional</p>
-        <p id="cuenta_2_5" ondragstart="drag(event)" draggable="true" >Marcas adquiridas</p>
-        <p id="cuenta_2_6" ondragstart="drag(event)" draggable="true" >Prestaciones sociales<p>
-        <p id="cuenta_2_7" ondragstart="drag(event)" draggable="true" >Bonos (no emitidos por la empresa)</p>
-        <p id="cuenta_2_8" ondragstart="drag(event)" draggable="true" >Préstamo de una cooperativa</p>
-        <p id="cuenta_2_9" ondragstart="drag(event)" draggable="true" >Computadores</p>
-        <p id="cuenta_2_10" ondragstart="drag(event)" draggable="true" >Carta de crédito de un banco</p>
-        <p id="cuenta_2_11" ondragstart="drag(event)" draggable="true" >Acreedores varios</p>
-        <p id="cuenta_2_12" ondragstart="drag(event)" draggable="true" >Otros resultados integrales</p>
-        <p id="cuenta_2_13" ondragstart="drag(event)" draggable="true" >Impuesto de renta por pagar</p>
-        <p id="cuenta_2_14" ondragstart="drag(event)" draggable="true" >Envases y empaques</p>  
-        <p id="cuenta_2_15" ondragstart="drag(event)" draggable="true" >Dividendos decretados en acciones</p>
-
-       </div>
-
-       <div id="clasificador_6">       
-        <p id="cuenta_2_1" ondragstart="drag(event)" draggable="true" >Acciones de tesorería (propias)</p>
-        <p id="cuenta_2_2" ondragstart="drag(event)" draggable="true" >Vehículo</p>
-        <p id="cuenta_2_3" ondragstart="drag(event)" draggable="true" >Pagaré (en un banco)</p>
-        <p id="cuenta_2_4" ondragstart="drag(event)" draggable="true" >Certificado de depósito a término</p>
-        <p id="cuenta_2_5" ondragstart="drag(event)" draggable="true" >Seguridad social por pagar</p>
-        <p id="cuenta_2_6" ondragstart="drag(event)" draggable="true" >Aportes sociales<p>
-        <p id="cuenta_2_7" ondragstart="drag(event)" draggable="true" >Licencias de software</p>
-        <p id="cuenta_2_8" ondragstart="drag(event)" draggable="true" >Reserva estatutaria</p>
-        <p id="cuenta_2_9" ondragstart="drag(event)" draggable="true" >Cuenta por cobrar a trabajadores</p>
-        <p id="cuenta_2_10" ondragstart="drag(event)" draggable="true" >Cheques en caja general</p>
-        <p id="cuenta_2_11" ondragstart="drag(event)" draggable="true" >Productos terminados</p>
-        <p id="cuenta_2_12" ondragstart="drag(event)" draggable="true" >Otros resultados integrales</p>
-        <p id="cuenta_2_13" ondragstart="drag(event)" draggable="true" >Pérdida del ejercicio</p>
-        <p id="cuenta_2_14" ondragstart="drag(event)" draggable="true" >Cuentas por pagar a socios</p>  
-        <p id="cuenta_2_15" ondragstart="drag(event)" draggable="true" >Anticipados recibidos de otras empresas</p>
-
-       </div>
-
-              <button onclick="reset()">Reset</button>
-    </div>          
+  
+       <button class="button" onclick="solucion2Nivel3()" id="validarResultados2">Validar Resultados</button>
+      
   </div>
+     
+    </div>
+      <div id="clasificador_cuentas_3">
+    <div id=  "nivel3_3" class = "Heading3" >
+      <div id="div3_1_1" ondrop="drop(event)" ondragover="allowDrop(event)" >
+         <div id="cuentas"><p>Activo</p><span>(Recursos)</span></P></div>
+          <ul id="Activos"></ul>
+          
+      </div>
+
+      <div id="div3_1_2" >
+        <div><p>=</p></div>
+      </div>
+
+      <div id="div3_1_3" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="cuentas_p"><p>Pasivo</p><span>(Fuentes Externas</span></div>
+        <ul id="Pasivos"> </ul>
+      </div> 
+
+      <div id="div3_1_4" >  
+          <p>+</p>
+      </div>
+
+      <div id="div3_1_5" ondrop="drop(event)" ondragover="allowDrop(event)">
+         <div id="cuentas_F"><p>Patrimonio</p><span>(Fuentes Propias)</span></div>
+         <ul id="Patrimonios"> </ul>
+      </div>
+
+    </div>
+    <br>
+    <div id="clasificador_cuentas_1" class="row justify-content-md-center">
+       <div id="clasificador_3" class="container-fluid bg-1 text-center">       
+        <p id="cuenta_3_1" ondragstart="drag(event)" draggable="true" >Prima en colocación de acciones</p>
+        <p id="cuenta_3_2" ondragstart="drag(event)" draggable="true" >Local comercial</p>
+        <p id="cuenta_3_3" ondragstart="drag(event)" draggable="true" >Sobregiro (en un banco)</p>
+        <p id="cuenta_3_4" ondragstart="drag(event)" draggable="true" >Acciones (de otras empresas)</p>
+        <p id="cuenta_3_5" ondragstart="drag(event)" draggable="true" >Salarios por pagar</p>
+        <p id="cuenta_3_6" ondragstart="drag(event)" draggable="true" >Materia prima</p>
+        <p id="cuenta_3_7" ondragstart="drag(event)" draggable="true" >Ganancias acumuladas</p>
+        <p id="cuenta_3_8" ondragstart="drag(event)" draggable="true" >Impuesto a las ventas</p>
+        <p id="cuenta_3_9" ondragstart="drag(event)" draggable="true" >Utilidad del período</p>
+        <p id="cuenta_3_10" ondragstart="drag(event)" draggable="true" >Costos y gastos por pagar</p>
+        <p id="cuenta_3_11" ondragstart="drag(event)" draggable="true" >Derechos de franquicia</p>
+        <p id="cuenta_3_12" ondragstart="drag(event)" draggable="true" >Reserva legal</p>
+        <p id="cuenta_3_13" ondragstart="drag(event)" draggable="true" >Capital suscrito y pagado</p>
+        <p id="cuenta_3_14" ondragstart="drag(event)" draggable="true" >Clientes</p>  
+        <p id="cuenta_3_15" ondragstart="drag(event)" draggable="true" >Efectivo en bancos</p>
+
+       </div>
+       <button class="button" onclick="solucion3Nivel3()">Validar Resultados</button>
+       <button onclick="reset()">Reset</button>
+       </div>
+      </div>
+      <div id="clasificador_cuentas_4">
+      <div id=  "nivel3_3" class = "Heading3">
+        <div id="div3_1_1" ondrop="drop(event)" ondragover="allowDrop(event)" >
+           <div id="cuentas"><p>Activo</p><span>(Recursos)</span></P></div>
+            <ul id="Activos"></ul>
+            
+        </div>
+  
+        <div id="div3_1_2" >
+          <div><p>=</p></div>
+        </div>
+  
+        <div id="div3_1_3" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <div id="cuentas_p"><p>Pasivo</p><span>(Fuentes Externas</span></div>
+          <ul id="Pasivos"> </ul>
+        </div> 
+  
+        <div id="div3_1_4" >  
+            <p>+</p>
+        </div>
+  
+        <div id="div3_1_5" ondrop="drop(event)" ondragover="allowDrop(event)">
+           <div id="cuentas_F"><p>Patrimonio</p><span>(Fuentes Propias)</span></div>
+           <ul id="Patrimonios"> </ul>
+        </div>
+  
+      </div>
+      <br>
+      <div id="clasificador_cuentas_1" class="row justify-content-md-center">
+       <div id="clasificador_4" class="container-fluid bg-1 text-center">       
+        <p id="cuenta_4_1" ondragstart="drag(event)" draggable="true" >Efectivo en caja menor</p>
+        <p id="cuenta_4_2" ondragstart="drag(event)" draggable="true" >Anticipos entregados por la empresa</p>
+        <p id="cuenta_4_3" ondragstart="drag(event)" draggable="true" >Cuotas o partes de interés social</p>
+        <p id="cuenta_4_4" ondragstart="drag(event)" draggable="true" >Reserva ocasional</p>
+        <p id="cuenta_4_5" ondragstart="drag(event)" draggable="true" >Marcas adquiridas</p>
+        <p id="cuenta_4_6" ondragstart="drag(event)" draggable="true" >Prestaciones sociales</p>
+        <p id="cuenta_4_7" ondragstart="drag(event)" draggable="true" >Bonos (no emitidos por la empresa)</p>
+        <p id="cuenta_4_8" ondragstart="drag(event)" draggable="true" >Préstamo de una cooperativa</p>
+        <p id="cuenta_4_9" ondragstart="drag(event)" draggable="true" >Computadores</p>
+        <p id="cuenta_4_10" ondragstart="drag(event)" draggable="true" >Carta de crédito de un banco</p>
+        <p id="cuenta_4_11" ondragstart="drag(event)" draggable="true" >Acreedores varios</p>
+        <p id="cuenta_4_12" ondragstart="drag(event)" draggable="true" >Otros resultados integrales</p>
+        <p id="cuenta_4_13" ondragstart="drag(event)" draggable="true" >Impuesto de renta por pagar</p>
+        <p id="cuenta_4_14" ondragstart="drag(event)" draggable="true" >Envases y empaques</p>  
+        <p id="cuenta_4_15" ondragstart="drag(event)" draggable="true" >Dividendos decretados en acciones</p>
+
+       </div>
+       <button class="button" onclick="solucion4Nivel3()">Validar Resultados</button>
+      </div>  
+      </div>
+      <div id="clasificador_cuentas_5">
+            <div id=  "nivel3_3" class = "Heading3">
+              <div id="div3_1_1" ondrop="drop(event)" ondragover="allowDrop(event)" >
+                <div id="cuentas"><p>Activo</p><span>(Recursos)</span></P></div>
+                  <ul id="Activos"></ul>
+                  
+              </div>
+
+              <div id="div3_1_2" >
+                <div><p>=</p></div>
+              </div>
+
+              <div id="div3_1_3" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div id="cuentas_p"><p>Pasivo</p><span>(Fuentes Externas</span></div>
+                <ul id="Pasivos"> </ul>
+              </div> 
+
+              <div id="div3_1_4" >  
+                  <p>+</p>
+              </div>
+
+              <div id="div3_1_5" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div id="cuentas_F"><p>Patrimonio</p><span>(Fuentes Propias)</span></div>
+                <ul id="Patrimonios"> </ul>
+              </div>
+
+            </div>
+            <br>
+            <div id="clasificador_cuentas_1" class="row justify-content-md-center">
+            <div id="clasificador_5" class="container-fluid bg-1 text-center">       
+              <p id="cuenta_5_1" ondragstart="drag(event)" draggable="true" >Acciones de tesorería (propias)</p>
+              <p id="cuenta_5_2" ondragstart="drag(event)" draggable="true" >Vehículo</p>
+              <p id="cuenta_5_3" ondragstart="drag(event)" draggable="true" >Pagaré (en un banco)</p>
+              <p id="cuenta_5_4" ondragstart="drag(event)" draggable="true" >Certificado de depósito a término</p>
+              <p id="cuenta_5_5" ondragstart="drag(event)" draggable="true" >Seguridad social por pagar</p>
+              <p id="cuenta_5_6" ondragstart="drag(event)" draggable="true" >Aportes sociales<p>
+              <p id="cuenta_5_7" ondragstart="drag(event)" draggable="true" >Licencias de software</p>
+              <p id="cuenta_5_8" ondragstart="drag(event)" draggable="true" >Reserva estatutaria</p>
+              <p id="cuenta_5_9" ondragstart="drag(event)" draggable="true" >Cuenta por cobrar a trabajadores</p>
+              <p id="cuenta_5_10" ondragstart="drag(event)" draggable="true" >Cheques en caja general</p>
+              <p id="cuenta_5_11" ondragstart="drag(event)" draggable="true" >Productos terminados</p>
+              <p id="cuenta_5_12" ondragstart="drag(event)" draggable="true" >Otros resultados acumulados</p>
+              <p id="cuenta_5_13" ondragstart="drag(event)" draggable="true" >Pérdida del ejercicio</p>
+              <p id="cuenta_5_14" ondragstart="drag(event)" draggable="true" >Cuentas por pagar a socios</p>  
+              <p id="cuenta_5_15" ondragstart="drag(event)" draggable="true" >Anticipados recibidos de otras empresas</p>
+      
+             </div>
+                <button class="button" onclick="solucion5Nivel3()">Validar Resultados</button>
+              </div>
+      </div>
+
+      <br>
+      <div id="botonNivel4">
+       <div class="container">        
+         <button class="btn btn-info btn-block" type="button" onclick="openCity(event, 'Nivel 4')" disabledclass="btn btn-info btn-block" onclick="mostrarNivel4()" id="mostrar_ejercicio4">Nivel 4</button>
+   
+       </div>
+      </div>
+      <div class="alert alert-error collapse" role="alert" id="ErrorSignofila1" style="display:none;">
+         
+       <div class="alert alert-danger">
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+         <strong>¡Incorrecto!</strong> Cierre este mensaje y devuelva el signo .
+         
+       </div>
+   
+      </div>
 
 
-</div>
+  </div>
+  <div class="bg-success p-2" style="--bs-bg-opacity: .5;"></div>     
+  </div>  
+ 
+
   
  <!-- /.nivel 4 --> 
  <div id="Nivel 4" class="tabcontent">
@@ -574,7 +718,7 @@
           <div id="div_4_2_4" ><div><p>Patrimonio</p></div></div> 
           <div id="div_4_2_2" > <p>+</p></div>
           <div id="div_4_2_5"> <p>Ingresos</p></div>
-          <div id="div_4_2_2" > <p>+</p></div>
+          <div id="div_4_2_2" > <p>-</p></div>
           <div id="div_4_2_6"> <p>Costos y gastos</p></div>
         </div>
       <br>
@@ -608,24 +752,26 @@
       <br><br> <div class="grupos_cuentas"><h4>Frente a cada una de las cuentas (o grupos de cuentas), elija la naturaleza  que corresponda </h4></div>
       
       <div class="grupos_cuentas">
-        <div class="cuentas_g">
+        <div class="cuentas_g" id="GruposCuentasNivel4_1">
           <table class= "tabla1">
             <tr> 
                   
                     <td id=border >Acciones (de otras empresas)  </td>
                     <td id=border>
-                      <select name="Acciones (de otras empresas)">
-                        <option value>Db</option>
-                        <option value>Cr</option>
+                      <select name="Acciones (de otras empresas)" id="AcionesDeOtrasEmpresasNivel4" onchange="ValidaNIvel4_1()">
+                        <option value="0">...</option>
+                        <option value="Db">Db</option>
+                        <option value="Cr">Cr</option>
                     </td>
             </tr>
           
             <tr>
               <td id="border">Acreedores varios</td>
               <td id="border">
-                <select name="Acreedores varios">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="AcrededoresVariosNivel4" id="AcrededoresVariosNivel4" onchange="ValidaNIvel4_2()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -633,30 +779,33 @@
             <tr>
               <td id="border"> Activo </td>
               <td id="border">    
-                  <select name="Activo">
-                    <option value>Db</option>
-                    <option value>Cr</option>
+                  <select name="ActivoNivel4" id="ActivoNivel4" onchange="ValidaNIvel4_3()"> 
+                    <option value="0">...</option>
+                    <option value="Db">Db</option>
+                    <option value="Cr">Cr</option>
                   </select>
               </td>
             </tr>
 
             <tr>
-              <td id="border">Anticipos entregados por la empresa</td>
-              <td>
-                <select name="Anticipos entregados por la empresa">
-                  <option value>Db</option>
-                  <option value>Cr</option>
-                </select>
-
+              <td id="border"> Anticipos entregados por la empresa </td>
+              <td id="border">    
+                  <select name="AnticiposEntregadosPorLaEmpresaN4" id="AnticiposEntregadosPorLaEmpresaN4" onchange="ValidaNIvel4_4()"> 
+                    <option value="0">...</option>
+                    <option value="Db">Db</option>
+                    <option value="Cr">Cr</option>
+                </select> 
               </td>
             </tr>
+      
 
             <tr>
               <td id="border">Aportes sociales</td>
               <td id="border">
-                <select name="Aportes sociales">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="AportesSocialesN4" id="AportesSocialesN4" onchange="ValidaNIvel4_5()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
 
               </td>
@@ -665,9 +814,10 @@
             <tr>
               <td id="border">Beneficios a empleados</td>
               <td id="border">
-                <select name="Beneficios a empleados">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="BeneficiosAempleadosN4" id="BeneficiosAempleadosN4" onchange="ValidaNIvel4_6()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -675,9 +825,10 @@
             <tr>
               <td id="border">Bonos (emitidos por otras empresas)</td>
               <td id="border"> 
-                <select name="Bonos (emitidos por otras empresas)">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="Bonos(emitidos por otras empresas)N4" id="Bonos(emitidos por otras empresas)N4" onchange="ValidaNIvel4_7()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
 
@@ -686,9 +837,10 @@
             <tr>
               <td id="border">Capital social</td>
               <td id="border">
-                <select name="Capital social">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="CapitalSocialN4" id="CapitalSocialN4" onchange="ValidaNIvel4_8()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
 
               </td>
@@ -697,9 +849,10 @@
             <tr>
               <td id="border">Capital suscrito y pagado</td>
               <td id="border">
-                <select name="Capital suscrito y pagado">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="CapitalSuscritoYpagadoN4" id="CapitalSuscritoYpagadoN4" onchange="ValidaNIvel4_9()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -707,9 +860,10 @@
             <tr>
               <td id="border">Carta de crédito de un banco</td>
               <td id= "border">
-                <select name="Carta de crédito de un banco">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="CartaDeCreditoDeUnBancoN4" id= "CartaDeCreditoDeUnBancoN4" onchange="ValidaNIvel4_10()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -717,9 +871,10 @@
             <tr>
               <td id="border">Certificado de depósito a término</td>
               <td id="border">
-                <select name="Certificado de depósito a término">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="CertificadoDedepositoAterminoN4" id="CertificadoDedepositoAterminoN4" onchange="ValidaNIvel4_11()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
 
@@ -728,9 +883,10 @@
             <tr>
               <td id= "border">Cheques en caja general</td>
               <td id="border">
-                <select name="Cheques en caja general">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="ChequesEnAajaGeneralN4" id="ChequesEnAajaGeneralN4" onchange="ValidaNIvel4_12()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -738,9 +894,10 @@
             <tr>
               <td id="border">Clientes</td>
               <td id="border">
-                <select name="Clientes">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="ClientesN4" id="ClientesN4" onchange="ValidaNIvel4_13()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -748,9 +905,10 @@
             <tr>
               <td id="border">Computadores</td>
               <td id="border"> 
-                <select name="Computadores">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="ComputadoresN4" id="ComputadoresN4" onchange="ValidaNIvel4_14()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -758,9 +916,10 @@
             <tr>
               <td id="border">Costos</td>
               <td id="border">
-                <select name="Costos">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="CostosN4" id="CostosN4" onchange="ValidaNIvel4_15()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -768,9 +927,10 @@
             <tr>
               <td id="border">Costos y gastos por pagar</td>
               <td id="border">
-                <select name="Costos y gastos por pagar">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="CostosYgastosPorPagarN4" id="CostosYgastosPorPagarN4" onchange="ValidaNIvel4_16()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -778,9 +938,10 @@
             <tr>
               <td id="border">Cuenta por cobrar a trabajadores</td>
               <td id="border">
-                <select name="Cuenta por cobrar a trabajadores">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="CuentaPorCobrarAtrabajadoresN4" id="CuentaPorCobrarAtrabajadoresN4" onchange="ValidaNIvel4_17()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -788,9 +949,10 @@
             <tr>
               <td id="border">Cuentas por cobrar/td>
               <td id="border">
-                <select name="Cuentas por cobrar">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="CuentasPorCobrarN4" id="CuentasPorCobrarN4" onchange="ValidaNIvel4_18()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -798,9 +960,10 @@
             <tr>
               <td id="border">Cuentas por pagar</td>
               <td id="border">
-                <select name="Cuentas por pagar">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="CuentasPorPagarN4" id="CuentasPorPagarN4" onchange="ValidaNIvel4_19()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -808,9 +971,10 @@
             <tr>
               <td id="border">Cuentas por pagar a socios</td>
               <td id="border">
-                <select name="Cuentas por pagar a socios">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="CuentasPorPagarAsociosN4" id="CuentasPorPagarAsociosN4" onchange="ValidaNIvel4_20()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -818,9 +982,10 @@
             <tr>
               <td id="border">Cuotas o partes de interés social</td>
               <td id="border">
-                <select name="Cuotas o partes de interés social">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="CuotasOpartesDeInteresSocialN4" id="CuotasOpartesDeInteresSocialN4" onchange="ValidaNIvel4_21()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -828,9 +993,10 @@
             <tr>
               <td id="border">Derechos de franquicia</td>
               <td id="border">
-                <select name="Derechos de franquicia">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="DerechosDeFranquiciaN4" id="DerechosDeFranquiciaN4" onchange="ValidaNIvel4_22()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -838,9 +1004,10 @@
             <tr>
               <td id="border">Deudores varios</td>
               <td id="border">
-                <select name="Deudores varios">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="DeudoresVariosN4" id="DeudoresVariosN4" onchange="ValidaNIvel4_23()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -848,9 +1015,10 @@
             <tr>
               <td id="border">Dividendos decretados en acciones</td>
               <td id="border">
-                <select name="Dividendos decretados en acciones">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="DividendosDecretadosEnAccionesN4" id="DividendosDecretadosEnAccionesN4" onchange="ValidaNIvel4_24()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -858,57 +1026,68 @@
             <tr>
               <td id="border">Efectivo</td>
               <td id="border">
-                <select name="Efectivo">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="EfectivoN4" id="EfectivoN4" onchange="ValidaNIvel4_25()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
             </tr>
+
+
+      
+            <tr> 
+      </tr>
           </table>
         </div>
       
       
-        <div class="cuentas_g">  <!-- /.preguntas de la 25 a 50 -->
+        <div class="cuentas_g" id="GruposCuentasNivel4_2">  <!-- /.preguntas de la 25 a 50 -->
 
-        <table class= "tabla1">
-          <tr> 
-                
-                  <td id=border >Efectivo en bancos</td>
-                  <td id=border>
-                    <select name="Efectivo en bancos">
-                      <option value>Db</option>
-                      <option value>Cr</option>
-                  </td>
+        <table class= "tabla2">
+          <tr>
+            <td id="border">Efectivo en bancos</td>
+            <td id="border">
+              <select name="EfectivoEnBancosN4" id="EfectivoEnBancosN4" onchange="ValidaNIvel4_26()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
+              </select>
+            </span>
+            </td>
           </tr>
-        
           <tr>
             <td id="border">Efectivo en caja menor</td>
             <td id="border">
-              <select name="Efectivo en caja menor">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="EfectivoEnCajaMenorN4" id="EfectivoEnCajaMenorN4" onchange="ValidaNIvel4_27()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
               </select>
+            </span>
             </td>
           </tr>
-
           <tr>
             <td id="border">Envases y empaques</td>
-            <td id="border">    
-                <select name="Envases y empaques">
-                  <option value>Db</option>
-                  <option value>Cr</option>
-                </select>
+            <td id="border">
+              <select name="EnvasesYempaquesN4" id="EnvasesYempaquesN4" onchange="ValidaNIvel4_28()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
+              </select>
+            </span>
             </td>
           </tr>
 
           <tr>
             <td id="border">Ganancias acumuladas</td>
             <td>
-              <select name="Ganancias acumuladas">
-                <option value>Db</option>
-                <option value>Cr</option>
-              </select>
+              <select name="GananciasAcumuladasN4" id="GananciasAcumuladasN4" onchange="ValidaNIvel4_29()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
+             
 
             </td>
           </tr>
@@ -916,9 +1095,10 @@
           <tr>
             <td id="border">Gastos</td>
             <td id="border">
-              <select name="Gastos">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="GastosN4" id="GastosN4" onchange="ValidaNIvel4_30()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
               </select>
 
             </td>
@@ -927,9 +1107,10 @@
           <tr>
             <td id="border">Impuesto a las ventas</td>
             <td id="border">
-              <select name="Impuesto a las ventas">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="ImpuestoAlasVentasN4"id="ImpuestoAlasVentasN4" onchange="ValidaNIvel4_31()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
               </select>
             </td>
           </tr>
@@ -937,9 +1118,10 @@
           <tr>
             <td id="border">Impuesto de renta por pagar</td>
             <td id="border"> 
-              <select name="Impuesto de renta por pagar">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="ImpuestoDerentaPorPagarN4" id="ImpuestoDerentaPorPagarN4" onchange="ValidaNIvel4_32()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
               </select>
             </td>
 
@@ -948,9 +1130,10 @@
           <tr>
             <td id="border">Impuestos por pagar</td>
             <td id="border">
-              <select name="Impuestos por pagar">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="ImpuestosPorPagarN4" id="ImpuestosPorPagarN4" onchange="ValidaNIvel4_33()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
               </select>
 
             </td>
@@ -959,19 +1142,20 @@
           <tr>
             <td id="border">Impuestos, gravámenes y tasas</td>
             <td id="border">
-              <select name="Impuestos, gravámenes y tasas">
-                <option value>Db</option>
-                <option value>Cr</option>
-              </select>
+              <select name="ImpuestosGravamenesYtasasN4" id="ImpuestosGravamenesYtasasN4" onchange="ValidaNIvel4_34()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
             </td>
           </tr>
 
           <tr>
             <td id="border">Ingresos</td>
             <td id= "border">
-              <select name="Ingresos">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="IngresosN4" id="IngresosN4" onchange="ValidaNIvel4_35()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
               </select>
             </td>
           </tr>
@@ -979,9 +1163,10 @@
           <tr>
             <td id="border">Intangibles</td>
             <td id="border">
-              <select name="Intangibles">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="IntangiblesN4"  id="IntangiblesN4" onchange="ValidaNIvel4_36()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
               </select>
             </td>
 
@@ -990,9 +1175,10 @@
           <tr>
             <td id= "border">Inventarios</td>
             <td id="border">
-              <select name="Cheques en caja general">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="InventariosN4" id="InventariosN4" onchange="ValidaNIvel4_37()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
               </select>
             </td>
           </tr>
@@ -1000,29 +1186,30 @@
           <tr>
             <td id="border">Inversiones</td>
             <td id="border">
-              <select name="Inversiones">
-                <option value>Db</option>
-                <option value>Cr</option>
-              </select>
+              <select name="InversionesN4" id="InversionesN4" onchange="ValidaNIvel4_38()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
             </td>
           </tr>
 
           <tr>
             <td id="border">Inversiones a valor razonable</td>
             <td id="border"> 
-              <select name="Inversiones a valor razonable">
-                <option value>Db</option>
-                <option value>Cr</option>
-              </select>
+              <select name="InversionesAvalorRazonableN4" id="InversionesAvalorRazonableN4" onchange="ValidaNIvel4_39()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
             </td>
           </tr>
 
           <tr>
             <td id="border">Licencias de software</td>
             <td id="border">
-              <select name="Licencias de software">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="LicenciasDeSoftwareN4" id="LicenciasDeSoftwareN4" onchange="ValidaNIvel4_40()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
               </select>
             </td>
           </tr>
@@ -1030,9 +1217,10 @@
           <tr>
             <td id="border">Local comercial</td>
             <td id="border">
-              <select name="Local comercial">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="LocalComercialN4" id="LocalComercialN4" onchange="ValidaNIvel4_41()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
               </select>
             </span>
             </td>
@@ -1040,19 +1228,21 @@
           <tr>
             <td id="border">Marcas adquiridas</td>
             <td id="border">
-              <select name="Marcas adquiridas">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="MarcasAdquiridasN4" id="MarcasAdquiridasN4" onchange="ValidaNIvel4_42()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
               </select>
             </span>
             </td>
           </tr>
           <tr>
-            <td id="border">Materia prima/td>
+            <td id="border">Materia prima</td>
             <td id="border">
-              <select name="Materia prima">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="MateriaPrimaN4" id="MateriaPrimaN4" onchange="ValidaNIvel4_43()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
               </select>
             </span>
             </td>
@@ -1060,9 +1250,10 @@
           <tr>
             <td id="border">Mercancía</td>
             <td id="border">
-              <select name="Mercancía">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="MercancíaN4" id="MercancíaN4" onchange="ValidaNIvel4_44()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
               </select>
             </span>
             </td>
@@ -1070,19 +1261,21 @@
           <tr>
             <td id="border">Obligaciones de financiamiento</td>
             <td id="border">
-              <select name="Obligaciones de financiamiento">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="ObligacionesDeFinanciamientoN4" id="ObligacionesDeFinanciamientoN4" onchange="ValidaNIvel4_45()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
               </select>
-            </span>
+            
             </td>
           </tr>
           <tr>
             <td id="border">Obligaciones financieras</td>
             <td id="border">
-              <select name="Obligaciones financieras">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="ObligacionesFinancierasN4" id="ObligacionesFinancierasN4" onchange="ValidaNIvel4_46()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
               </select>
             </span>
             </td>
@@ -1090,9 +1283,11 @@
           <tr>
             <td id="border">Obligaciones laborales</td>
             <td id="border">
-              <select name="Obligaciones laborales">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="ObligacionesLaboralesN4" id="ObligacionesLaboralesN4" onchange="ValidaNIvel4_47()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
+              </select>
               </select>
             </span>
             </td>
@@ -1100,9 +1295,11 @@
           <tr>
             <td id="border">Otros resultados acumulados</td>
             <td id="border">
-              <select name="Otros resultados acumulados">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="OtrosResultadosAcumuladosN4" id="OtrosResultadosAcumuladosN4" onchange="ValidaNIvel4_48()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
+              </select>
               </select>
             </span>
             </td>
@@ -1110,9 +1307,11 @@
           <tr>
             <td id="border">Otros resultados integrales</td>
             <td id="border">
-              <select name="Otros resultados integrales">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="OtrosResultadosIntegralesN4" id="OtrosResultadosIntegralesN4" onchange="ValidaNIvel4_49()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
+              </select>
               </select>
             </span>
             </td>
@@ -1120,34 +1319,38 @@
           <tr>
             <td id="border">Pagaré (en un banco)</td>
             <td id="border">
-              <select name="Pagaré (en un banco)">
-                <option value>Db</option>
-                <option value>Cr</option>
+              <select name="Pagare(en un banco)N4" id="Pagare(en un banco)N4" onchange="ValidaNIvel4_50()">
+                <option value="0">...</option>
+                <option value="Db">Db</option>
+                <option value="Cr">Cr</option>
+              </select>
               </select>
             </span>
             </td>
           </tr>
         </table>
         </div> 
-        <div class="cuentas_g">  <!-- /.preguntas de la 50 a 75 -->
+        <div class="cuentas_g" id="GruposCuentasNivel4_3" >   <!-- /.preguntas de la 50 a 75 -->
 
           <table class= "tabla1">
             <tr> 
                   
                     <td id=border >Pasivo</td>
                     <td id=border>
-                      <select name="Pasivo">
-                        <option value>Db</option>
-                        <option value>Cr</option>
+                      <select name="PasivoN4" id="PasivoN4" onchange="ValidaNIvel4_51()">
+                        <option value="0">...</option>
+                        <option value="Db">Db</option>
+                        <option value="Cr">Cr</option>
                     </td>
             </tr>
           
             <tr>
               <td id="border">Patrimonio</td>
               <td id="border">
-                <select name="Patrimonio">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="PatrimonioN4" id="PatrimonioN4" onchange="ValidaNIvel4_52()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1155,9 +1358,10 @@
             <tr>
               <td id="border"> Prestaciones sociales por pagar</td>
               <td id="border">    
-                  <select name="Prestaciones sociales por pagar">
-                    <option value>Db</option>
-                    <option value>Cr</option>
+                  <select name="PrestacionesSocialesPorPagarN4" id="PrestacionesSocialesPorPagarN4" onchange="ValidaNIvel4_53()">
+                    <option value="0">...</option>
+                    <option value="Db">Db</option>
+                    <option value="Cr">Cr</option>
                   </select>
               </td>
             </tr>
@@ -1165,9 +1369,10 @@
             <tr>
               <td id="border">Préstamo de una cooperativa</td>
               <td>
-                <select name="Préstamo de una cooperativa">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="PrestamoDeUnaCooperativaN4" id="PrestamoDeUnaCooperativaN4" onchange="ValidaNIvel4_54()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
   
               </td>
@@ -1176,9 +1381,10 @@
             <tr>
               <td id="border">Prima en colocación de acciones</td>
               <td id="border">
-                <select name="Prima en colocación de acciones">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="PrimaEnColocaciónDeAccionesN4" id="PrimaEnColocaciónDeAccionesN4" onchange="ValidaNIvel4_55()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
   
               </td>
@@ -1187,9 +1393,10 @@
             <tr>
               <td id="border">Productos terminados</td>
               <td id="border">
-                <select name="Productos terminados">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="ProductosTerminadosN4" id="ProductosTerminadosN4" onchange="ValidaNIvel4_56()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1197,9 +1404,10 @@
             <tr>
               <td id="border">Propiedad, planta y equipo</td>
               <td id="border"> 
-                <select name="Propiedad, planta y equipo">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="PropiedadPlantaYequipoN4" id="PropiedadPlantaYequipoN4" onchange="ValidaNIvel4_57()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
   
@@ -1208,9 +1416,10 @@
             <tr>
               <td id="border">Propiedades</td>
               <td id="border">
-                <select name="Propiedades">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="PropiedadesN4" id="PropiedadesN4" onchange="ValidaNIvel4_58()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
   
               </td>
@@ -1219,9 +1428,10 @@
             <tr>
               <td id="border">Proveedores</td>
               <td id="border">
-                <select name="Proveedores">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="ProveedoresN4" id="ProveedoresN4" onchange="ValidaNIvel4_59()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1229,9 +1439,10 @@
             <tr>
               <td id="border">Reserva estatutaria</td>
               <td id= "border">
-                <select name="Reserva estatutaria">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="ReservaEstatutariaN4" id="ReservaEstatutariaN4" onchange="ValidaNIvel4_60()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1239,9 +1450,10 @@
             <tr>
               <td id="border">Reserva legal</td>
               <td id="border">
-                <select name="Reserva legal">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="ReservaLegalN4" id="ReservaLegalN4" onchange="ValidaNIvel4_61()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
   
@@ -1250,9 +1462,10 @@
             <tr>
               <td id= "border">Reserva ocasional</td>
               <td id="border">
-                <select name="Reserva ocasional">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="ReservaOcasionalN4" id="ReservaOcasionalN4" onchange="ValidaNIvel4_62()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1260,9 +1473,10 @@
             <tr>
               <td id="border">Reservas</td>
               <td id="border">
-                <select name="Reservas">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="ReservasN4" id="ReservasN4" onchange="ValidaNIvel4_63()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1270,9 +1484,10 @@
             <tr>
               <td id="border">Resultados del ejercicio</td>
               <td id="border"> 
-                <select name="Resultados del ejercicio">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="ResultadosDelEjercicioN4" id="ResultadosDelEjercicioN4" onchange="ValidaNIvel4_64()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1280,9 +1495,10 @@
             <tr>
               <td id="border">Resultados ejercicios anteriores</td>
               <td id="border">
-                <select name="Resultados ejercicios anteriores">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="ResultadosEjerciciosAnterioresN4" id="ResultadosEjerciciosAnterioresN4" onchange="ValidaNIvel4_65()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1290,9 +1506,10 @@
             <tr>
               <td id="border">Salarios por pagar</td>
               <td id="border">
-                <select name="Salarios por pagar">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="SalariosPorPagarN4" id="SalariosPorPagarN4" onchange="ValidaNIvel4_66()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1300,9 +1517,10 @@
             <tr>
               <td id="border">Seguridad social por pagar</td>
               <td id="border">
-                <select name="Seguridad social por pagar">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="SeguridadSocialPorPagarN4" id="SeguridadSocialPorPagarN4" onchange="ValidaNIvel4_67()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1310,9 +1528,10 @@
             <tr>
               <td id="border">Sobregiro (en un banco)</td>
               <td id="border">
-                <select name="Sobregiro (en un banco)">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="Sobregiro(en un banco)N4" id="Sobregiro(en un banco)N4" onchange="ValidaNIvel4_68()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1320,9 +1539,10 @@
             <tr>
               <td id="border">Superávit de capital</td>
               <td id="border">
-                <select name="Superávit de capitalr">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="SuperavitDeCapitalrN4" id="SuperavitDeCapitalrN4" onchange="ValidaNIvel4_69()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1330,9 +1550,10 @@
             <tr>
               <td id="border">Utilidad del período</td>
               <td id="border">
-                <select name="Utilidad del período">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="UtilidadDelPeriodoN4" id="UtilidadDelPeriodoN4" onchange="ValidaNIvel4_70()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1340,9 +1561,10 @@
             <tr>
               <td id="border">Vehículo</td>
               <td id="border">
-                <select name="Vehículo">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="VehiculoN5" id="VehiculoN5" onchange="ValidaNIvel4_71()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1350,9 +1572,10 @@
             <tr>
               <td id="border">Ventas</td>
               <td id="border">
-                <select name="Ventas">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="VentasN5" id="VentasN5" onchange="ValidaNIvel4_72()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1360,9 +1583,10 @@
             <tr>
               <td id="border">Gastos de administración</td>
               <td id="border">
-                <select name="Gastos de administración">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="GastosDeAdministraciónN4" id="GastosDeAdministraciónN4" onchange="ValidaNIvel4_73()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1370,9 +1594,10 @@
             <tr>
               <td id="border">Gastos de personal</td>
               <td id="border">
-                <select name="Gastos de personal">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="GastosDePersonalN4" id="GastosDePersonalN4" onchange="ValidaNIvel4_74()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1380,34 +1605,38 @@
             <tr>
               <td id="border">Otros ingresos</td>
               <td id="border">
-                <select name="Otros ingresos">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="OtrosIngresosN4" id="OtrosIngresosN4" onchange="ValidaNIvel4_75()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
             </tr>
           </table>
         </div>
-        <div class="cuentas_g">  <!-- /.preguntas de la 75 a 100 -->
+        <div class="cuentas_g" id="GruposCuentasNivel4_4">  <!-- /.preguntas de la 75 a 100 -->
 
           <table class= "tabla1">
             <tr> 
                   
                     <td id=border >Otros gastos</td>
                     <td id=border>
-                      <select name="Otros gastos">
-                        <option value>Db</option>
-                        <option value>Cr</option>
+                      <select name="OtrosGastosN4" id="OtrosGastosN4" onchange="ValidaNIvel4_76()">
+                        <option value="0">...</option>
+                        <option value="Db">Db</option>
+                        <option value="Cr">Cr</option>
+                      </select>
                     </td>
             </tr>
           
             <tr>
               <td id="border">Gastos financieros</td>
               <td id="border">
-                <select name="Gastos financieros">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="GastosFinancierosN4" id="GastosFinancierosN4" onchange="ValidaNIvel4_77()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1415,9 +1644,10 @@
             <tr>
               <td id="border">Costos de ventas </td>
               <td id="border">    
-                  <select name="Costos de ventas">
-                    <option value>Db</option>
-                    <option value>Cr</option>
+                  <select name="CostosDeVentasN4" id="CostosDeVentasN4" onchange="ValidaNIvel4_78()">
+                    <option value="0">...</option>
+                    <option value="Db">Db</option>
+                    <option value="Cr">Cr</option>
                   </select>
               </td>
             </tr>
@@ -1425,9 +1655,10 @@
             <tr>
               <td id="border">Ingresos por servicios</td>
               <td>
-                <select name="Ingresos por servicios">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="IngresosPorServiciosN4" id="IngresosPorServiciosN4" onchange="ValidaNIvel4_79()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
   
               </td>
@@ -1436,9 +1667,10 @@
             <tr>
               <td id="border">Gastos de arrendamiento</td>
               <td id="border">
-                <select name="Gastos de arrendamiento">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="GastosDeArrendamientoN4" id="GastosDeArrendamientoN4" onchange="ValidaNIvel4_80()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
   
               </td>
@@ -1447,9 +1679,10 @@
             <tr>
               <td id="border">Ingresos ordinarios</td>
               <td id="border">
-                <select name="Ingresos ordinarios">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="IngresosOrdinariosN4" id="IngresosOrdinariosN4" onchange="ValidaNIvel4_81()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1457,9 +1690,10 @@
             <tr>
               <td id="border">Gastos de ventas</td>
               <td id="border"> 
-                <select name="Gastos de ventas">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="GastosDeVentasN4" id="GastosDeVentasN4" onchange="ValidaNIvel4_82()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
   
@@ -1468,9 +1702,10 @@
             <tr>
               <td id="border">Gastos operacionales</td>
               <td id="border">
-                <select name="Gastos operacionales">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="GastosOperacionalesN4" id="GastosOperacionalesN4" onchange="ValidaNIvel4_83()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
   
               </td>
@@ -1479,9 +1714,10 @@
             <tr>
               <td id="border">Ingresos no operacionales</td>
               <td id="border">
-                <select name="Ingresos no operacionales">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="IngresosNoOperacionalesN4" id="IngresosNoOperacionalesN4" onchange="ValidaNIvel4_84()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1489,9 +1725,10 @@
             <tr>
               <td id="border">Ingresos por comercio al por mayor y al por menor</td>
               <td id= "border">
-                <select name="Ingresos por comercio al por mayor y al por menor">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="IngresosPorComercioAlPorMayorYalPorMenorN4" id="IngresosPorComercioAlPorMayorYalPorMenorN4" onchange="ValidaNIvel4_85()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1499,9 +1736,10 @@
             <tr>
               <td id="border">Ingresos financieros</td>
               <td id="border">
-                <select name="Ingresos financieros">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="IngresosFinancierosN4" id="IngresosFinancierosN4" onchange="ValidaNIvel4_86()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
   
@@ -1510,9 +1748,10 @@
             <tr>
               <td id= "border">Gastos por servicios</td>
               <td id="border">
-                <select name="Gastos por servicios">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="GastosPorServiciosN4" id="GastosPorServiciosN4" onchange="ValidaNIvel4_87()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1520,9 +1759,10 @@
             <tr>
               <td id="border">Costos de la prestación del servicio</td>
               <td id="border">
-                <select name="Costos de la prestación del servicio">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="CostosDeLaPrestaciónDelServicioN4" id="CostosDeLaPrestaciónDelServicioN4" onchange="ValidaNIvel4_88()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1530,9 +1770,10 @@
             <tr>
               <td id="border">Ingresos por construcción</td>
               <td id="border"> 
-                <select name="Ingresos por construcción">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="IngresoPorConstrucciónN4" id="IngresoPorConstrucciónN4" onchange="ValidaNIvel4_89()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1540,9 +1781,10 @@
             <tr>
               <td id="border">Ingresos por explotación de minas</td>
               <td id="border">
-                <select name="Ingresos por explotación de minas">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="IngresosPorExplotaciónDeMinasN4" id="IngresosPorExplotaciónDeMinasN4" onchange="ValidaNIvel4_90()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </td>
             </tr>
@@ -1550,9 +1792,10 @@
             <tr>
               <td id="border">Ingresos prestación de servicios</td>
               <td id="border">
-                <select name="Ingresos prestación de servicios">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="IngresosPrestacionDeServiciosN4" id="IngresosPrestacionDeServiciosN4" onchange="ValidaNIvel4_91()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1560,9 +1803,10 @@
             <tr>
               <td id="border">Ventas actividad de ganadería</td>
               <td id="border">
-                <select name="Ventas actividad de ganadería">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="VentasActividadDeGanaderiaN4" id="VentasActividadDeGanaderiaN4" onchange="ValidaNIvel4_92()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1570,9 +1814,10 @@
             <tr>
               <td id="border">Ventas por explotación de minas</td>
               <td id="border">
-                <select name="Ventas por explotación de minas">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="VentasPorExplotacionDeMinasN4" id="VentasPorExplotacionDeMinasN4" onchange="ValidaNIvel4_93()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1580,9 +1825,10 @@
             <tr>
               <td id="border">Gastos de seguros</td>
               <td id="border">
-                <select name="Gastos de seguros">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="GastosDeSegurosN4" id="GastosDeSegurosN4" onchange="ValidaNIvel4_94()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1590,9 +1836,10 @@
             <tr>
               <td id="border">Gastos por depreciaciones</td>
               <td id="border">
-                <select name="Gastos por depreciaciones">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="GastosPorDepreciacionesN4" id="GastosPorDepreciacionesN4" onchange="ValidaNIvel4_95()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1600,9 +1847,10 @@
             <tr>
               <td id="border">Gastos diversos</td>
               <td id="border">
-                <select name="Gastos diversos">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="GastosDiversosN4" id="GastosDiversosN4" onchange="ValidaNIvel4_96()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1610,9 +1858,10 @@
             <tr>
               <td id="border">Gastos de mantenimiento</td>
               <td id="border">
-                <select name="Gastos de mantenimiento">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="GastosDeMantenimientoN4" id="GastosDeMantenimientoN4" onchange="ValidaNIvel4_97()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1620,9 +1869,10 @@
             <tr>
               <td id="border">Costos actividad financiera</td>
               <td id="border">
-                <select name="Costos actividad financiera">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="CostosActividadFinancieraN4" id="CostosActividadFinancieraN4" onchange="ValidaNIvel4_98()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1630,9 +1880,10 @@
             <tr>
               <td id="border">Costos por servicio de hoteles</td>
               <td id="border">
-                <select name="Costos por servicio de hoteles">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="CostosPorServicioDeHotelesN4" id="CostosPorServicioDeHotelesN4" onchange="ValidaNIvel4_99()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
@@ -1640,17 +1891,25 @@
             <tr>
               <td id="border">Costos por comercio al por mayor y al por menor</td>
               <td id="border">
-                <select name="Costos por comercio al por mayor y al por menor">
-                  <option value>Db</option>
-                  <option value>Cr</option>
+                <select name="CostosPorComercioAlPorMayorYAlPorMenorN4" id="CostosPorComercioAlPorMayorYAlPorMenorN4" onchange="ValidaNIvel4_100()">
+                  <option value="0">...</option>
+                  <option value="Db">Db</option>
+                  <option value="Cr">Cr</option>
                 </select>
               </span>
               </td>
             </tr>
           </table>
         </div>
+
+        <div class="container">        
+          <button id="nivel_5" type="button"  class="btn btn-secondary btn-lg btn-block" onclick="openCity(event, 'Nivel 5')" disabled >Nivel 5</button>
+        </div>
       </div>
+
     </div>
+    </div>
+    <div class="bg-success p-2" style="--bs-bg-opacity: .5;"></div>  
   </div>
 
 <!-- /.nivel 5 --> 
@@ -2408,11 +2667,11 @@
               <th scope="row">51</th>
               <td>
 
-                  <label for="Pasivo">Pasivo</label>
+                  <label for="PasivoN5">Pasivo</label>
 
               </td>     
             <td> 
-                      <select name="Pasivo" id="Pasivo" onchange="ShowSelected();">
+                      <select name="PasivoN5" id="PasivoN5" onchange="ShowSelected51();">
                         <option value="0">...</option>
                         <option value="B">B</option>
                         <option value="R">R</option>
@@ -2423,11 +2682,11 @@
               <th scope="row">52</th>
               <td>
 
-                  <label for="Patrimonio">Patrimonio</label>
+                  <label for="PatrimonioN5">Patrimonio</label>
 
               </td>     
             <td> 
-                      <select name="Patrimonio" id="Patrimonio" onchange="ShowSelected2();">
+                      <select name="PatrimonioN5" id="PatrimonioN5" onchange="ShowSelected52();">
                         <option value="0">...</option>
                         <option value="B">B</option>
                         <option value="R">R</option>
@@ -2438,11 +2697,11 @@
               <th scope="row">53</th>
               <td>
 
-                  <label for="Prestaciones sociales por pagar">Prestaciones sociales por pagar</label>
+                  <label for="PrestacionesSocialesPorPagarN5">Prestaciones sociales por pagar</label>
 
               </td>     
             <td> 
-                      <select name="Prestaciones sociales por pagar" id="Prestaciones sociales por pagar" onchange="ShowSelected3();">
+                      <select name="PrestacionesSocialesPorPagarN5" id="PrestacionesSocialesPorPagarN5" onchange="ShowSelected53();">
                         <option value="0">...</option>
                         <option value="B">B</option>
                         <option value="R">R</option>
@@ -2453,11 +2712,11 @@
             <th scope="row">54</th>
               <td>
 
-                  <label for="Préstamo de una cooperativa">Préstamo de una cooperativa</label>
+                  <label for="PrestamoDeUnaCooperativaN5">Préstamo de una cooperativa</label>
 
               </td>     
             <td> 
-                      <select name="Préstamo de una cooperativa" id="Préstamo de una cooperativa" onchange="ShowSelected4();">
+                      <select name="PrestamoDeUnaCooperativaN5" id="PrestamoDeUnaCooperativaN5" onchange="ShowSelected54();">
                         <option value="0">...</option>
                         <option value="B">B</option>
                         <option value="R">R</option>
@@ -2468,11 +2727,11 @@
             <th scope="row">55</th>
                 <td>
   
-                    <label for="Prima en colocación de acciones">Prima en colocación de acciones</label>
+                    <label for="PrimaEnColocacionDeAccionesN5">Prima en colocación de acciones</label>
   
                 </td>     
               <td> 
-                        <select name="Prima en colocación de acciones" id="Prima en colocación de acciones" onchange="ShowSelected5();">
+                        <select name="PrimaEnColocacionDeAccionesN5" id="PrimaEnColocacionDeAccionesN5" onchange="ShowSelected55();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
@@ -2482,627 +2741,627 @@
              <tr>
                   <th scope="row">56</th>
                   <td>
-                      <label for="Productos terminados">Productos terminados</label>
+                      <label for="ProductosTerminadosN5">Productos terminados</label>
 
                   </td>     
                    <td> 
-                            <select name="Productos terminados" id="Productos terminados" onchange="ShowSelected6();">
+                            <select name="ProductosTerminadosN5" id="ProductosTerminadosN5" onchange="ShowSelected56();">
                                 <option value="0">...</option>
                                 <option value="B">B</option>
                                 <option value="R">R</option>
                             </select>
                     </td> 
                   </tr>
-                  <th scope="row">7</th>
+                  <th scope="row">57</th>
                   <td>
 
-                      <label for="Bonos (emitidos por otras empresas)">Bonos (emitidos por otras empresas)</label>
+                      <label for="PropiedadPlantaYequipoN5">Propiedad, planta y equipo</label>
 
                   </td>     
                 <td> 
-                          <select name="Bonos (emitidos por otras empresas)" id="Bonos (emitidos por otras empresas)" onchange="ShowSelected7();">
+                          <select name="PropiedadPlantaYequipoN5" id="PropiedadPlantaYequipoN5" onchange="ShowSelected57();">
                             <option value="0">...</option>
                             <option value="B">B</option>
                             <option value="R">R</option>
                           </select>
                         </td> 
                     </tr>
-                    <th scope="row">8</th>
+                    <th scope="row">58</th>
                     <td>
 
-                        <label for="Capital social">Capital social</label>
+                        <label for="PropiedadesN5">Propiedades</label>
 
                     </td>     
                   <td> 
-                            <select name="Capital social" id="Capital social" onchange="ShowSelected8();">
+                            <select name="PropiedadesN5" id="PropiedadesN5" onchange="ShowSelected58();">
                               <option value="0">...</option>
                               <option value="B">B</option>
                               <option value="R">R</option>
                             </select>
                           </td> 
                 </tr>
-                  <th scope="row">9</th>
+                  <th scope="row">59</th>
                   <td>
 
-                      <label for="Capital suscrito y pagado">Capital suscrito y pagado</label>
+                      <label for="ProveedoresN5">Proveedores</label>
 
                   </td>     
                 <td> 
-                          <select name="Capital suscrito y pagado" id="Capital suscrito y pagado"onchange="ShowSelected9();">
+                          <select name="ProveedoresN5" id="ProveedoresN5" onchange="ShowSelected59();">
                             <option value="0">...</option>
                             <option value="B">B</option>
                             <option value="R">R</option>
                           </select>
                         </td> 
                 </tr>
-                <th scope="row">10</th>
+                <th scope="row">60</th>
                 <td>
 
-                    <label for="Carta de crédito de un banco">Carta de crédito de un banco</label>
+                    <label for="ReservaEstatutariaN5">Reserva estatutaria</label>
 
                 </td>     
                 <td> 
-                        <select name="Carta de crédito de un banco" id="Carta de crédito de un banco" onchange="ShowSelected10();">
+                        <select name="ReservaEstatutariaN5" id="ReservaEstatutariaN5" onchange="ShowSelected60();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">11</th>
+                <th scope="row">61</th>
                 <td>
 
-                    <label for="Certificado de depósito a término">Certificado de depósito a término</label>
+                    <label for="ReservaLegalN5">Reserva legal</label>
 
                 </td>     
                 <td> 
-                        <select name="Certificado de depósito a término" id="Certificado de depósito a término" onchange="ShowSelected11();">
+                        <select name="ReservaLegalN5" id="ReservaLegalN5" onchange="ShowSelected61();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">12</th>
+                <th scope="row">62</th>
                 <td>
 
-                    <label for="Cheques en caja general">Cheques en caja general</label>
+                    <label for="ReservaOcasionalN5">Reserva ocasional</label>
 
                 </td>     
                 <td> 
-                        <select name="Cheques en caja general" id="Cheques en caja general" onchange="ShowSelected12();">
+                        <select name="ReservaOcasionalN5" id="ReservaOcasionalN5" onchange="ShowSelected62();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">13</th>
+                <th scope="row">63</th>
                 <td>
 
-                    <label for="Clientes">Clientes</label>
+                    <label for="ReservasN5">Reservas</label>
 
                 </td>     
                 <td> 
-                        <select name="Clientes" id="Clientes" onchange="ShowSelected13();">
+                        <select name="ReservasN5" id="ReservasN5" onchange="ShowSelected63();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">14</th>
+                <th scope="row">64</th>
                 <td>
 
-                    <label for="Computadores">Computadores</label>
+                    <label for="ResultadosDelEjercicioN5">Resultados del ejercicio</label>
 
                 </td>     
                 <td> 
-                        <select name="Computadores" id="Computadores" onchange="ShowSelected14();">
+                        <select name="ResultadosDelEjercicioN5" id="ResultadosDelEjercicioN5" onchange="ShowSelected64();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">15</th>
+                <th scope="row">65</th>
                 <td>
 
-                    <label for="Costos">Costos</label>
+                    <label for="ResultadosEjerciciosAnterioresN5">Resultados ejercicios anteriores</label>
 
                 </td>     
                 <td> 
-                        <select name="Costos" id="Costos" onchange="ShowSelected15();">
+                        <select name="ResultadosEjerciciosAnterioresN5" id="ResultadosEjerciciosAnterioresN5" onchange="ShowSelected65();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">16</th>
+                <th scope="row">66</th>
                 <td>
 
-                    <label for="Costos y gastos por pagar">Costos y gastos por pagar</label>
+                    <label for="SalariosPorPagarN5">Salarios por pagar</label>
 
                 </td>     
                 <td> 
-                        <select name="Costos y gastos por pagar" id="Costos y gastos por pagar" onchange="ShowSelected16();">
+                        <select name="SalariosPorPagarN5" id="SalariosPorPagarN5" onchange="ShowSelected66();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">17</th>
+                <th scope="row">67</th>
                 <td>
 
-                    <label for="Cuenta por cobrar a trabajadores">Cuenta por cobrar a trabajadores</label>
+                    <label for="SeguridadSocialPorPagarN5">Seguridad social por pagar</label>
 
                 </td>     
                 <td> 
-                        <select name="Cuenta por cobrar a trabajadores" id="Cuenta por cobrar a trabajadores" onchange="ShowSelected17();">
+                        <select name="SeguridadSocialPorPagarN5" id="SeguridadSocialPorPagarN5" onchange="ShowSelected67();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">18</th>
+                <th scope="row">68</th>
                 <td>
 
-                    <label for="Cuentas por cobrar">Cuentas por cobrar</label>
+                    <label for="Sobregiro(en un banco)N5">Sobregiro (en un banco)</label>
 
                 </td>     
                 <td> 
-                        <select name="Cuentas por cobrar" id="Cuentas por cobrar" onchange="ShowSelected18();">
+                        <select name="sobregiro(en un banco)N5" id="sobregiro(en un banco)N5" onchange="ShowSelected68();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">19</th>
+                <th scope="row">69</th>
                 <td>
 
-                    <label for="Cuentas por pagar">Cuentas por pagar</label>
+                    <label for="SuperavitDeCapitalN5">Superávit de capital</label>
 
                 </td>     
                 <td> 
-                        <select name="Cuentas por pagar" id="Cuentas por pagar" onchange="ShowSelected19();">
+                        <select name="SuperavitDeCapitalN5" id="SuperavitDeCapitalN5" onchange="ShowSelected69();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">20</th>
+                <th scope="row">70</th>
                 <td>
 
-                    <label for="Cuentas por pagar a socios">Cuentas por pagar a socios</label>
+                    <label for="UtilidadDelPeriodoN5">Utilidad del período</label>
 
                 </td>     
                 <td> 
-                        <select name="Cuentas por pagar a socios" id="Cuentas por pagar a socios" onchange="ShowSelected20();">
+                        <select name="UtilidadDelPeriodoN5" id="UtilidadDelPeriodoN5" onchange="ShowSelected70();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">21</th>
+                <th scope="row">71</th>
                 <td>
 
-                    <label for="Cuotas o partes de interés social">Cuotas o partes de interés social</label>
+                    <label for="VehiculosN5">Vehículo</label>
 
                 </td>     
                 <td> 
-                        <select name="Cuotas o partes de interés social" id="Cuotas o partes de interés social" onchange="ShowSelected21();">
+                        <select name="VehiculosN5" id="VehiculosN5" onchange="ShowSelected71();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">22</th>
+                <th scope="row">72</th>
                 <td>
 
-                    <label for="Derechos de franquicia">Derechos de franquicia</label>
+                    <label for="VentaN5">Ventas</label>
 
                 </td>     
                 <td> 
-                        <select name="Derechos de franquicia" id="Derechos de franquicia" onchange="ShowSelected22();">
+                        <select name="VentaN5" id="VentaN5" onchange="ShowSelected72();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">23</th>
+                <th scope="row">73</th>
                 <td>
 
-                    <label for="Deudores varios">Deudores varios</label>
+                    <label for="GastosDeAdministracionN5">Gastos de administración</label>
 
                 </td>     
                 <td> 
-                        <select name="Deudores varios" id="Deudores varios" onchange="ShowSelected23();">
+                        <select name="GastosDeAdministracionN5" id="GastosDeAdministracionN5" onchange="ShowSelected73();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">24</th>
+                <th scope="row">74</th>
                 <td>
 
-                    <label for="Dividendos decretados en acciones">Dividendos decretados en acciones</label>
+                    <label for="GastosDePersonalN5">Gastos de personal</label>
 
                 </td>     
                 <td> 
-                        <select name="Dividendos decretados en acciones" id="Dividendos decretados en acciones" onchange="ShowSelected24();">
+                        <select name="GastosDePersonalN5" id="GastosDePersonalN5" onchange="ShowSelected74();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">25</th>
+                <th scope="row">75</th>
                 <td>
 
-                    <label for="Efectivo">Efectivo</label>
+                    <label for="OtrosIngresosN5">Otros ingresos</label>
 
                 </td>     
                 <td> 
-                        <select name="Efectivo" id="Efectivo" onchange="ShowSelected25();">
+                        <select name="OtrosIngresosN5" id="OtrosIngresosN5" onchange="ShowSelected75();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">26</th>
+                <th scope="row">76</th>
                 <td>
 
-                    <label for="Efectivo en bancos">Efectivo en bancos</label>
+                    <label for="OtrosGastosN5">Otros gastos</label>
 
                 </td>     
                 <td> 
-                        <select name="Efectivo en bancos" id="Efectivo en bancos" onchange="ShowSelected26();">
+                        <select name="OtrosGastosN5" id="OtrosGastosN5" onchange="ShowSelected76();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">27</th>
+                <th scope="row">77</th>
                 <td>
 
-                    <label for="Efectivo en caja menor">Efectivo en caja menor</label>
+                    <label for="GastosFinancierosN5">Gastos financieros</label>
 
                 </td>     
                 <td> 
-                        <select name="Efectivo en caja menor" id="Efectivo en caja menor" onchange="ShowSelected27();">
+                        <select name="GastosFinancierosN5" id="GastosFinancierosN5" onchange="ShowSelected77();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">28</th>
+                <th scope="row">78</th>
                 <td>
 
-                    <label for="Envases y empaques">Envases y empaques</label>
+                    <label for="CostosDeVentasN5">Costos de ventas</label>
 
                 </td>     
                 <td> 
-                        <select name="Envases y empaques" id="Envases y empaques" onchange="ShowSelected28();">
+                        <select name="CostosDeVentasN5" id="CostosDeVentasN5" onchange="ShowSelected78();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">29</th>
+                <th scope="row">79</th>
                 <td>
 
-                    <label for="Ganancias acumuladas">Ganancias acumuladas</label>
+                    <label for="IngresosPorServiciosN5">Ingresos por servicioslabel</label>
 
                 </td>     
                 <td> 
-                        <select name="Ganancias acumuladas" id="Ganancias acumuladas" onchange="ShowSelected29();">
+                        <select name="IngresosPorServiciosN5" id="IngresosPorServiciosN5" onchange="ShowSelected79();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">30</th>
+                <th scope="row">80</th>
                 <td>
 
-                    <label for="Gastos">Gastos</label>
+                    <label for="GastosDeArrendamientoN5">Gastos de arrendamiento</label>
 
                 </td>     
                 <td> 
-                        <select name="Gastos" id="Gastos" onchange="ShowSelected30();">
+                        <select name="GastosDeArrendamientoN5" id="GastosDeArrendamientoN5" onchange="ShowSelected80();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">31</th>
+                <th scope="row">81</th>
                 <td>
 
-                    <label for="Impuesto a las ventas">Impuesto a las ventas</label>
+                    <label for="IngresosOrdinariosN5">Ingresos ordinarios</label>
 
                 </td>     
                 <td> 
-                        <select name="Impuesto a las ventas" id="Impuesto a las ventas" onchange="ShowSelected31();">
+                        <select name="IngresosOrdinariosN5" id="IngresosOrdinariosN5" onchange="ShowSelected81();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">32</th>
+                <th scope="row">82</th>
                 <td>
 
-                    <label for="Impuesto de renta por pagar">Impuesto de renta por pagar</label>
+                    <label for="GastosDeVentasN5">Gastos de ventas</label>
 
                 </td>     
                 <td> 
-                        <select name="Impuesto de renta por pagar" id="Impuesto de renta por pagar" onchange="ShowSelected32();">
+                        <select name="GastosDeVentasN5" id="GastosDeVentasN5" onchange="ShowSelected82();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">33</th>
+                <th scope="row">83</th>
                 <td>
 
-                    <label for="Impuestos por pagar">Impuestos por pagar</label>
+                    <label for="GastosOperacionalesN5">Gastos operacionales</label>
 
                 </td>     
                 <td> 
-                        <select name="Impuestos por pagar" id="Impuestos por pagar" onchange="ShowSelected33();">
+                        <select name="GastosOperacionalesN5" id="GastosOperacionalesN5" onchange="ShowSelected83();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">34</th>
+                <th scope="row">84</th>
                 <td>
 
-                    <label for="Impuestos, gravámenes y tasas">Impuestos, gravámenes y tasas</label>
+                    <label for="IngresosNoOperacionalesN5">Ingresos no operacionales</label>
 
                 </td>     
                 <td> 
-                        <select name="Impuestos, gravámenes y tasas" id="Impuestos, gravámenes y tasas" onchange="ShowSelected34();">
+                        <select name="IngresosNoOperacionalesN5" id="IngresosNoOperacionalesN5" onchange="ShowSelected84();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">35</th>
+                <th scope="row">85</th>
                 <td>
 
-                    <label for="Ingresos">Ingresos</label>
+                    <label for="IngresosPorComercioAlPorMayorYalPorMenorN5">Ingresos por comercio al por mayor y al por menor</label>
 
                 </td>     
                 <td> 
-                        <select name="Ingresos" id="Ingresos" onchange="ShowSelected35();">
+                        <select name="IngresosPorComercioAlPorMayorYalPorMenorN5" id="IngresosPorComercioAlPorMayorYalPorMenorN5" onchange="ShowSelected85();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">36</th>
+                <th scope="row">86</th>
                 <td>
 
-                    <label for="Intangibles">Intangibles</label>
+                    <label for="IngresosfinancierosN5">Ingresos financieros</label>
 
                 </td>     
                 <td> 
-                        <select name="Intangibles" id="Intangibles" onchange="ShowSelected36();">
+                        <select name="IngresosfinancierosN5" id="IngresosfinancierosN5" onchange="ShowSelected86();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">37</th>
+                <th scope="row">87</th>
                 <td>
 
-                    <label for="Inventarios">Inventarios</label>
+                    <label for="GastosPorServiciosN5">Gastos por servicios</label>
 
                 </td>     
                 <td> 
-                        <select name="Inventarios" id="Inventarios" onchange="ShowSelected37();">
+                        <select name="GastosPorServiciosN5" id="GastosPorServiciosN5" onchange="ShowSelected87();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">38</th>
+                <th scope="row">88</th>
                 <td>
 
-                    <label for="Inversiones">Inversiones</label>
+                    <label for="CostosDeLaPrestacionDelServicioN5">Costos de la prestación del servicio</label>
 
                 </td>     
                 <td> 
-                        <select name="Inversiones" id="Inversiones" onchange="ShowSelected38();">
+                        <select name="CostosDeLaPrestacionDelServicioN5" id="CostosDeLaPrestacionDelServicioN5" onchange="ShowSelected88();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">39</th>
+                <th scope="row">89</th>
                 <td>
 
-                    <label for="Inversiones a valor razonable">Inversiones a valor razonable</label>
+                    <label for="IngresosPorConstruccionN5">Ingresos por construcción</label>
 
                 </td>     
                 <td> 
-                        <select name="Inversiones a valor razonable" id="Inversiones a valor razonable" onchange="ShowSelected39();">
+                        <select name="IngresosPorConstruccionN5" id="IngresosPorConstruccionN5" onchange="ShowSelected89();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">40</th>
+                <th scope="row">90</th>
                 <td>
 
-                    <label for="Licencias de software">Licencias de software</label>
+                    <label for="IngresosPorexplotacionDeminasN5">Licencias de software</label>
 
                 </td>     
                 <td> 
-                        <select name="Licencias de software" id="Licencias de software" onchange="ShowSelected40();">
+                        <select name="IngresosPorexplotacionDeminasN5" id="IngresosPorexplotacionDeminasN5" onchange="ShowSelected90();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">41</th>
+                <th scope="row">91</th>
                 <td>
 
-                    <label for="Local comercial">Local comercial</label>
+                    <label for="IngresosPrestacionDeServiciosN5">Ingresos prestación de servicios</label>
 
                 </td>     
                 <td> 
-                        <select name="Local comercial" id="Local comercial" onchange="ShowSelected41();">
+                        <select name="IngresosPrestacionDeServiciosN5" id="IngresosPrestacionDeServiciosN5" onchange="ShowSelected91();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">42</th>
+                <th scope="row">92</th>
                 <td>
 
-                    <label for="Marcas adquiridas">Marcas adquiridas</label>
+                    <label for="VentasAactividadDeGanaderiaN5">Ventas actividad de ganadería</label>
 
                 </td>     
                 <td> 
-                        <select name="Marcas adquiridas" id="Marcas adquiridas" onchange="ShowSelected42();">
+                        <select name="VentasAactividadDeGanaderiaN5" id="VentasAactividadDeGanaderiaN5" onchange="ShowSelected92();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">43</th>
+                <th scope="row">93</th>
                 <td>
 
-                    <label for="Materia prima">Materia prima</label>
+                    <label for="VentasPorExplotacionDeMinasN5">Ventas por explotación de minas</label>
 
                 </td>     
                 <td> 
-                        <select name="Materia prima" id="Materia prima" onchange="ShowSelected43();">
+                        <select name="VentasPorExplotacionDeMinasN5" id="VentasPorExplotacionDeMinasN5" onchange="ShowSelected93();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">44</th>
+                <th scope="row">94</th>
                 <td>
 
-                    <label for="Mercancía">Mercancía</label>
+                    <label for="GastosDeSegurosN5">Gastos de seguros</label>
 
                 </td>     
                 <td> 
-                        <select name="Mercancía" id="Mercancía" onchange="ShowSelected44();">
+                        <select name="GastosDeSegurosN5" id="GastosDeSegurosN5" onchange="ShowSelected94();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">45</th>
+                <th scope="row">95</th>
                 <td>
 
-                    <label for="Obligaciones de financiamiento">Obligaciones de financiamiento</label>
+                    <label for="GastosPorDepreciacionesN5">Gastos por depreciaciones</label>
 
                 </td>     
                 <td> 
-                        <select name="Obligaciones de financiamiento" id="Obligaciones de financiamiento" onchange="ShowSelected45();">
+                        <select name="GastosPorDepreciacionesN5" id="GastosPorDepreciacionesN5" onchange="ShowSelected95();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">46</th>
+                <th scope="row">96</th>
                 <td>
 
-                    <label for="Obligaciones financieras">Obligaciones financieras</label>
+                    <label for="GastosDiversosN5">Gastos diversos</label>
 
                 </td>     
                 <td> 
-                        <select name="Obligaciones financieras" id="Obligaciones financieras" onchange="ShowSelected46();">
+                        <select name="GastosDiversosN5" id="GastosDiversosN5" onchange="ShowSelected96();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">47</th>
+                <th scope="row">97</th>
                 <td>
 
-                    <label for="Obligaciones laborales">Obligaciones laborales</label>
+                    <label for="GastosDeMantenimientoN5">Gastos de mantenimiento</label>
 
                 </td>     
                 <td> 
-                        <select name="Obligaciones laborales" id="Obligaciones laborales" onchange="ShowSelected47();">
+                        <select name="GastosDeMantenimientoN5" id="GastosDeMantenimientoN5" onchange="ShowSelected97();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">48</th>
+                <th scope="row">98</th>
                 <td>
 
-                    <label for="Otros resultados acumulados">Otros resultados acumulados</label>
+                    <label for="CostosActividadFinancieraN5">Costos actividad financiera</label>
 
                 </td>     
                 <td> 
-                        <select name="Otros resultados acumulados" id="Otros resultados acumulados" onchange="ShowSelected48();">
+                        <select name="CostosActividadFinancieraN5" id="CostosActividadFinancieraN5" onchange="ShowSelected98();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">49</th>
+                <th scope="row">99</th>
                 <td>
 
-                    <label for="Otros resultados integrales">Otros resultados integrales</label>
+                    <label for="CostosPorServicioDeHotelesN5">Costos por servicio de hoteles</label>
 
                 </td>     
                 <td> 
-                        <select name="Otros resultados integrales" id="Otros resultados integrales" onchange="ShowSelected49();">
+                        <select name="CostosPorServicioDeHotelesN5" id="CostosPorServicioDeHotelesN5" onchange="ShowSelected99();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
                         </select>
                       </td> 
                 </tr>
-                <th scope="row">50</th>
+                <th scope="row">100</th>
                 <td>
 
-                    <label for="Pagaré (en un banco)">Pagaré (en un banco)</label>
+                    <label for="CostosPorComercioAlPorMayorYalPorMenorN5">Costos por comercio al por mayor y al por menor</label>
 
                 </td>     
                 <td> 
-                        <select name="Pagaré (en un banco)" id="Pagaré (en un banco)" onchange="ShowSelected50();">
+                        <select name="CostosPorComercioAlPorMayorYalPorMenorN5" id="CostosPorComercioAlPorMayorYalPorMenorN5" onchange="ShowSelected100();">
                           <option value="0">...</option>
                           <option value="B">B</option>
                           <option value="R">R</option>
@@ -3134,7 +3393,7 @@
       <div class="row justify-content-md-center">
         <div class="col-sm-2">
           
-          <img src="/Users/macbookpro/Documents/Proyect_D/proyecto_finanzas/images/pexels-rodnae-productions-7948039.jpeg" class="rounded" alt="Cinque Terre" width="170" height="170"> 
+          <img src="/Users/macbookpro/Documents/Proyect_D/proyecto_finanzas/images/pexels-rodnae-productions-7948039.jpeg" class="img-fluid" alt="Cinque Terre" width="170" height="170"> 
         </div>
         <div class="col-sm-8"> 
           <span class="border border-5">
@@ -3574,7 +3833,7 @@
                 </div>
               </div>
               <div class="claseDiv" id="claseDiv">
-                <div class="container p-2 my-3 bg-secondary text-white"></div>
+                <div class="container p-2 my-3 bg-secondary text-white" id="Nivel_7"></div>
                 
                     
                       <div class="card card-body bg-light text-center">
@@ -3744,7 +4003,7 @@
                                               <tr>
                                                 <td rowspan="2">1</td>
                                                 <td>
-                                                  <select name="Pasivo" id="Pasivo">
+                                                  <select name="DebitoFila1" id="DebitoFila1">
                                                   <option value="0">...</option>
                                                   <option value="1">Activo - mercancía</option>
                                                   <option value="2">Activo - efectivo</option>
@@ -3757,16 +4016,16 @@
 
                                                 </select></td>
                                                 <td>
-                                                  <input type="text" id="val_7_1">
+                                                  <input type="text" id="val_7_1" onchange="val_7_1(this.value)" required>
                                                 </td>
                                                 <td>
-                                                  <input type="text" id="val_7_1_2">
+                                                  <output type="text" id="val_7_1_2">
                                                 </td>
                                                 
                                               </tr>
 
                                               <td>
-                                                <select name="Pasivo" id="Pasivo">
+                                                <select name="CreditoFila1" id="CreditoFila1">
                                                 <option value="0">...</option>
                                                 <option value="1">Activo - mercancía</option>
                                                 <option value="2">Activo - efectivo</option>
@@ -3780,15 +4039,15 @@
                                               </select></td>
 
                                               <td>
-                                                <input type="text" id="val_7_2_1"></td>
+                                                <output type="text" id="val_7_2_1"></td>
                                               <td>
-                                                <input type="text" id="val_7_2_2"></td>
+                                                <input type="text" id="val_7_2_2" ></td>
                                                 
                                               </tr>
                                               <tr>
                                                 <td rowspan="2">2</td>
                                                 <td>
-                                                  <select name="Pasivo" id="Pasivo">
+                                                  <select name="DebitoFila2" id="DebitoFila2">
                                                   <option value="0">...</option>
                                                   <option value="1">Activo - mercancía</option>
                                                   <option value="2">Activo - efectivo</option>
@@ -3801,16 +4060,16 @@
 
                                                 </select></td>
                                                 <td>
-                                                  <input type="text" id="val_7_3_1">
+                                                  <input type="text" id="val_7_3_1" onchange="val_7_3_1(this.value)" required>
                                                 </td>
                                                 <td>
-                                                  <input type="text" id="val_7_3_2">
+                                                  <output type="text" id="val_7_3_2">
                                                 </td>
                                                 
                                               </tr>
 
                                               <td>
-                                                <select name="Pasivo" id="Pasivo">
+                                                <select name="CreditoFila2" id="CreditoFila2">
                                                 <option value="0">...</option>
                                                 <option value="1">Activo - mercancía</option>
                                                 <option value="2">Activo - efectivo</option>
@@ -3824,7 +4083,7 @@
                                               </select></td>
 
                                               <td>
-                                                <input type="text" id="val_7_4_1"></td>
+                                                <output type="text" id="val_7_4_1"></td>
                                               <td>
                                                 <input type="text" id="val_7_4_2"></td>
                                                 
@@ -3832,7 +4091,7 @@
                                               <tr>
                                                 <td rowspan="2">3</td>
                                                 <td>
-                                                  <select name="Pasivo" id="Pasivo">
+                                                  <select name="DebitoFila3" id="DebitoFila3">
                                                   <option value="0">...</option>
                                                   <option value="1">Activo - mercancía</option>
                                                   <option value="2">Activo - efectivo</option>
@@ -3845,16 +4104,16 @@
 
                                                 </select></td>
                                                 <td>
-                                                  <input type="text" id="val_7_5_1">
+                                                  <input type="text" id="val_7_5_1" onchange="val_7_5_1(this.value)" required>
                                                 </td>
                                                 <td>
-                                                  <input type="text" id="val_7_5_2">
+                                                  <output type="text" id="val_7_5_2">
                                                 </td>
                                                 
                                               </tr>
 
                                               <td>
-                                                <select name="Pasivo" id="Pasivo">
+                                                <select name="CreditoFila3" id="CreditoFila3">
                                                 <option value="0">...</option>
                                                 <option value="1">Activo - mercancía</option>
                                                 <option value="2">Activo - efectivo</option>
@@ -3868,7 +4127,7 @@
                                               </select></td>
 
                                               <td>
-                                                <input type="text" id="val_7_6_1"></td>
+                                                <output type="text" id="val_7_6_1"></td>
                                               <td>
                                                 <input type="text" id="val_7_6_2"></td>
                                                 
@@ -3876,7 +4135,7 @@
                                               <tr>
                                                 <td rowspan="2">4</td>
                                                 <td>
-                                                  <select name="Pasivo" id="Pasivo">
+                                                  <select name="DebitoFila4" id="DebitoFila4">
                                                   <option value="0">...</option>
                                                   <option value="1">Activo - mercancía</option>
                                                   <option value="2">Activo - efectivo</option>
@@ -3889,16 +4148,16 @@
 
                                                 </select></td>
                                                 <td>
-                                                  <input type="text" id="val_7_7_1">
+                                                  <input type="text" id="val_7_7_1" onchange="val_7_7_1(this.value)" required>
                                                 </td>
                                                 <td>
-                                                  <input type="text" id="val_7_7_2">
+                                                  <output type="text" id="val_7_7_2">
                                                 </td>
                                                 
                                               </tr>
 
                                               <td>
-                                                <select name="Pasivo" id="Pasivo">
+                                                <select name="CreditoFila4" id="CreditoFila4">
                                                 <option value="0">...</option>
                                                 <option value="1">Activo - mercancía</option>
                                                 <option value="2">Activo - efectivo</option>
@@ -3912,7 +4171,7 @@
                                               </select></td>
 
                                               <td>
-                                                <input type="text" id="val_7_8_1"></td>
+                                                <output type="text" id="val_7_8_1"></td>
                                               <td>
                                                 <input type="text" id="val_7_9_2"></td>
                                                 
@@ -3920,7 +4179,7 @@
                                               <tr>
                                                 <td rowspan="2">5</td>
                                                 <td>
-                                                  <select name="Pasivo" id="Pasivo">
+                                                  <select name="DebitoFila5" id="DebitoFila5">
                                                   <option value="0">...</option>
                                                   <option value="1">Activo - mercancía</option>
                                                   <option value="2">Activo - efectivo</option>
@@ -3933,16 +4192,16 @@
 
                                                 </select></td>
                                                 <td>
-                                                  <input type="text" id="val_9_1_1">
+                                                  <input type="text" id="val_9_1_1" onchange="val_9_1_1(this.value)" required>
                                                 </td>
                                                 <td>
-                                                  <input type="text" id="val_7_9_2">
+                                                  <output type="text" id="val_7_9_2">
                                                 </td>
                                                 
                                               </tr>
 
                                               <td>
-                                                <select name="Pasivo" id="Pasivo">
+                                                <select name="CreditoFila5" id="CreditoFila5">
                                                 <option value="0">...</option>
                                                 <option value="1">Activo - mercancía</option>
                                                 <option value="2">Activo - efectivo</option>
@@ -3956,7 +4215,7 @@
                                               </select></td>
 
                                               <td>
-                                                <input type="text" id="val_7_10_1"></td>
+                                                <output type="text" id="val_7_10_1"></td>
                                               <td>
                                                 <input type="text" id="val_7_10_2"></td>
                                                 
@@ -3965,7 +4224,7 @@
                                               <tr>
                                                 <td rowspan="2">6</td>
                                                 <td>
-                                                  <select name="Pasivo" id="Pasivo">
+                                                  <select name="DebitoFila6" id="DebitoFila6">
                                                   <option value="0">...</option>
                                                   <option value="1">Activo - mercancía</option>
                                                   <option value="2">Activo - efectivo</option>
@@ -3978,16 +4237,16 @@
 
                                                 </select></td>
                                                 <td>
-                                                  <input type="text" id="val_7_11_1">
+                                                  <input type="text" id="val_7_11_1" onchange="val_7_11_1(this.value)" required>
                                                 </td>
                                                 <td>
-                                                  <input type="text" id="val_7_11_2">
+                                                  <output type="text" id="val_7_11_2">
                                                 </td>
                                                 
                                               </tr>
 
                                               <td>
-                                                <select name="Pasivo" id="Pasivo">
+                                                <select name="CreditoFila6" id="CreditoFila6">
                                                 <option value="0">...</option>
                                                 <option value="1">Activo - mercancía</option>
                                                 <option value="2">Activo - efectivo</option>
@@ -4001,7 +4260,7 @@
                                               </select></td>
 
                                               <td>
-                                                <input type="text" id="val_7_12_1"></td>
+                                                <output type="text" id="val_7_12_1"></td>
                                               <td>
                                                 <input type="text" id="val_7_12_2"></td>
                                                 
@@ -4009,7 +4268,7 @@
                                               <tr>
                                                 <td rowspan="2">7</td>
                                                 <td>
-                                                  <select name="Pasivo" id="Pasivo">
+                                                  <select name="DebitoFila7" id="DebitoFila7">
                                                   <option value="0">...</option>
                                                   <option value="1">Activo - mercancía</option>
                                                   <option value="2">Activo - efectivo</option>
@@ -4022,16 +4281,16 @@
 
                                                 </select></td>
                                                 <td>
-                                                  <input type="text" id="val_7_13_1">
+                                                  <input type="text" id="val_7_13_1" onchange="val_7_13_1(this.value)" required>
                                                 </td>
                                                 <td>
-                                                  <input type="text" id="val_7_13_2">
+                                                  <output type="text" id="val_7_13_2">
                                                 </td>
                                                 
                                               </tr>
 
                                               <td>
-                                                <select name="Pasivo" id="Pasivo">
+                                                <select name="CreditoFila7" id="CreditoFila7">
                                                 <option value="0">...</option>
                                                 <option value="1">Activo - mercancía</option>
                                                 <option value="2">Activo - efectivo</option>
@@ -4045,7 +4304,7 @@
                                               </select></td>
 
                                               <td>
-                                                <input type="text" id="val_7_14_1"></td>
+                                                <output type="text" id="val_7_14_1"></td>
                                               <td>
                                                 <input type="text" id="val_7_14_2"></td>
                                                 
@@ -4056,10 +4315,10 @@
                                                   <b>SUMAS IGUALES</b>
                                                 </td>
                                                 <td>
-                                                  <output name="resultado" for="valor1 valor2"></output>>
+                                                  <span id="TotaldebitoN7"></span>
                                                 </td>
                                                 <td>
-                                                  <output name="resultado" for="valor1 valor2"></output>
+                                                  <span id="TotalCreditoN7"></span>
                                                 </td>
                                                 
                                               </tr>
@@ -4069,13 +4328,31 @@
                                           <button type="button" class="btn btn-primary" id="ValidarResultaos" name="ValidarResultaos" onclick="validar_resultados_7()">Validar Resultados</button>
                                           <button type="button" class="btn btn-primary" onclick="reset_n7()">Reset</button>
                                           <br><br>
+
+                                          <div class="alert alert-error collapse" role="alert" id="passwordsNoMatchRegisterNivel8" style="display:none;">
+                                            <div class="alert alert-success">
+                                              <button type="button" class="close" data-dismiss="alert" id="success" aria-label="Close">&times;</button>
+                                              <strong>¡Felicitaciones!</strong> Puedes avanzar al nivel 8.
+                                            </div> 
+
+                                          </div>
+                                          <div class="alert alert-error collapse" role="alert" id="passwordsNoMatchRegisterNivel8_2" style="display:none;">
+                                            
+                                            <div class="alert alert-danger">
+                                              <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                              <strong>¡Incorrecto!</strong> Presiona el botón de <strong>Reset</strong> para volverlo a intentar.
+                                              
+                                            </div>
+                                          </div>
                                         </div>
                                         <br>
+                                        <div class="bg-success p-2" style="--bs-bg-opacity: .5;"></div>
                                       </div>
                                        <br>
-                                     
-                                        <div class="col-sm-8 justify-content-cente" > 
-                                          <div class="border border-5" >
+                                      <br>
+                                        <div class="col-sm-8 justify-content-cente"  id="ResultadosNivel7"> 
+                                          <br>
+                                          <div class="border border-5"  >
                                             <p class="center"> Cada una de las cuentas es como un cajoncito en donde se guardan y se extraen valores.  Pero en cualquier momento se puede saber el contenido neto del cajón o saldo así: </p>
                                             <br>
                                               <p style="color:#FF0000" class="center"> <b>Saldo final = saldo inicial + entradas - salidas</b></p>
@@ -4084,16 +4361,16 @@
                                             </div>
                                           </div>
                                           <br><br><br>
-                                          <div class="container">
-                                            <div class="row justify-content-md-center">
+                                          <div class="container" id="ResultadosNivel7_1">
+                                            <div class="row justify-content-md-center" >
                                               <div class="col"> 
                                                 <br>
                                                 <h5> Así para los dos ejemplos anteriores, si suponemos que se tenía un saldo inicial de efectivo de 350 unidades monetarias, veamos como quedaría el saldo final.</h5> </div>
                                     
                                             </div>
                                             </div>
-                                            <div class="container">
-                                              <div class="row justify-content-md-center">
+                                            <div class="container" id="ResultadosNivel7_2" >
+                                              <div class="row justify-content-md-center" >
                                                 <div class="col-sm">
                                                   <img src="/Users/macbookpro/Documents/Proyect_D/proyecto_finanzas/images/saldos.png" class="img-fluid" alt="Responsive image">
                                                 </div>
@@ -4106,8 +4383,8 @@
 
                                               </div>
 
-                                              <div class="container">
-                                                <div class="row justify-content-md-center">
+                                              <div class="container" id="ResultadosNivel7_3" >
+                                                <div class="row justify-content-md-center" >
                                                   <div class="col"> 
                                                     <br>
                                                     <h5> Otra representación usual para una cuenta, es la cuenta T, que provee una doble entrada.  Los saldos y registros en el lado izquierdo son de naturaleza débito y los saldos o registros en la derecha son de naturaleza crédito</h5> </div>
@@ -4115,7 +4392,7 @@
                                                 </div>
                                                 </div>
                                                 <br>
-                                                <div class="col-sm-8 justify-content-cente" > 
+                                                <div class="col-sm-8 justify-content-cente" id="ResultadosNivel7_4" > 
                                                   <div class="border border-5" >
                                                    
                                                     <img src="/Users/macbookpro/Documents/Proyect_D/proyecto_finanzas/images/naturaleza.png" class="img-fluid" alt="Responsive image">
@@ -4123,18 +4400,25 @@
                                                     </div>
                                                   </div>
                                                   <br>
-                                                  <div class="container">
-                                                    <div class="row justify-content-md-center">
+                                                  <div class="container" >
+                                                    <div class="row justify-content-md-center" id="ResultadosNivel7_5">
                                                       <div class="col"> 
                                                         <img src="/Users/macbookpro/Documents/Proyect_D/proyecto_finanzas/images/cuenta_efectivo.png" class="img-fluid" alt="Responsive image">
+                                                    </div>
+                                                    <br><br>
+                                                    <div class="container">        
+                                                      <button type="button" class="btn btn-info btn-block" onclick="mostrar_nivel8()" id="mostrar_nivel8">Nivel 8</button>
+                                                      <br>
+                                                      <br>
                                                     </div>
                                                   </div>
                                                 </div>
 
-                                            </div>
+                                            
+                                         
                                             <br>
                                             
-                                            <div class="row justify-content-md-center">
+                                            <div class="row justify-content-md-center" id="divisor_Nivel8">
                                               <div class="bg-success p-2" style="--bs-bg-opacity: .5;"></div>
                                               
                                             </div>
@@ -4147,7 +4431,7 @@
                                                 <!-- /.Preguntas nivel 8-->
                                                 
                                                 <br>
-                                                <div class="row justify-content-md-center">
+                                                <div class="row justify-content-md-center" id="Nivel_8">
                                                   
                                                   <div class="container-fluid"> 
                                                     <h5> Para el ejercicio anterior (nivel 7) introduzca los valores con el signo adecuado para hallar el saldo final de la cuenta efectivo, suponiendo que el saldo inicial es 50 UM</h5> </div>
@@ -4158,21 +4442,25 @@
                                                     <div style="width: 80%" class="izquierda" >
                                                       <p>Cuenta: Efectivo</p></div>
                                                     <br>
-                                                    <span>Saldo inicial                                   :</span>
-                                                    <input type="text" id="txt_campo_1" onchange="sumar(this.value);" />
+                                                    <span>Saldo inicial :</span>
+                                                    <input type="text" id="txt_campo_1" />
                                                     <br >
                                                     <span>Crédito por pago de mercancía:</span>
-                                                    <input type="text" id="txt_campo_2" onchange="sumar(this.value);" />
+                                                    <input type="text" id="txt_campo_2"  />
                                                     <br >
                                                     <span>Débito por aporte de socio:</span>
-                                                    <input type="text" id="txt_campo_3" onchange="sumar(this.value);" />
+                                                    <input type="text" id="txt_campo_3"  />
                                                     <br >
                                                     <span>Débito por pago del socio:</span>
-                                                    <input type="text" id="txt_campo_3" onchange="sumar(this.value);" />
+                                                    <input type="text" id="txt_campo_4"  />
                                                     <br >
                                                     
                                                     <hr>
                                                     <span>Saldo final: </span> <span id="spTotal"></span>
+                                                    <br><br>
+                                                    <button type="button" class="btn btn-outline-success btn-sm" onclick="SumaNivel8_1()">Validar Resultados</button>
+                                                    <br><br>
+                                                    <button type="button" class="btn btn-outline-danger btn-sm" onclick="reset_n8_1()">Reset</button>
 
                                                   </div>
                                                   <div class="col-sm-6">
@@ -4192,7 +4480,7 @@
                                                   </div>
                                                 </div>
                                   
-                                                <div class="alert alert-error collapse" role="alert" id="passwordsNoMatchRegister9" style="display:none;">
+                                                <div class="alert alert-error collapse" role="alert" id="ErrorNivel8_1" style="display:none;">
                                                   
                                                   <div class="alert alert-danger">
                                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -4201,32 +4489,36 @@
                                                   </div>
                                                 </div>
                                                 <div class="container p-2 my-3 bg-secondary text-white"></div>
-                                                <div  class="ejer_2" id="ejer_2">
-                                                  <div class="container-fluid"> 
+                                                <div  class="ejer_2" id="ejer_2" style="display:none;">
+                                                  <div class="container-fluid" id="ejer_2_2"> 
                                                     <h5> Para el ejercicio anterior (nivel 7) introduzca los valores con el signo adecuado para hallar el saldo final de la cuenta mercancía, suponiendo que el saldo inicial es 80 UM			
                                                     </h5> </div>
                                           
-                                                  <div class="row">
-                                                  <div class =col-sm-6>
+                                                  <div class="row" id="rowNivel8_2" style="display:none;">
+                                                  <div class =col-sm-6 id="SegundoEjerNivel8">
 
-                                                    <div style="width: 80%" class="izquierda" >
+                                                    <div style="width: 80%" class="izquierda" id="PreguntasNivel8_2" >
                                                       <p>Cuenta: Efectivo</p></div>
                                                     <br>
                                                     <span>Saldo inicial  :</span>
-                                                    <input type="text" id="txt_campo_6" onchange="sumar2(this.value);" />
+                                                    <input type="text" id="txt_campo_6" onchange="sumar2(this.value);" required/>
                                                     <br >
                                                     <span>Crédito por pago de mercancía:</span>
-                                                    <input type="text" id="txt_campo_7" onchange="sumar2(this.value);" />
+                                                    <input type="text" id="txt_campo_7" onchange="sumar2(this.value);"required />
                                                     <br >
                                                     <span>Débito por aporte de socio:</span>
-                                                    <input type="text" id="txt_campo_8" onchange="sumar2(this.value);" />
+                                                    <input type="text" id="txt_campo_8" onchange="sumar2(this.value);" required/>
                                                     <br >
                                                     <span>Débito por pago del socio:</span>
-                                                    <input type="text" id="txt_campo_9" onchange="sumar2(this.value);" />
+                                                    <input type="text" id="txt_campo_9" onchange="sumar2(this.value);"required />
                                                     <br >
                                                     
                                                     <hr>
                                                     <span>Saldo final: </span> <span id="spTotal2"></span>
+                                                    <br><br>
+                                                    <button type="button" class="btn btn-outline-success btn-sm" onclick="SumaNivel8_2()">Validar Resultados</button>
+                                                    <br><br>
+                                                    <button type="button" class="btn btn-outline-danger btn-sm" onclick="reset_n8_2()">Reset</button>
 
                                                   </div>
                                                   <div class="col-sm-6">
@@ -4244,7 +4536,7 @@
                                                     </div>
                                                   </div>
                                     
-                                                  <div class="alert alert-error collapse" role="alert" id="passwordsNoMatchRegister11" style="display:none;">
+                                                  <div class="alert alert-error collapse" role="alert" id="ErrorNivel8_2" style="display:none;">
                                                     
                                                     <div class="alert alert-danger">
                                                       <button type="button" class="close" data-dismiss="alert">&times;</button>
