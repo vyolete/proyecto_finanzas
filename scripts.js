@@ -359,6 +359,8 @@ function comprobarECU_5(){
     (document.getElementById('cuenta_1_9').parentNode.id=='div3_1_5')&&
     (document.getElementById('cuenta_1_13').parentNode.id=='div3_1_5')&&
     (document.getElementById('cuenta_1_14').parentNode.id=='div3_1_5')
+
+
     ){
         
       alert('Clasificación Correcta');
@@ -734,7 +736,7 @@ function ValidaNIvel4_16()
 
 function ValidaNIvel4_17()
 {
-  if(document.getElementById('CuentaPorCobrarAtrabajadoresN4').value == "Cr" ) {
+  if(document.getElementById('CuentaPorCobrarAtrabajadoresN4').value == "Db" ) {
     contN4+=1;
     alert("Usted lleva "+contN4+" consecutivos")
     validaContNivel4()
@@ -2592,7 +2594,7 @@ else{
 function ShowSelected15()
 {
 
-if(document.getElementById('Costos').value =="B" ) {
+if(document.getElementById('Costos').value =="R" ) {
   
   cont+=1;
   bandera=true;
@@ -2829,7 +2831,7 @@ else{
 function ShowSelected30()
 {
 
-if(document.getElementById('Gastos').value == "B" ) {
+if(document.getElementById('Gastos').value == "R" ) {
   
   cont+=1;
   bandera=true;
@@ -2908,7 +2910,7 @@ function ShowSelected35()
 {
 
 
-if(document.getElementById('Ingresos').value == "B" ) {
+if(document.getElementById('Ingresos').value == "R" ) {
   
   cont+=1;
   bandera=true;
@@ -3882,6 +3884,7 @@ function reset(){
   document.getElementById('Impuesto a las ventas').selectedIndex=0; 
   document.getElementById('Impuesto de renta por pagar').selectedIndex=0; 
   document.getElementById('Impuestos, gravámenes y tasas').selectedIndex=0; 
+  document.getElementById('Impuestos por pagar').selectedIndex=0; 
   document.getElementById('Ingresos').selectedIndex=0; 
   document.getElementById('Intangibles').selectedIndex=0; 
   document.getElementById('Inventarios').selectedIndex=0; 
