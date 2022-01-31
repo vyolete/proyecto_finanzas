@@ -2200,7 +2200,7 @@ contN4=0;
 
 
 function validaContNivel4(){
-  if (contN4==2){
+  if (contN4==25){
     alert(" Ya puedes pasar al siguiente nivel")
     const button = document.getElementById('nivel_5')
     button.disabled=false;
@@ -3840,7 +3840,7 @@ nivel_6.disabled = true;
 
 
 function validar_cont(){
-  if (cont==2){
+  if (cont==25){
     alert(" Ya puedes pasar al siguiente nivel")
     const button = document.getElementById('nivel_6')
     button.disabled=false;
@@ -4003,9 +4003,9 @@ function validar_resultados(){
  var valor= document.getElementById("CompraMercancia").value;
 
   if(
-        (document.getElementById("CompraMercancia").value == 1) //&& 
-        //(document.getElementById("CompraMercancia_con").value== 7) &&
-        /*(document.getElementById("CompraMercanciaCredito").value= 1)&&
+        (document.getElementById("CompraMercancia").value == 1) && 
+        (document.getElementById("CompraMercancia_con").value== 7) &&
+        (document.getElementById("CompraMercanciaCredito").value= 1)&&
         (document.getElementById("CompraMercanciaCredito_con").value = 2)&&
         (document.getElementById("IngresaNuevoSocio").value = 3)&&
         (document.getElementById("IngresaNuevoSocio_con").value= 1)&&
@@ -4016,7 +4016,7 @@ function validar_resultados(){
         (document.getElementById("ReconocimientoCosto").value = 6)&&
         (document.getElementById("ReconocimientoCosto_con").value = 7)&&
         (document.getElementById("ReconocimientoGasto").value = 5)&&
-        (document.getElementById("ReconocimientoGasto_con").value = 2)*/
+        (document.getElementById("ReconocimientoGasto_con").value = 2)
         ){
          
        
@@ -4026,7 +4026,7 @@ function validar_resultados(){
 
   }
   else{
-    alert("malo")
+    alert("Inténtelo de nuevo")
     $('#passwordsNoMatchRegister2').show();
     $('#passwordsNoMatchRegister').hide();
   }
@@ -4146,7 +4146,7 @@ function validar_resultados_7(){
   document.getElementById('TotalCreditoN7').innerHTML = TotalCreditoN7;
 
   if (
-    (document.getElementById('DebitoFila1').value == 1)/*&&
+    (document.getElementById('DebitoFila1').value == 1)&&
     (document.getElementById('CreditoFila1').value == 2)&&
     (document.getElementById('DebitoFila2').value == 1)&&
     (document.getElementById('CreditoFila2').value == 3)&&
@@ -4161,7 +4161,7 @@ function validar_resultados_7(){
     (document.getElementById('DebitoFila7').value == 8)&&
     (document.getElementById('CreditoFila7').value == 3)&&
     (TotaldebitoN7==1400)&&
-    (TotalCreditoN7==1400)*/
+    (TotalCreditoN7==1400)
   )
   {
     $('#passwordsNoMatchRegisterNivel8').show();
